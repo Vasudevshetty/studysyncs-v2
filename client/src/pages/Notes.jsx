@@ -1,9 +1,12 @@
+import Sidebar from "@/components/Sidebar";
+
 function Notes() {
-    return (
-        <div>
-           notes 
-        </div>
-    )
+  return (
+    <section>
+      <Sidebar />
+      notes
+    </section>
+  );
 }
 
-export default Notes
+export default Notes;
