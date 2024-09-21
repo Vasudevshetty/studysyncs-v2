@@ -1,9 +1,12 @@
+import Sidebar from "@/components/Sidebar";
+
 function Attendance() {
-    return (
-        <div>
-           attendance 
-        </div>
-    )
+  return (
+    <section>
+      <Sidebar />
+      attendance
+    </section>
+  );
 }
 
-export default Attendance
+export default Attendance;
