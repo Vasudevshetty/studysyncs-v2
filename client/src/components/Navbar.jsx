@@ -17,7 +17,7 @@ function Navbar() {
   const isDashBoardPage = location.pathname === "/app/dashboard";
 
   return (
-    <nav className="flex m-3 h-[10%] shadow-2xl rounded-xl items-center justify-between px-[10vw] max-lg:px-[2vw]">
+    <nav className="flex h-[10%] shadow-2xl items-center justify-between px-[10vw] max-lg:px-[4vw]">
       <Link
         to="/app"
         className="h-[80%] pl-2 focus:outline-none max-md:h-[70%]"
@@ -28,7 +28,7 @@ function Navbar() {
         className={`${
           isDashBoardPage
             ? "w-[40vw] max-md:w-[30vw] max-lg:w-[60vw]"
-            : "w-[60vw] max-md:w-[20vw] max-sm:w-[30vw]"
+            : "w-[40vw] max-lg:w-[60vw] max-md:w-[20vw] max-sm:w-[30vw]"
         }  flex items-center justify-evenly h-full`}
       >
         {isDashBoardPage ? (

@@ -1,5 +1,5 @@
 function Sidebar() {
-  return <aside>sidebar</aside>;
+  return <aside className="w-[20vw] bg-red-100">sidebar</aside>;
 }
 
 export default Sidebar;

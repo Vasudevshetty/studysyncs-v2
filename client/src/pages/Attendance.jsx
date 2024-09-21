@@ -2,9 +2,9 @@ import Sidebar from "@/components/Sidebar";
 
 function Attendance() {
   return (
-    <section>
+    <section className="flex justify-between w-full h-full">
       <Sidebar />
-      attendance
+      <div className="bg-blue-100 w-[80vw]">hello</div>
     </section>
   );
 }
