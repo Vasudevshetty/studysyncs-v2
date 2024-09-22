@@ -15,9 +15,10 @@ function Footer() {
     <div
       className={`${
         isDarkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-gray-900"
-      } flex flex-col items-center md:flex-row md:items-center md:justify-evenly gap-10 p-10 h-80`}
+      } flex flex-col items-center md:flex-row md:items-center md:justify-evenly gap-10 p-10 `}
     >
       <img src="/logo.png" className="h-20 order-1" alt="footer logo" />
+
       <div className="flex flex-col md:flex-row gap-14 order-2">
         <div className="flex flex-col gap-3 tracking-wide font-medium text-center md:text-left">
           <Link className="hover:underline">About</Link>
