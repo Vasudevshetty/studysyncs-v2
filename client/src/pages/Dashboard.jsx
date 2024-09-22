@@ -7,12 +7,12 @@ import { TabsList } from "@radix-ui/react-tabs";
 
 function Dashboard() {
   return (
-    <section className="w-screen h-[90vh] flex max-md:flex-col max-md:h-[180vh]">
-      <aside className="h-full w-[25vw] max-lg:w-[30vw] max-md:h-[15%] max-md:w-full max-md:flex-row bg-red-50 flex flex-col items-center justify-between">
+    <section className="w-screen h-[90vh] flex max-md:flex-col">
+      <aside className="h-full w-[25vw] max-lg:w-[30vw] max-md:h-[20%] max-md:w-full max-md:flex-row bg-red-50 flex flex-col items-center justify-between">
         <div className="h-[40%] w-full max-md:h-full max-md:w-[30%] items-center flex justify-center bg-pink-800">
           <Avatar className="h-[80%] w-[55%] max-md:w-[70%] aspect-square">
             <AvatarImage src="https://github.com/Vasudevshetty.png" />
-            <AvatarFallback>
+            <AvatarFallback className="text-5xl">
               {"Vasudev Shetty"
                 .trim()
                 .split(" ")
@@ -33,12 +33,12 @@ function Dashboard() {
         <div className="h-[40%] bg-orange-200 w-full max-md:h-full max-md:w-[30%] flex items-center flex-col"></div>
       </aside>
 
-      <div className="w-[75vw] h-full max-md:w-full max-md:h-[85%]">
-        <div className="w-full h-[50%] flex px-4 py-5 bg-red-200 max-md:h-[65%] max-md:grid">
-          <div className="h-full w-[33%] max-md:w-full max-md:col-span-2">
+      <div className="w-[75vw] max-md:w-full max-md:h-[80%]">
+        <div className="w-full h-[50%] grid grid-cols-3 bg-red-200 items-center justify-center">
+          <div className="h-full w-full items-center justify-center flex">
             <LineChartRecharts />
           </div>
-          <div className="h-full w-[33%] flex items-center justify-center max-md:w-full">
+          <div className="h-full w-full items-center justify-center flex">
             <AnimatedCircularProgressBar
               max={100}
               min={0}
@@ -47,14 +47,11 @@ function Dashboard() {
               gaugeSecondaryColor="rgb(0, 0, 0, 0.1)"
             />
           </div>
-          <div className="h-full w-[33%] max-md:w-full">
+          <div className="h-full w-full items-center justify-center flex">
             <PieChartRecharts />
           </div>
         </div>
-        <Tabs
-          defaultValue="downloads"
-          className="h-[50%] w-full max-md:h-[35%]"
-        >
+        <Tabs defaultValue="downloads" className="h-[50%] w-full">
           <TabsList className="bg-green-300 h-[15%] flex items-center px-4 m-0">
             <TabsTrigger value="downloads">Downloads</TabsTrigger>
             <TabsTrigger value="bookmarks">Bookmarks</TabsTrigger>

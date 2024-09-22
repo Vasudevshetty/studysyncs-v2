@@ -78,7 +78,7 @@ function Navbar() {
             <div className="w-[90%] flex max-md:hidden h-[65%] items-center bg-slate-300 rounded-full">
               <input
                 type="text"
-                className="w-[85%] h-full focus:outline-none p-2 rounded-xl bg-transparent"
+                className="w-[85%] h-full focus:outline-none py-2 max-lg:px-5 px-10 rounded-xl bg-transparent"
               />
               <button className="w-[15%] h-full flex items-center justify-center focus:outline-none border-l">
                 <Search size={24} />
@@ -109,7 +109,7 @@ function Navbar() {
               <MenubarTrigger className="cursor-pointer max-sm:p-0">
                 <Avatar className="h-14 w-14 max-md:h-12 max-md:w-12 max-sm:h-10 max-sm:w-10">
                   <AvatarImage src="https://github.com/Vasudevshetty.png" />
-                  <AvatarFallback>
+                  <AvatarFallback className="text-xl">
                     {"Vasudev Shetty"
                       .trim()
                       .split(" ")

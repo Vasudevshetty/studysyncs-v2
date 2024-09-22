@@ -10,20 +10,20 @@ import {
 } from "recharts";
 
 const data = [
-  { name: "Jan", sales: 40},
-  { name: "Feb", sales: 30},
-  { name: "March", sales: 50},
-  { name: "April", sales: 70},
-  { name: "May", sales: 60},
-  { name: "June", sales: 80},
+  { name: "Jan", sales: 40 },
+  { name: "Feb", sales: 30 },
+  { name: "March", sales: 50 },
+  { name: "April", sales: 70 },
+  { name: "May", sales: 60 },
+  { name: "June", sales: 80 },
 ];
 
 const LineChartRecharts = () => {
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="80%" height="80%">
       <LineChart data={data}>
-        <XAxis dataKey="name" />
-        <YAxis />
+        <XAxis dataKey="name" tick={{ className: "text-sm md:text-base" }} />
+        <YAxis tick={{ className: "text-sm md:text-base" }} />
         <Tooltip />
         <Legend />
         <Line

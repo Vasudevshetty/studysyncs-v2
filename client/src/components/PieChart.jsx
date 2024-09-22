@@ -1,4 +1,3 @@
-// PieChartRecharts.js
 import {
   PieChart,
   Pie,
@@ -19,14 +18,14 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const PieChartRecharts = () => {
   return (
-    <ResponsiveContainer width="100%" height="100%">
+    <ResponsiveContainer width="80%" height="80%">
       <PieChart>
         <Pie
           data={data}
           dataKey="value"
           cx="50%"
           cy="50%"
-          outerRadius="80%"
+          outerRadius="60%"
           fill="#8884d8"
           label
         >
@@ -35,7 +34,14 @@ const PieChartRecharts = () => {
           ))}
         </Pie>
         <Tooltip />
-        <Legend />
+        <Legend
+          layout="vertical" // Change layout to vertical
+          align="right" // Align legend to the right
+          verticalAlign="middle" // Vertically center the legend
+          formatter={(value) => (
+            <span className="text-[10px] md:text-lg lg:text-xl">{value}</span>
+          )}
+        />
       </PieChart>
     </ResponsiveContainer>
   );

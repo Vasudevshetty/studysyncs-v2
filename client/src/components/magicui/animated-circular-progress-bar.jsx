@@ -23,7 +23,7 @@ export default function AnimatedCircularProgressBar({
 
   return (
     <div
-      className={cn("relative size-40 text-2xl font-semibold", className)}
+      className={cn("relative size-[60%] text-2xl font-semibold", className)}
       style={{
         "--circle-size": "100px",
         "--circumference": circumference,
