@@ -1,5 +1,5 @@
 function Hero() {
-  return <div>Hero section</div>;
+  return <div className="h-[100vh]">Hero</div>;
 }
 
 export default Hero;
