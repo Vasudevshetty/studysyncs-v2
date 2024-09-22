@@ -17,7 +17,7 @@ function Navbar() {
   const isDashBoardPage = location.pathname === "/app/dashboard";
 
   return (
-    <nav className="flex m-3 h-[10%] shadow-2xl rounded-xl items-center justify-between px-[10vw] max-lg:px-[2vw]">
+    <nav className="flex h-[10vh] items-center justify-between px-[10vw] max-lg:px-[4vw] bg-red-300">
       <Link
         to="/app"
         className="h-[80%] pl-2 focus:outline-none max-md:h-[70%]"
@@ -28,7 +28,7 @@ function Navbar() {
         className={`${
           isDashBoardPage
             ? "w-[40vw] max-md:w-[30vw] max-lg:w-[60vw]"
-            : "w-[60vw] max-md:w-[20vw] max-sm:w-[30vw]"
+            : "w-[40vw] max-lg:w-[60vw] max-md:w-[20vw] max-sm:w-[30vw]"
         }  flex items-center justify-evenly h-full`}
       >
         {isDashBoardPage ? (
@@ -75,7 +75,7 @@ function Navbar() {
           </>
         ) : (
           <>
-            <div className="w-[90%] flex max-md:hidden h-[65%] items-center bg-slate-300 rounded-xl">
+            <div className="w-[90%] flex max-md:hidden h-[65%] items-center bg-slate-300 rounded-full">
               <input
                 type="text"
                 className="w-[85%] h-full focus:outline-none p-2 rounded-xl bg-transparent"
@@ -89,7 +89,7 @@ function Navbar() {
         <div
           className={`flex ${isDashBoardPage ? "" : ""} h-full items-center`}
         >
-          <Menubar className="w-full h-[80%] flex items-center justify-evenly border-none bg-transparent">
+          <Menubar className="w-full h-[80%] max-sm:p-0 flex items-center justify-evenly border-none bg-transparent">
             {!isDashBoardPage && (
               <>
                 <Search className="hidden max-md:block" />
@@ -106,8 +106,8 @@ function Navbar() {
               </>
             )}
             <MenubarMenu>
-              <MenubarTrigger className="cursor-pointer">
-                <Avatar className="h-14 w-14 max-md:h-12 max-md:w-12">
+              <MenubarTrigger className="cursor-pointer max-sm:p-0">
+                <Avatar className="h-14 w-14 max-md:h-12 max-md:w-12 max-sm:h-10 max-sm:w-10">
                   <AvatarImage src="https://github.com/Vasudevshetty.png" />
                   <AvatarFallback>
                     {"Vasudev Shetty"

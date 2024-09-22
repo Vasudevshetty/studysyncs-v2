@@ -2,9 +2,9 @@ import Sidebar from "@/components/Sidebar";
 
 function Notes() {
   return (
-    <section>
+    <section className="flex w-full h-full">
       <Sidebar />
-      notes
+      <div className="w-[80vw] bg-blue-100">notes</div>
     </section>
   );
 }
