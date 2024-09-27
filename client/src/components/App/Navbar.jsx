@@ -17,7 +17,7 @@ function Navbar({ toggleSidebar }) {
           <HiOutlineMenuAlt2 className="text-2xl" />
         </button>
         <Link to="/app/dashboard" className="focus:outline-none">
-          <img src="/syncs.png" alt="logo" className="h-12 w-fit ml-2" />
+          <img src="/syncs.png" alt="logo" className="h-12 w-fit ml-2 max-sm:h-10" />
         </Link>
       </div>
       <div className="flex items-center gap-1 sm:gap-3">
