@@ -9,7 +9,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
-import Dashboard from "./components/App/Dashboard";
+import Dashboard from "./components/App/Dashboard/Dashboard";
 import Attendance from "./components/App/Attendance";
 import Notes from "./components/App/Notes";
 import ProtectedRoute from "./utils/ProtectedRoute";

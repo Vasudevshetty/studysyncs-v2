@@ -5,6 +5,8 @@ import {
   FaBookReader,
   FaDiscord,
   FaGithub,
+  FaLinkedin,
+  FaInstagram,
 } from "react-icons/fa";
 
 export const links = [
@@ -48,3 +50,29 @@ export const links = [
 export const social = [
   { link: "https://github.com/Vasudevshetty/studysyncs-v2", icon: FaGithub },
 ];
+
+export const user = {
+  name: "Vasudev Shetty",
+  email: "vasudeepu2815@gmail.com",
+  image: "https://github.com/Vasudevshetty.png",
+  college: "SJCE, Mysuru",
+  course: "Computer Science",
+  socials: [
+    {
+      link: "https://github.com/Vasudevshetty",
+      icon: FaGithub,
+    },
+    {
+      link: "https://linkedin.com/in/Vasudevshetty",
+      icon: FaLinkedin,
+    },
+    {
+      link: "https://instagram.com/_vasudev_shetty_",
+      icon: FaInstagram,
+    },
+  ],
+  semester: 4,
+  downloads: [1, 2, 3, 4],
+  bookmarks: [1, 2, 3, 4],
+  friends: [1, 2, 3, 4, 5, 5],
+};
