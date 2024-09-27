@@ -6,7 +6,7 @@ function Breadcrumb() {
   const paths = location.pathname.split("/").filter((path) => path);
 
   return (
-    <nav className="pl-8 py-3 w-full">
+    <nav className="pl-8 py-3">
       <ol className="flex items-center">
         <li>
           <Link to="/" className="text-blue-500">
