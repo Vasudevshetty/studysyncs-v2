@@ -1,3 +1,4 @@
+import Breadcrumb from "@/components/App/Breadcrumb";
 import Navbar from "@/components/App/Navbar";
 import Sidebar from "@/components/App/Sidebar";
 import { useState } from "react";
@@ -14,6 +15,7 @@ function AppLayout() {
         setIsSidebarOpen={setIsSidebarOpen}
       />
       <main className="mt-[4.5rem] h-full sm:ml-64 text-gray-500 translate-all duration-300 dark:bg-gray-800 bg-gray-200">
+        <Breadcrumb />
         <Outlet />
       </main>
     </main>
