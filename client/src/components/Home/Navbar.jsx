@@ -148,9 +148,9 @@ function Navbar() {
 
   return (
     <nav
-      className={`${
-        isDarkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-black"
-      } m-5 p-3 rounded-lg shadow-2xl transition-colors duration-300 tracking-wider font-medium`}
+      className="
+        dar:bg-gray-800 dark:text-white bg-gray-100 text-black
+       m-5 p-3 rounded-lg shadow-2xl transition-colors duration-300 tracking-wider font-medium"
     >
       <div className="flex justify-between items-center">
         <img src="/logo.png" alt="logo" className="h-8 sm:h-14" />
@@ -159,9 +159,9 @@ function Navbar() {
           <Link to="#testimony">Testimony</Link>
           <Link
             to="/signup"
-            className={`flex items-center gap-2 px-4 py-2 ${
-              isDarkMode ? "border border-blue-300" : "border border-yellow-200"
-            } rounded-lg`}
+            className="flex items-center gap-2 px-4 py-2 
+              dark:border dark:border-blue-300 border border-yellow-200
+             rounded-lg"
           >
             Signup <FiArrowRight />
           </Link>
