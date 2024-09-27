@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { useTheme } from "../context/ThemeContext"; 
+import { useTheme } from "../context/ThemeContext";
 import { useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { FiArrowRight, FiMenu, FiX } from "react-icons/fi";
 
 function Navbar() {
-  const { isDarkMode, toggleTheme } = useTheme(); 
+  const { isDarkMode, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -15,8 +15,8 @@ function Navbar() {
   return (
     <nav
       className="
-        dar:bg-gray-800 dark:text-white bg-gray-100 text-black
-       m-5 p-3 rounded-lg shadow-2xl transition-colors duration-300 tracking-wider font-medium"
+        dark:bg-gray-800 dark:text-white bg-gray-100 text-black
+      m-5 p-3 rounded-lg shadow-2xl transition-colors duration-300 tracking-wider font-medium"
     >
       <div className="flex justify-between items-center">
         <img src="/logo.png" alt="logo" className="h-8 sm:h-14" />
@@ -27,7 +27,7 @@ function Navbar() {
             to="/signup"
             className="flex items-center gap-2 px-4 py-2 
               dark:border dark:border-blue-300 border border-yellow-200
-             rounded-lg"
+            rounded-lg"
           >
             Signup <FiArrowRight />
           </Link>
