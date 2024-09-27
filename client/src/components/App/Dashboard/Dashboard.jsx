@@ -34,7 +34,9 @@ function Dashboard() {
           <User user={user} />
         </div>
       </div>
-      <div className="flex"></div>
+      <div className="flex">
+        
+      </div>
     </section>
   );
 }
