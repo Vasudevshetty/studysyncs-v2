@@ -104,7 +104,7 @@ const Signup = () => {
             to="/Login"
             className="text-blue-800 font-semibold hover:underline px-2"
           >
-            SignIn
+            Login
           </Link>
         </p>
       </form>
