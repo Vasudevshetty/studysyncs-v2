@@ -28,6 +28,6 @@ body {
 
 /* Scrollbar track */
 ::-webkit-scrollbar-track {
-  @apply bg-white;
+  @apply bg-gray-300;
   @apply dark:bg-gray-700;
 }
