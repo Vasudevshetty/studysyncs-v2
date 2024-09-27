@@ -35,7 +35,7 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
         </ul>
 
         <div>
-          <span className="text-gray-500 text-xs">Studysyncs &copy;2024.</span>
+          <span className="text-gray-500">2024 &copy; Studysyncs</span>
         </div>
       </div>
     </aside>

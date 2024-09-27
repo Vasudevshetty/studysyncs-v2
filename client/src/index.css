@@ -7,5 +7,27 @@ body {
 }
 
 * {
-  @apply transition-colors duration-200;
+  @apply transition-colors duration-100;
+}
+
+/* Scrollbar track (background of the scrollbar) */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  @apply dark:bg-gray-300 bg-gray-500;
+  @apply rounded-full;
+}
+
+/* Hover effect for the scrollbar thumb */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  @apply bg-white;
+  @apply dark:bg-gray-700;
 }
