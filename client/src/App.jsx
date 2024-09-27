@@ -5,35 +5,47 @@ import {
   Navigate,
 } from "react-router-dom";
 import HomeLayout from "./pages/HomeLayout";
-import AppLayout from "./pages/AppLayout";
 import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard";
-import Attendance from "./pages/Attendance";
-import Notes from "./pages/Notes";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
+import AppLayout from "./pages/AppLayout";
+import Dashboard from "./components/App/Dashboard";
+import Attendance from "./components/App/Attendance";
+import Notes from "./components/App/Notes";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import { ThemeProvider } from "./components/context/ThemeContext";
+import Profile from "./components/App/Profile";
+import Discuss from "./components/App/Discuss";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomeLayout />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        
-        <Route path="/app" element={<ProtectedRoute />}>
-          <Route path="" element={<Navigate to="dashboard" />} />
-          <Route element={<AppLayout />}>
+    <ThemeProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomeLayout />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+
+          <Route
+            path="/app"
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route path="" element={<Navigate to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="attendance" element={<Attendance />} />
             <Route path="notes" element={<Notes />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="discuss" element={<Discuss />} />
           </Route>
-        </Route>
 
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </Router>
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
