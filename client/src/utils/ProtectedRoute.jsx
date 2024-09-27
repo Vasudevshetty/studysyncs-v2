@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-function ProtectedRoute() {
+function ProtectedRoute({ children }) {
   // eslint-disable-next-line
   const [isAuth, setIsAuth] = useState(true);
-  return isAuth ? <Outlet /> : <Navigate to="/signup" />;
+  return isAuth ? children : <Navigate to="/signup" />;
 }
 
 export default ProtectedRoute;
