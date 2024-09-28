@@ -3,7 +3,6 @@
 import { useForm } from "react-hook-form";
 import InputField from "@/components/Home/InputField";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const Signup = () => {
   const {
@@ -13,8 +12,6 @@ const Signup = () => {
     formState: { errors },
   } = useForm();
 
-  const [isDisabled, setIsDisabled] = useState(true);
-
   const onSubmit = (data) => {
     console.log(data);
     alert("Signup Successful");
@@ -23,7 +20,9 @@ const Signup = () => {
   const password = watch("password");
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8 ">
+      <img src="/logo.png" className="h-10 sm:h-24" />
+
       <h2 className="text-2xl font-bold mb-6 text-center">Signup</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -37,7 +36,6 @@ const Signup = () => {
           register={register}
           validation={{ required: "User ID is required" }}
           error={errors.userId}
-          disabled={isDisabled}
         />
 
         {/* Email */}
@@ -54,7 +52,6 @@ const Signup = () => {
             },
           }}
           error={errors.email}
-          disabled={isDisabled}
         />
 
         {/* Password */}
@@ -71,7 +68,6 @@ const Signup = () => {
             },
           }}
           error={errors.password}
-          disabled={isDisabled}
         />
 
         {/* Confirm Password */}
@@ -85,14 +81,12 @@ const Signup = () => {
             validate: (value) => value === password || "Passwords do not match",
           }}
           error={errors.confirmPassword}
-          disabled={isDisabled}
         />
 
         {/* Signup Button */}
-        <Link to="/app">
+        <Link to="/app/dashboard">
           <button
             type="submit"
-            disabled={isDisabled}
             className="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200 mt-4"
           >
             Signup

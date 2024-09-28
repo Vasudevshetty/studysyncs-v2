@@ -1,14 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-escape */
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import InputField from "@/components/Home/InputField";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa"; 
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const {
@@ -16,8 +15,6 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const [isDisabled, setIsDisabled] = useState(false);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -39,7 +36,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8  ">
+      <img src="/logo.png" className="h-10 sm:h-24" />
       <ToastContainer />
       <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
@@ -61,7 +59,6 @@ const Login = () => {
             },
           }}
           error={errors.email}
-          disabled={isDisabled}
         />
 
         {/* Password */}
@@ -78,28 +75,25 @@ const Login = () => {
             },
           }}
           error={errors.password}
-          disabled={isDisabled}
         />
 
-        <button
-          type="submit"
-          className={`w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200 mt-4 ${
-            isDisabled ? "opacity-50 cursor-not-allowed" : ""
-          }`}
-          disabled={isDisabled}
-        >
-          Login
-        </button>
-
+        <Link to="/app/dashboard">
+          <button
+            type="submit"
+            className={`w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200 mt-4 `}
+          >
+            Login
+          </button>
+        </Link>
+        <p className="text-center pt-2 text-xs font-bold text-blue-950">OR</p>
         <button
           type="button"
           onClick={handleGoogleLogin}
-          className="w-full bg-red-500 text-white font-bold py-2 rounded-md hover:bg-red-600 transition duration-200 mt-4 flex items-center justify-center"
+          className="w-full bg-red-700 text-white font-bold py-2 rounded-md hover:bg-red-600 transition duration-200 mt-4 flex items-center justify-center"
         >
           <FcGoogle className="mr-2" size={24} />
           Login with Google
         </button>
-
         <button
           type="button"
           onClick={handleGitHubLogin}
@@ -109,7 +103,7 @@ const Login = () => {
           Login with GitHub
         </button>
 
-        <p className="mt-4 text-xs font-medium">
+        <p className="mt-4 text-xs font-medium ">
           Don't have an account?
           <Link
             to="/Signup"
