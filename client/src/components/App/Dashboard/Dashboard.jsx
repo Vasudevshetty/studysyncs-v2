@@ -5,6 +5,7 @@ import User from "./User";
 import CgpaChart from "./Charts/CgpaChart";
 import AttendSummaryChart from "./Charts/AttendSummaryChart";
 import AttendanceChart from "./Charts/AttendanceChart";
+import Chart from "./Charts/Chart";
 
 function Dashboard() {
   return (
@@ -37,25 +38,20 @@ function Dashboard() {
           <User user={user} />
         </div>
       </div>
-      <div className="flex p-5 flex-col-reverse xl:flex-row bg-white rounded-xl dark:bg-gray-400">
-        <div className="flex-1 ">
-          <div className="bg-gray-300 dark:bg-gray-600 rounded-xl">
-            <h1 className="text-center pt-2 text-2xl text-gray-800 font-bold dark:text-gray-200">
-              Attendance Status
-            </h1>
+      <div className="flex flex-col-reverse xl:flex-row items-start justify-center gap-2">
+        <div className="flex-1 w-full">
+          <Chart title="Attendance Status">
             <AttendanceChart data={user.stats.attendance} />
-          </div>
-          <div>
-
-          </div>
+          </Chart>
+          <div></div>
         </div>
-        <div className="flex flex-col sm:w-[33%] p-2 gap-2">
-          <div className="bg-gray-300 dark:bg-gray-600 rounded-xl">
-            {/* <CgpaChart data={user.stats.cgpa} /> */}
-          </div>
-          <div className="bg-gray-300 dark:bg-gray-600 rounded-xl">
-            {/* <AttendSummaryChart data={user.stats.attendanceSummary} /> */}
-          </div>
+        <div className="flex flex-col lg:flex-row xl:flex-col xl:w-[33%] w-full gap-2 max-sm:pb-2">
+          <Chart title="CGPA Analysis">
+            <CgpaChart data={user.stats.cgpa} />
+          </Chart>
+          <Chart title="Attendance Summary">
+            <AttendSummaryChart data={user.stats.attendanceSummary} />
+          </Chart>
         </div>
       </div>
     </section>
