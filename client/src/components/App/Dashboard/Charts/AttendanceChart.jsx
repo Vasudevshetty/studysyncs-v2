@@ -75,7 +75,7 @@ function AttendanceChart({ data }) {
   };
 
   return (
-    <Chart series={data.series} options={options} type="bar" height={300} />
+    <Chart series={data.series} options={options} type="bar" height={250} />
   );
 }
 

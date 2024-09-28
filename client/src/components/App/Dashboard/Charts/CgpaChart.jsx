@@ -59,7 +59,7 @@ function CgpaChart({ data }) {
   };
 
   return (
-    <Chart series={data.series} options={options} type="line" height={300} />
+    <Chart series={data.series} options={options} type="line" height={350} />
   );
 }
 
