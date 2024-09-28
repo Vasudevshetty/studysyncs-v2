@@ -10,15 +10,26 @@ import Resources from "./Resources";
 import Events from "./Events";
 
 function Dashboard() {
+  function getGreetingMessage() {
+    const hour = new Date().getHours();
+    if (hour < 12) {
+      return "Good Morning, ";
+    } else if (hour < 18) {
+      return "Good Afternoon, ";
+    } else {
+      return "Good Evening, ";
+    }
+  }
+
   return (
     <section className="p-2 flex flex-col gap-4">
       <div className="flex bg-white dark:bg-gray-400 rounded-xl p-2 lg:flex-row flex-col">
         <div className="flex-1 flex flex-col">
           <div className="text-gray-400 text-2xl py-3 px-5 gap-2 items-center dark:text-gray-800">
-            Good Morning,{" "}
+            {getGreetingMessage()}
             <TypingAnimation
               className="text-gray-800 text-3xl font-bold dark:text-gray-200"
-              text={user.name}
+              text={user.name + " !"}
             />
           </div>
           <div className="flex justify-evenly gap-3 p-2 px-3 items-center flex-row">
