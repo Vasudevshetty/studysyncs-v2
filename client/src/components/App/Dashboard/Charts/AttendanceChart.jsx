@@ -1,7 +1,7 @@
 import { useTheme } from "@/components/context/ThemeContext";
 import Chart from "react-apexcharts";
 
-function BarChart({ data }) {
+function AttendanceChart({ data }) {
   const { isDarkMode } = useTheme();
 
   const options = {
@@ -54,7 +54,7 @@ function BarChart({ data }) {
     },
     grid: {
       show: true,
-      borderColor: "#a0a0a0",
+      borderColor: isDarkMode ? "#ddd" : "#a0a0a0",
       strokeDashArray: 5,
       xaxis: {
         lines: {
@@ -75,10 +75,8 @@ function BarChart({ data }) {
   };
 
   return (
-    <div className="px-2 pb-0">
-      <Chart series={data.series} options={options} type="bar" height={300} />
-    </div>
+    <Chart series={data.series} options={options} type="bar" height={300} />
   );
 }
 
-export default BarChart;
+export default AttendanceChart;

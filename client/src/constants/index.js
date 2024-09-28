@@ -76,12 +76,19 @@ export const user = {
   bookmarks: [1, 2, 3, 4],
   friends: [1, 2, 3, 4, 5, 5],
   stats: {
-    cgpa: [
-      { semester: "Sem 1", cgpa: 7.5, sgpa: 7.8 },
-      { semester: "Sem 2", cgpa: 7.7, sgpa: 7.9 },
-      { semester: "Sem 3", cgpa: 7.9, sgpa: 8.1 },
-      { semester: "Sem 4", cgpa: 8.2, sgpa: 8.3 },
-    ],
+    cgpa: {
+      categories: ["Semester 1", "Semester 2", "Semester 3", "Semester 4"],
+      series: [
+        {
+          name: "CGPA",
+          data: [7.5, 7.8, 8.2, 8.5],
+        },
+        {
+          name: "SGPA",
+          data: [7.7, 7.6, 8.3, 8.6],
+        },
+      ],
+    },
     attendance: {
       series: [{ name: "Subject", data: [92, 82, 44, 98, 72, 83, 89, 88, 66] }],
       categories: [
@@ -96,10 +103,9 @@ export const user = {
         "ADA_L",
       ],
     },
-    attendanceSummary: [
-      { name: "Present", value: 80 },
-      { name: "Absent", value: 15 },
-      { name: "No Classes", value: 5 },
-    ],
+    attendanceSummary: {
+      labels: ["Present", "Absent", "Leave"],
+      series: [75, 15, 10],
+    },
   },
 };

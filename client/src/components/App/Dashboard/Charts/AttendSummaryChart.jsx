@@ -1,31 +1,37 @@
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
+import { useTheme } from "@/components/context/ThemeContext";
+import Chart from "react-apexcharts";
 
 function AttendSummaryChart({ data }) {
-  const COLORS = ["#0088FE", "#FF8042"];
+  const { isDarkMode } = useTheme();
+
+  const options = {
+    chart: {
+      type: "donut",
+    },
+    labels: data.labels,
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      labels: {
+        colors: isDarkMode ? "#dddddd" : "#616161",
+      },
+    },
+    colors: ["#1E90FF", "#FF6347", "#32CD32", "#FFD700"],
+    tooltip: {
+      theme: isDarkMode ? "dark" : "light",
+    },
+    plotOptions: {
+      pie: {
+        donut: {
+          size: "50%",
+        },
+      },
+    },
+  };
+
   return (
-    <div>
-      <ResponsiveContainer width="100%" height={300}>
-        <PieChart>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-            label
-          >
-            {data.map((entry, index) => (
-              <Cell
-                key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
-              />
-            ))}
-          </Pie>
-          <Tooltip />
-        </PieChart>
-      </ResponsiveContainer>
-    </div>
+    <Chart series={data.series} options={options} type="donut" height={300} />
   );
 }
 
