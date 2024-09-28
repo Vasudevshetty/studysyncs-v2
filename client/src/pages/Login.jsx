@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-useless-escape */
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import InputField from "@/components/Home/InputField";
 import { Link } from "react-router-dom";
@@ -16,8 +15,6 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const [isDisabled, setIsDisabled] = useState(false);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -62,7 +59,6 @@ const Login = () => {
             },
           }}
           error={errors.email}
-          disabled={isDisabled}
         />
 
         {/* Password */}
@@ -79,16 +75,12 @@ const Login = () => {
             },
           }}
           error={errors.password}
-          disabled={isDisabled}
         />
 
         <Link to="/app/dashboard">
           <button
             type="submit"
-            className={`w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200 mt-4 ${
-              isDisabled ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-            disabled={isDisabled}
+            className={`w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200 mt-4 `}
           >
             Login
           </button>
