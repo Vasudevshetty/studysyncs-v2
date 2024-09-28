@@ -16,8 +16,18 @@ function Navbar({ toggleSidebar }) {
         >
           <HiOutlineMenuAlt2 className="text-2xl" />
         </button>
-        <Link to="/app/dashboard" className="focus:outline-none">
-          <img src="/syncs.png" alt="logo" className="h-12 w-fit ml-2" />
+        <Link
+          to="/app/dashboard"
+          className="focus:outline-none flex items-center gap-2"
+        >
+          <img
+            src="/syncs.png"
+            alt="logo"
+            className="h-12 w-fit ml-2 max-sm:h-10"
+          />
+          <span className="md:block hidden text-3xl font-semibold dark:text-[#60cffb] text-[#224f94]">
+            Studysyncs
+          </span>
         </Link>
       </div>
       <div className="flex items-center gap-1 sm:gap-3">
@@ -33,7 +43,7 @@ function Navbar({ toggleSidebar }) {
         </div>
         <a
           href="https://github.com/Vasudevshetty/studysyncs-v2"
-          className="p-3 rounded-full hover:bg-gray-100 dark:text-white dark:hover:text-black focus:outline-none"
+          className="p-3 rounded-full hover:bg-gray-700 hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black focus:outline-none"
           target="_blank"
         >
           <FaGithub className="text-2xl" />

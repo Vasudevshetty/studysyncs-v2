@@ -9,13 +9,15 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
-import Dashboard from "./components/App/Dashboard";
+import Dashboard from "./components/App/Dashboard/Dashboard";
 import Attendance from "./components/App/Attendance";
 import Notes from "./components/App/Notes";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import { ThemeProvider } from "./components/context/ThemeContext";
 import Profile from "./components/App/Profile";
 import Discuss from "./components/App/Discuss";
+import Events from "./components/App/Events";
+import GPACalculator from "./components/App/GPACalculator";
 
 function App() {
   return (
@@ -39,7 +41,9 @@ function App() {
             <Route path="attendance" element={<Attendance />} />
             <Route path="notes" element={<Notes />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="events" element={<Events />} />
             <Route path="discuss" element={<Discuss />} />
+            <Route path="calculate-gpa" element={<GPACalculator />} />
           </Route>
 
           <Route path="*" element={<PageNotFound />} />
