@@ -1,4 +1,4 @@
-// import Features from "@/components/Home/Features";
+import Features from "@/components/Home/Features";
 import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Home/Hero";
 import Navbar from "@/components/Home/Navbar";
@@ -9,8 +9,9 @@ function HomeLayout() {
     <>
       <Navbar />
       <Hero />
-      {/* <Features />
-      <Testimony /> */}
+      <hr />
+      <Features />
+      {/* <Testimony /> */}
       <Footer />
     </>
   );
