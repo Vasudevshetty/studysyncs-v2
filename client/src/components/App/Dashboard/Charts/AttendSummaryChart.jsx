@@ -31,7 +31,7 @@ function AttendSummaryChart({ data }) {
   };
 
   return (
-    <Chart series={data.series} options={options} type="donut" height={300} />
+    <Chart series={data.series} options={options} type="donut" height={250} />
   );
 }
 

@@ -9,7 +9,7 @@ function Breadcrumb() {
     <nav className="pl-8 py-3">
       <ol className="flex items-center">
         <li>
-          <Link to="/" className="text-blue-500">
+          <Link to="/" className="text-blue-500 focus:outline-none">
             <FaHome />
           </Link>
         </li>
@@ -21,7 +21,10 @@ function Breadcrumb() {
               {index == paths.length - 1 ? (
                 <span className="capitalize">{path}</span>
               ) : (
-                <Link to={to} className="text-blue-500 capitalize">
+                <Link
+                  to={to}
+                  className="text-blue-500 capitalize focus:outline-none"
+                >
                   {path}
                 </Link>
               )}

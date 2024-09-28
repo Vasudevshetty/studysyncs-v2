@@ -6,7 +6,7 @@ function User({ user }) {
   return (
     <div className="bg-gray-300 lg:p-5 p-2 rounded-xl w-64 flex flex-col items-center gap-2 dark:bg-gray-600">
       <div className="flex items-center lg:p-2 p-1 justify-between w-full">
-        <Link to="/app/profile">
+        <Link to="/app/profile" className="focus:outline-none">
           <img src={user.image} alt={user.name} className="h-14 rounded-full" />
         </Link>
         <ol className="flex items-center justify-center sm:gap-1">
@@ -15,7 +15,11 @@ function User({ user }) {
               key={index}
               className="text-2xl p-1 sm:p-2 hover:text-white hover:bg-gray-200 rounded-full"
             >
-              <a href={social.link} target="_blank" className=" text-gray-800 dark:text-gray-300">
+              <a
+                href={social.link}
+                target="_blank"
+                className=" text-gray-800 dark:text-gray-300 focus:outline-none"
+              >
                 <social.icon />
               </a>
             </li>

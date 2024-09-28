@@ -16,6 +16,7 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import { ThemeProvider } from "./components/context/ThemeContext";
 import Profile from "./components/App/Profile";
 import Discuss from "./components/App/Discuss";
+import Events from "./components/App/Events";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="attendance" element={<Attendance />} />
             <Route path="notes" element={<Notes />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="events" element={<Events />} />
             <Route path="discuss" element={<Discuss />} />
           </Route>
 

@@ -6,6 +6,8 @@ import CgpaChart from "./Charts/CgpaChart";
 import AttendSummaryChart from "./Charts/AttendSummaryChart";
 import AttendanceChart from "./Charts/AttendanceChart";
 import Chart from "./Charts/Chart";
+import Resources from "./Resources";
+import Events from "./Events";
 
 function Dashboard() {
   return (
@@ -38,12 +40,15 @@ function Dashboard() {
           <User user={user} />
         </div>
       </div>
-      <div className="flex flex-col-reverse xl:flex-row items-start justify-center gap-2">
-        <div className="flex-1 w-full">
+      <div className="flex flex-col-reverse xl:flex-row items-start justify-center gap-2 pb-2">
+        <div className="flex-1 w-full flex items-center justify-center flex-col gap-2">
           <Chart title="Attendance Status">
             <AttendanceChart data={user.stats.attendance} />
           </Chart>
-          <div></div>
+          <div className="flex flex-col gap-2 w-full h-[800px] md:w-full md:h-[400px] md:flex-row resources">
+            <Resources bookmarks={user.bookmarks} downloads={user.downloads} />
+            <Events />
+          </div>
         </div>
         <div className="flex flex-col lg:flex-row xl:flex-col xl:w-[33%] w-full gap-2 max-sm:pb-2">
           <Chart title="CGPA Analysis">
