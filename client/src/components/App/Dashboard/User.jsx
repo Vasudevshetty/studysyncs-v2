@@ -1,5 +1,5 @@
 import { FaBookOpen, FaSchool } from "react-icons/fa";
-import { HiMail } from "react-icons/hi";
+import { HiMail  } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 function User({ user }) {
