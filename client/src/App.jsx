@@ -17,6 +17,7 @@ import { ThemeProvider } from "./components/context/ThemeContext";
 import Profile from "./components/App/Profile";
 import Discuss from "./components/App/Discuss";
 import Events from "./components/App/Events";
+import GPACalculator from "./components/App/GPACalculator";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="profile" element={<Profile />} />
             <Route path="events" element={<Events />} />
             <Route path="discuss" element={<Discuss />} />
+            <Route path="calculate-gpa" element={<GPACalculator />} />
           </Route>
 
           <Route path="*" element={<PageNotFound />} />

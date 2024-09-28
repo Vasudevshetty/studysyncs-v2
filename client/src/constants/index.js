@@ -8,6 +8,7 @@ import {
   FaLinkedin,
   FaInstagram,
   FaCalendarCheck,
+  FaCalculator,
 } from "react-icons/fa";
 
 export const links = [
@@ -22,8 +23,8 @@ export const links = [
     text: "Attendance",
     badge: {
       text: "new",
-      color: "bg-gray-100 text-gray-800",
-      darkColor: "dark:bg-gray-700 dark:text-gray-300",
+      color: "bg-green-300 text-gray-800",
+      darkColor: "dark:bg-green-700 dark:text-gray-300",
     },
   },
   {
@@ -31,9 +32,19 @@ export const links = [
     icon: FaCalendarCheck,
     text: "Events",
     badge: {
-      text: "alpha",
+      text: "beta",
       color: "bg-red-100 text-gray-800",
       darkColor: "dark:bg-red-700 dark:text-gray-300",
+    },
+  },
+  {
+    link: "/app/calculate-gpa",
+    icon: FaCalculator,
+    text: "Calculate GPA",
+    badge: {
+      text: "testing",
+      color: "bg-violet-300 text-gray-800",
+      darkColor: "dark:bg-violet-800 dark:text-gray-300",
     },
   },
   {
