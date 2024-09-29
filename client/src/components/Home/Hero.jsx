@@ -7,7 +7,7 @@ function Hero() {
     <div className="flex flex-col sm:flex-row gap-8 sm:gap-0 items-center sm:items-start sm:justify-around px-6 sm:px-16  dark:bg-gray-800 dark:text-white  rounded-lg ">
       {/* Left Side - Welcome Text */}
       <div className="flex-1 flex flex-col justify-center items-center sm:items-start px-4 sm:px-12">
-        <h1 className="font-bold text-3xl sm:text-2xl leading-tight tracking-widest text-center sm:text-left sm:my-2">
+        <h1 className="font-bold text-xl m-4 sm:m-0 sm:text-2xl leading-tight tracking-widest text-center sm:text-left sm:my-2">
           Unlock Academic Resources Seamlessly
         </h1>
         <p className="text-sm sm:text-base tracking-wide font-medium text-center sm:text-left max-w-lg mb-6">
