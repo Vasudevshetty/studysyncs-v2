@@ -4,7 +4,7 @@ import Stats from "./Stats";
 
 function Hero() {
   return (
-    <div className="flex flex-col sm:flex-row gap-8 sm:gap-0 items-center sm:items-start sm:justify-around px-6 sm:px-16  dark:bg-gray-800 dark:text-white  rounded-lg ">
+    <div className="flex flex-col sm:flex-col lg:flex-row lg:items-center  gap-8 sm:gap-0 items-center sm:items-start sm:justify-around px-6 sm:px-16 md:mx-20  dark:bg-gray-800 dark:text-white  rounded-lg ">
       {/* Left Side - Welcome Text */}
       <div className="flex-1 flex flex-col justify-center items-center sm:items-start px-4 sm:px-12">
         <h1 className="font-bold text-xl m-4 sm:m-0 sm:text-2xl leading-tight tracking-widest text-center sm:text-left sm:my-2">
@@ -31,9 +31,9 @@ function Hero() {
       <Stats />
 
       {/* Developed */}
-      <div className="w-full sm:w-64 h-auto flex flex-col gap-6 p-4 sm:p-0 sm:border-l sm:px-2 ">
+      <div className="w-full sm:w-64 h-auto flex flex-col gap-6 p-4 sm:p-0 lg:border-l sm:px-2  ">
         <p className="font-bold text-center sm:text-left">Developed by,</p>
-        <div className="flex sm:flex-col gap-8 sm:gap-4 justify-center sm:justify-start items-center">
+        <div className="flex flex-row lg:flex-col  gap-8 sm:gap-4 justify-center md:flex-row  sm:justify-start items-center ">
           <div className="w-64 sm:mt-5 sm:ml-20 flex flex-col items-center sm:items-start">
             <img
               src="https://avatars.githubusercontent.com/u/128402167?v=4"

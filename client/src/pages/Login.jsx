@@ -36,8 +36,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8  ">
-      <img src="/logo.png" className="h-10 sm:h-24" />
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4 sm:p-6 lg:p-8  ">
+      <img src="/logo.png" className="h-16 sm:h-32" />
       <ToastContainer />
       <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
