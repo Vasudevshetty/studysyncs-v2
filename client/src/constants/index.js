@@ -268,3 +268,96 @@ export const events = [
       "A 24-hour hackathon where students can participate to build innovative solutions. Teams will compete to solve real-world challenges and win exciting prizes.",
   },
 ];
+
+export const colors = [
+  "bg-purple-700", // Purple
+  "bg-teal-700", // Teal
+  "bg-orange-700", // Orange
+  "bg-indigo-700", // Indigo
+  "bg-lime-700", // Lime
+  "bg-pink-700", // Pink
+  "bg-cyan-700", // Cyan
+  "bg-amber-700", // Amber
+  "bg-rose-700", // Rose
+  "bg-fuchsia-700", // Fuchsia
+];
+
+export const subjects = {
+  toc: {
+    id: 0,
+    name: "Theory of Computation",
+    slug: "toc",
+    credit: 3,
+    color: colors[0], // Purple
+  },
+  se: {
+    id: 1,
+    name: "Software Engineering",
+    slug: "se",
+    credit: 4,
+    color: colors[1], // Teal
+  },
+  dc: {
+    id: 2,
+    name: "Data Communication",
+    slug: "dc",
+    credit: 4,
+    color: colors[2], // Orange
+  },
+  os: {
+    id: 3,
+    name: "Operating Systems",
+    slug: "os",
+    credit: 3,
+    color: colors[3], // Indigo
+  },
+  dbms: {
+    id: 4,
+    name: "Database Management Systems",
+    slug: "dbms",
+    credit: 4,
+    color: colors[4], // Lime
+  },
+  cn: {
+    id: 5,
+    name: "Computer Networks",
+    slug: "cn",
+    credit: 3,
+    color: colors[5], // Pink
+  },
+};
+
+export const timetable = {
+  start: "28 Aug/2024",
+  end: "02 Dec/2024",
+  weekdays: {
+    sun: [subjects.toc, subjects.cn, subjects.dc],
+    mon: [subjects.dc, subjects.toc, subjects.se, subjects.os],
+    tue: [subjects.se, subjects.dbms, subjects.dc, subjects.cn, subjects.toc],
+    wed: [
+      subjects.os,
+      subjects.se,
+      subjects.dbms,
+      subjects.toc,
+      subjects.dc,
+      subjects.cn,
+    ],
+    thu: [
+      subjects.toc,
+      subjects.dc,
+      subjects.cn,
+      subjects.os,
+      subjects.dbms,
+      subjects.se,
+    ],
+    fri: [
+      subjects.cn,
+      subjects.os,
+      subjects.toc,
+      subjects.se,
+      subjects.dbms,
+      subjects.dc,
+    ],
+    sat: [subjects.toc, subjects.se, subjects.dbms],
+  },
+};

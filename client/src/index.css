@@ -12,7 +12,7 @@ body {
 
 /* Scrollbar track (background of the scrollbar) */
 ::-webkit-scrollbar {
-  @apply w-2;
+  @apply w-2 h-1;
 }
 
 /* Scrollbar thumb (the draggable part) */
