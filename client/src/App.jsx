@@ -10,14 +10,15 @@ import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./pages/AppLayout";
 import Dashboard from "./components/App/Dashboard/Dashboard";
-import Attendance from "./components/App/Attendance";
-import Notes from "./components/App/Notes";
+import Attendance from "./components/App/Attendance/Attendance";
+import Notes from "./components/App/Notes/Notes";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import { ThemeProvider } from "./components/context/ThemeContext";
 import Profile from "./components/App/Profile";
 import Discuss from "./components/App/Discuss";
 import Events from "./components/App/Events";
 import GPACalculator from "./components/App/GPACalculator";
+import Timetable from "./components/App/Attendance/Timetable/Timetable";
 
 function App() {
   return (
@@ -38,7 +39,10 @@ function App() {
           >
             <Route path="" element={<Navigate to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
-            <Route path="attendance" element={<Attendance />} />
+            <Route path="attendance">
+              <Route path="" element={<Attendance />} />
+              <Route path="timetable" element={<Timetable />} />
+            </Route>
             <Route path="notes" element={<Notes />} />
             <Route path="profile" element={<Profile />} />
             <Route path="events" element={<Events />} />
