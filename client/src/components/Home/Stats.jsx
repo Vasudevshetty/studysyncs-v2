@@ -56,8 +56,8 @@ function Stats() {
             </div>
           </div>
           {/* Resources Section */}
-          <div className="border h-48 w-full sm:h-[55vh] sm:w-[70vh] text-xs text-center sm:text-lg dark:bg-gray-600 bg-yellow-300 rounded-md">
-            <p className="font-bold uppercase text-sm mt-1 sm:text-lg sm:mt-7">
+          <div className="border h-auto w-full text-xs text-center sm:text-lg dark:bg-gray-600 bg-yellow-300 rounded-md">
+            <p className="font-bold uppercase text-sm mt-1 sm:text-base sm:px-2 sm:mt-7">
               Resources available in these branches:
             </p>
             <ul className="sm:flex sm:flex-col sm:mt-4 gap-5 text-xs p-3 sm:text-lg">
