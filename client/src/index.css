@@ -18,7 +18,7 @@ body {
 /* Scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
   @apply dark:bg-gray-300 bg-gray-500;
-  @apply rounded-full;
+  @apply rounded-xl;
 }
 
 /* Hover effect for the scrollbar thumb */
@@ -28,12 +28,12 @@ body {
 
 /* Scrollbar track */
 ::-webkit-scrollbar-track {
-  @apply bg-gray-300;
+  @apply bg-white;
   @apply dark:bg-gray-700;
 }
 
 .resources ::-webkit-scrollbar-track {
-  @apply rounded-full;
+  @apply rounded-xl;
 }
 
 .rdp-root {
