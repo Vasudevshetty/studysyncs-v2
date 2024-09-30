@@ -37,7 +37,7 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
 
         <div className="flex flex-col gap-2">
           <div className="ml-auto">
-            <button className="flex gap-2 items-center p-2 bg-red-500 w-fit rounded-xl text-sm text-white">
+            <button className="flex gap-2 hover:opacity-80 items-center p-2 bg-red-500 w-fit rounded-xl text-sm text-white">
               <span>
                 <FaSignOutAlt />
               </span>
@@ -49,7 +49,10 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
       <div className="fixed bottom-0 flex justify-between dark:text-white items-center dark:bg-gray-800 border-t dark:border-gray-500 w-full p-2">
         <span className="text-sm">
           2024 &copy;{" "}
-          <a href="/" className="focus:outline-none hover:underline text-blue-500">
+          <a
+            href="/"
+            className="focus:outline-none hover:underline text-blue-500"
+          >
             Studysyncs
           </a>
         </span>
