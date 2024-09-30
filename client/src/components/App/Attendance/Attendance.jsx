@@ -1,20 +1,14 @@
-import { FaCalendarWeek } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import DayStatus from "./DayStatus";
+import History from "./History";
+import VisualStatus from "./VisualStatus";
 
 function Attendance() {
   return (
-    <section className="">
-      <div></div>
-      <div className="p-2">
-        <Link
-          to="timetable"
-          className="p-2 bg-red-500 rounded-xl text-white flex items-center gap-2 w-fit"
-        >
-          <span>
-            <FaCalendarWeek />
-          </span>
-          timetable
-        </Link>
+    <section className="flex flex-col items-center">
+      <DayStatus />
+      <div className="flex w-full p-2 gap-2 h-[500px] max-lg:h-[800px] flex-col-reverse lg:flex-row">
+        <History />
+        <VisualStatus />
       </div>
     </section>
   );

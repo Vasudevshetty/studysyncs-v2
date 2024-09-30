@@ -35,3 +35,11 @@ body {
 .resources ::-webkit-scrollbar-track {
   @apply rounded-full;
 }
+
+.rdp-root {
+  --rdp-accent-color: red;
+  --rdp-accent-background-color: red;
+  --rdp-font-family: Poppins;
+  --rdp-day-height: 2rem;
+  --rdp-day-width: 2rem;
+}
