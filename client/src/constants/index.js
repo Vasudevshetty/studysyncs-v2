@@ -36,9 +36,9 @@ export const links = [
     icon: FaCalendarCheck,
     text: "Events",
     badge: {
-      text: "beta",
-      color: "bg-red-100 text-gray-800",
-      darkColor: "dark:bg-red-700 dark:text-gray-300",
+      text: "soon",
+      color: "bg-blue-100 text-blue-800",
+      darkColor: "dark:bg-blue-900 dark:text-blue-300",
     },
   },
   {
@@ -426,10 +426,7 @@ export const attendanceRecord = [
     ],
     extraClasses: [
       {
-        name: "Machine Learning Basics",
-        slug: "mlb",
-        credit: 2,
-        color: "blue",
+        ...subjects.cn,
         status: "attended",
       },
     ],

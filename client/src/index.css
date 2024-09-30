@@ -32,6 +32,9 @@ body {
   @apply dark:bg-gray-700;
 }
 
+.resources ::-webkit-scrollbar {
+  @apply w-1 h-1;
+}
 .resources ::-webkit-scrollbar-track {
   @apply rounded-xl;
 }

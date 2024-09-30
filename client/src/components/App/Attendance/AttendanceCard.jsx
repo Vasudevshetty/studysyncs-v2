@@ -1,7 +1,7 @@
 import { periodOptions, statusColors, user } from "@/constants";
 import { useEffect, useState } from "react";
 
-function AttendanceCard({ period }) {
+function AttendanceCard({ period, isExtraClass = false }) {
   // eslint-disable-next-line
   const [attendanceValue, setAttendanceValue] = useState(() => {
     const seriesData = user.stats?.attendance?.series?.[0]?.data || [];
@@ -106,6 +106,15 @@ function AttendanceCard({ period }) {
           </button>
         ))}
       </div>
+      {isExtraClass && (
+        <div
+          className="absolute text-sm bg-yellow-500 rounded-full p-1 text-white h-7 w-12 flex items-center justify-center
+            -top-2 -right-4
+        "
+        >
+          Extra
+        </div>
+      )}
     </div>
   );
 }

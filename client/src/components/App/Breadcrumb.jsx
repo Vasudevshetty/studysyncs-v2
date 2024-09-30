@@ -9,7 +9,10 @@ function Breadcrumb() {
     <nav className="pl-8 py-3">
       <ol className="flex items-center max-sm:text-sm">
         <li>
-          <Link to="/" className="text-blue-500 focus:outline-none">
+          <Link
+            to="/app/dashboard"
+            className="text-blue-500 focus:outline-none"
+          >
             <FaHome />
           </Link>
         </li>

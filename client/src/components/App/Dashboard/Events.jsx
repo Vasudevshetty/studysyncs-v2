@@ -6,13 +6,13 @@ function Events() {
   return (
     <div className="bg-white dark:bg-gray-400 w-full md:w-[50%] h-[50%] md:h-full rounded-xl p-2 flex flex-col ">
       <h1 className="text-2xl text-gray-800 font-bold dark:text-gray-200 px-4 py-2 flex items-center w-full justify-between">
-        Events
         <Link
-          to
-          className="cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 p-2 rounded-full focus:outline-none"
+          to={"/app/events"}
+          className="cursor-pointer p-2 rounded-full focus:outline-none"
         >
-          <HiViewBoards />
+          Events
         </Link>
+        <HiViewBoards />
       </h1>
       <div className="flex-1 flex flex-col gap-2 overflow-y-auto h-full w-full px-2">
         {events.map((event, index) => (
