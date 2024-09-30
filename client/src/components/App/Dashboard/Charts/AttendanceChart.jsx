@@ -40,7 +40,7 @@ function AttendanceChart({ data }) {
           fontWeight: 400,
         },
       },
-      categories: data.categories,
+      categories: data.categories.map((id) => id.toUpperCase()),
     },
     yaxis: {
       labels: {

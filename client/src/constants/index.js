@@ -10,7 +10,10 @@ import {
   FaInstagram,
   FaCalendarCheck,
   FaCalculator,
+  FaUpload,
+  FaRegCircle,
 } from "react-icons/fa";
+import { HiCheck, HiOutlinePlus, HiOutlineXCircle, HiX } from "react-icons/hi";
 
 export const links = [
   {
@@ -207,15 +210,15 @@ export const user = {
     attendance: {
       series: [{ name: "Subject", data: [92, 82, 44, 98, 72, 83, 89, 88, 66] }],
       categories: [
-        "ADA",
-        "OS",
-        "Algebra",
-        "TOC",
-        "DC",
-        "SE",
-        "ENV",
-        "OS_L",
-        "ADA_L",
+        "ada",
+        "os",
+        "algebra",
+        "toc",
+        "dc",
+        "se",
+        "env",
+        "os_l",
+        "ada_l",
       ],
     },
     attendanceSummary: {
@@ -282,6 +285,11 @@ export const colors = [
   "bg-rose-700", // Rose
   "bg-fuchsia-700", // Fuchsia
 ];
+export const statusColors = {
+  attended: "bg-green-500",
+  bunked: "bg-red-500",
+  cancelled: "bg-gray-500",
+};
 
 export const subjects = {
   toc: {
@@ -329,8 +337,8 @@ const createSubjectInstance = (subject) => ({
 });
 
 export const timetable = {
-  start: "28 Aug/2024",
-  end: "02 Dec/2024",
+  start: "2024-09-28",
+  end: "2024-12-10",
   weekdays: {
     sun: [
       createSubjectInstance(subjects.toc),
@@ -381,3 +389,87 @@ export const timetable = {
     ],
   },
 };
+
+export const attendanceOptions = [
+  { icon: FaUpload, name: "Upload", color: "bg-green-500" },
+  { icon: HiOutlinePlus, name: "Extra Class", color: "bg-yellow-500" },
+  { icon: HiOutlineXCircle, name: "Reset", color: "bg-gray-800" },
+];
+
+export const periodOptions = [
+  { icon: HiCheck, color: "bg-green-500", status: "attended" },
+  { icon: HiX, color: "bg-red-500", status: "bunked" },
+  { icon: FaRegCircle, color: "bg-gray-500", status: "cancelled" },
+];
+
+export const attendanceRecord = [
+  {
+    date: "2024-09-30", // Today
+    weekday: "mon",
+    classes: [
+      {
+        ...subjects.toc,
+        status: "attended",
+      },
+      {
+        ...subjects.dc,
+        status: "bunked",
+      },
+      {
+        ...subjects.os,
+        status: "cancelled",
+      },
+      {
+        ...subjects.se,
+        status: "bunked",
+      },
+    ],
+    extraClasses: [
+      {
+        name: "Machine Learning Basics",
+        slug: "mlb",
+        credit: 2,
+        color: "blue",
+        status: "attended",
+      },
+    ],
+  },
+  {
+    date: "2024-09-29", // Yesterday
+    weekday: "sun",
+    classes: [
+      {
+        ...subjects.toc,
+        status: "attended",
+      },
+      {
+        ...subjects.cn,
+        status: "bunked",
+      },
+      {
+        ...subjects.dc,
+        status: "attended",
+      },
+    ],
+    extraClasses: [],
+  },
+  {
+    date: "2024-09-28", // Day before Yesterday
+    weekday: "sat",
+    classes: [
+      {
+        ...subjects.toc,
+        status: "attended",
+      },
+      {
+        ...subjects.se,
+        status: "bunked",
+      },
+      {
+        ...subjects.dbms,
+        status: "attended",
+      },
+    ],
+    extraClasses: [],
+  },
+];
