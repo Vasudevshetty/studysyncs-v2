@@ -10,7 +10,7 @@ function Subjects() {
         {Object.keys(subjects).map((subject, index) => (
           <div
             key={index}
-            className="flex w-full rounded-xl gap-2 bg-gray-200 p-2 hover:bg-gray-300 cursor-pointer items-center overflow-y-auto"
+            className="flex w-full rounded-xl gap-2 bg-gray-200 p-2 hover:bg-gray-300 items-center overflow-y-auto"
           >
             <span
               className={`max-sm:text-xs h-12 min-w-12 sm:h-16 sm:min-w-16 flex items-center justify-center ${subjects[subject].color} text-white rounded-full uppercase font-bold`}
@@ -22,9 +22,9 @@ function Subjects() {
               <h1 className="text-xs lg:text-sm xl:text-lg flex-1 pr-1">
                 {subjects[subject].name}
               </h1>
-              <div className="flex flex-col items-center justify-center w-[25%] bg-red-500 rounded-xl p-1 text-white">
+              <div className="flex flex-col items-center justify-center w-[25%] bg-gray-800 rounded-xl p-1 text-white">
                 <span className="text-xs">Credits</span>
-                <span className="p-1 h-6 w-6 rounded-full flex items-center justify-center text-white bg-red-500 text-xl">
+                <span className="p-1 h-6 w-6 flex items-center justify-center text-white text-xl">
                   {subjects[subject].credit}
                 </span>
               </div>

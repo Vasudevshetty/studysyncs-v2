@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 function Attendance() {
   return (
     <section className="">
+      <div></div>
       <div className="p-2">
         <Link
           to="timetable"

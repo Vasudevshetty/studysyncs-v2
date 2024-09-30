@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid"; // Install uuid library for generating unique ids
 import {
   FaChartBar,
   FaCalendarAlt,
@@ -284,42 +285,36 @@ export const colors = [
 
 export const subjects = {
   toc: {
-    id: 0,
     name: "Theory of Computation",
     slug: "toc",
     credit: 3,
     color: colors[0], // Purple
   },
   se: {
-    id: 1,
     name: "Software Engineering",
     slug: "se",
     credit: 4,
     color: colors[1], // Teal
   },
   dc: {
-    id: 2,
     name: "Data Communication",
     slug: "dc",
     credit: 4,
     color: colors[2], // Orange
   },
   os: {
-    id: 3,
     name: "Operating Systems",
     slug: "os",
     credit: 3,
     color: colors[3], // Indigo
   },
   dbms: {
-    id: 4,
     name: "Database Management Systems",
     slug: "dbms",
     credit: 4,
     color: colors[4], // Lime
   },
   cn: {
-    id: 5,
     name: "Computer Networks",
     slug: "cn",
     credit: 3,
@@ -327,37 +322,62 @@ export const subjects = {
   },
 };
 
+// Utility function to create a new instance of a subject with a unique id
+const createSubjectInstance = (subject) => ({
+  ...subject,
+  id: uuidv4(), // Generate a unique ID for each instance
+});
+
 export const timetable = {
   start: "28 Aug/2024",
   end: "02 Dec/2024",
   weekdays: {
-    sun: [subjects.toc, subjects.cn, subjects.dc],
-    mon: [subjects.dc, subjects.toc, subjects.se, subjects.os],
-    tue: [subjects.se, subjects.dbms, subjects.dc, subjects.cn, subjects.toc],
+    sun: [
+      createSubjectInstance(subjects.toc),
+      createSubjectInstance(subjects.cn),
+      createSubjectInstance(subjects.dc),
+    ],
+    mon: [
+      createSubjectInstance(subjects.dc),
+      createSubjectInstance(subjects.toc),
+      createSubjectInstance(subjects.se),
+      createSubjectInstance(subjects.os),
+    ],
+    tue: [
+      createSubjectInstance(subjects.se),
+      createSubjectInstance(subjects.dbms),
+      createSubjectInstance(subjects.dc),
+      createSubjectInstance(subjects.cn),
+      createSubjectInstance(subjects.toc),
+    ],
     wed: [
-      subjects.os,
-      subjects.se,
-      subjects.dbms,
-      subjects.toc,
-      subjects.dc,
-      subjects.cn,
+      createSubjectInstance(subjects.os),
+      createSubjectInstance(subjects.se),
+      createSubjectInstance(subjects.dbms),
+      createSubjectInstance(subjects.toc),
+      createSubjectInstance(subjects.dc),
+      createSubjectInstance(subjects.cn),
     ],
     thu: [
-      subjects.toc,
-      subjects.dc,
-      subjects.cn,
-      subjects.os,
-      subjects.dbms,
-      subjects.se,
+      createSubjectInstance(subjects.toc),
+      createSubjectInstance(subjects.dc),
+      createSubjectInstance(subjects.cn),
+      createSubjectInstance(subjects.os),
+      createSubjectInstance(subjects.dbms),
+      createSubjectInstance(subjects.se),
     ],
     fri: [
-      subjects.cn,
-      subjects.os,
-      subjects.toc,
-      subjects.se,
-      subjects.dbms,
-      subjects.dc,
+      createSubjectInstance(subjects.cn),
+      createSubjectInstance(subjects.os),
+      createSubjectInstance(subjects.toc),
+      createSubjectInstance(subjects.se),
+      createSubjectInstance(subjects.dbms),
+      createSubjectInstance(subjects.dc),
     ],
-    sat: [subjects.toc, subjects.se, subjects.dbms],
+    sat: [
+      createSubjectInstance(subjects.toc),
+      createSubjectInstance(subjects.se),
+      createSubjectInstance(subjects.dbms),
+    ],
   },
 };
