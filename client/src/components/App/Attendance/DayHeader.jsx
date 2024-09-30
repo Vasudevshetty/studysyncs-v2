@@ -14,7 +14,7 @@ export function DayHeader({ formattedDate }) {
         </span>
       </div>
       <Link
-        className="items-center gap-2 px-2 h-10 bg-red-500 text-white rounded-xl w-fit group hidden lg:flex"
+        className="items-center gap-2 hover:opacity-80 px-2 h-10 bg-red-500 text-white rounded-xl w-fit group hidden lg:flex"
         to="timetable"
       >
         <span>
