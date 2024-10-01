@@ -470,3 +470,5 @@ export const attendanceRecord = [
     extraClasses: [],
   },
 ];
+
+// should divresify this index, and later focus on making this work from everywhere asap.
