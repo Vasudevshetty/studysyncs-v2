@@ -4,7 +4,7 @@ import Stats from "./Stats";
 
 function Hero() {
   return (
-    <div className="flex flex-col sm:flex-col lg:flex-row lg:items-center  gap-8 sm:gap-0 items-center sm:items-start sm:justify-around px-6 sm:px-16 md:mx-20  dark:bg-gray-800 dark:text-white  rounded-lg ">
+    <div className="flex flex-col sm:flex-col lg:flex-row lg:items-center  gap-8 sm:gap-0 items-center sm:items-start sm:justify-around px-6 sm:px-16   dark:bg-gray-800 dark:text-white  rounded-lg ">
       {/* Left Side - Welcome Text */}
       <div className="flex-1 flex flex-col justify-center items-center sm:items-start px-4 sm:px-12">
         <h1 className="font-bold text-xl m-4 sm:m-0 sm:text-2xl leading-tight tracking-widest text-center sm:text-left sm:my-2">
