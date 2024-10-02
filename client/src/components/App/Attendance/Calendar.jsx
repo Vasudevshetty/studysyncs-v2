@@ -1,4 +1,8 @@
-import { attendanceRecord, timetable } from "@/constants";
+import {
+  attendanceRecord,
+  createDefaultAttendanceRecord,
+  timetable,
+} from "@/constants";
 import { useState } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
@@ -10,9 +14,10 @@ function Calendar({ setAttendanceRecord }) {
 
   function handleOnSelect(date) {
     setSelectedDate(date);
-    const record = attendanceRecord.find(
-      (record) => new Date(record.date).toDateString() === date.toDateString()
-    );
+    const record =
+      attendanceRecord.find(
+        (record) => new Date(record.date).toDateString() === date.toDateString()
+      ) || createDefaultAttendanceRecord(date);
     setAttendanceRecord(record); // Use the found record
   }
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Calendar from "./Calendar";
 import {
   attendanceOptions,
+  createDefaultAttendanceRecord,
   attendanceRecord as initialAttendanceRecord,
 } from "@/constants";
 import { DayHeader } from "./DayHeader";
@@ -12,7 +13,7 @@ function DayStatus() {
     initialAttendanceRecord.find(
       (record) =>
         new Date(record.date).toDateString() === new Date().toDateString()
-    )
+    ) || createDefaultAttendanceRecord(new Date())
   );
 
   const formattedDate = new Date(attendanceRecord.date)
