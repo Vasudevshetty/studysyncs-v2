@@ -40,8 +40,8 @@ function CGPACalculator() {
         Calculate Your CGPA
       </h2>
       <Link
-        className="py-2 px-4 bg-orange-500 rounded-xl"
-        to="/app/sgpa-calculator"
+        className="py-2 px-4 bg-orange-500 rounded-xl text-white"
+        to="/app/calculate-gpa/sgpa"
       >
         SGPA
       </Link>

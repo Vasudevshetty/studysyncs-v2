@@ -74,7 +74,7 @@ function Notes() {
 
         {/* Details Section */}
         <div
-          className={`transition-all duration-700 rounded-xl ${
+          className={`transition-transform duration-700 rounded-xl ${
             selectedSubject
               ? "lg:w-3/5 xl:w-3/4 max-lg:h-3/5 lg:h-full bg-white dark:bg-gray-400"
               : "lg:block xl:w-1/4 lg:w-2/5 lg:h-full"
