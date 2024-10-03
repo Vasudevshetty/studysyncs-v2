@@ -1,11 +1,10 @@
 import TabsPopover from "../TabsPopover";
+import Notesnavigation from "./Notesnavigation";
 
 function ResourceIcons() {
   return (
-    <div className="flex w-full p-2 gap-2 justify-between px-4 sm:px-8 resources">
-      <h1 className="text-black dark:text-gray-300 text-xl flex items-center sm:text-3xl font-semibold">
-        Notes
-      </h1>
+    <div className="flex w-full p-2 gap-2 justify-between pr-4 sm:pr-8 resources">
+      <Notesnavigation title={"Semester 4"} />
       <TabsPopover />
     </div>
   );
