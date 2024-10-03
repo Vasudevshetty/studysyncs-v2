@@ -1,4 +1,4 @@
-import TabsPopover from "./TabsPopover";
+import TabsPopover from "../TabsPopover";
 
 function ResourceIcons() {
   return (

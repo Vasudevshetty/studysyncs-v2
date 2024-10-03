@@ -1,4 +1,3 @@
-import { timetable } from "@/constants";
 import TableHeader from "./TableHeader";
 import Subjects from "./Subjects";
 import EditPool from "./EditPool";
@@ -18,6 +17,7 @@ import {
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { user } from "@/constants/user";
 
 function SortablePeriod({ period }) {
   const {
@@ -50,7 +50,7 @@ function SortablePeriod({ period }) {
 function Timetable() {
   const [isEditing, setIsEditing] = useState(false);
   const [activePeriod, setActivePeriod] = useState(null);
-  const [currentTimetable, setCurrentTimetable] = useState(timetable);
+  const [currentTimetable, setCurrentTimetable] = useState(user.timetable);
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })

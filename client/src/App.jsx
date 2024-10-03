@@ -19,40 +19,45 @@ import Discuss from "./components/App/Discuss";
 import Events from "./components/App/Events";
 import GPACalculator from "./components/App/GPACalculator";
 import Timetable from "./components/App/Attendance/Timetable/Timetable";
+import { ModalProvider } from "./components/context/ModalContext";
 
 function App() {
   return (
     <ThemeProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<HomeLayout />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+      <ModalProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<HomeLayout />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
 
-          <Route
-            path="/app"
-            element={
-              <ProtectedRoute>
-                <AppLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route path="" element={<Navigate to="dashboard" />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="attendance">
-              <Route path="" element={<Attendance />} />
-              <Route path="timetable" element={<Timetable />} />
+            <Route
+              path="/app"
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="" element={<Navigate to="dashboard" />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="attendance">
+                <Route path="" element={<Attendance />} />
+                <Route path="timetable" element={<Timetable />} />
+              </Route>
+              <Route path="notes">
+                <Route path="" element={<Notes />} />
+              </Route>
+              <Route path="profile" element={<Profile />} />
+              <Route path="events" element={<Events />} />
+              <Route path="discuss" element={<Discuss />} />
+              <Route path="calculate-gpa" element={<GPACalculator />} />
             </Route>
-            <Route path="notes" element={<Notes />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="events" element={<Events />} />
-            <Route path="discuss" element={<Discuss />} />
-            <Route path="calculate-gpa" element={<GPACalculator />} />
-          </Route>
 
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Router>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </Router>
+      </ModalProvider>
     </ThemeProvider>
   );
 }

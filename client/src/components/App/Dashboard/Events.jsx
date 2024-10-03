@@ -1,4 +1,4 @@
-import { events } from "@/constants";
+import { events } from "@/constants/user";
 import { HiViewBoards } from "react-icons/hi";
 import { Link } from "react-router-dom";
 

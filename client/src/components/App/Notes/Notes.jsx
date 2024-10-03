@@ -1,9 +1,9 @@
-import ResourceIcon from "./ResourceIcons";
+import ResourceIcons from "./ResourceIcons";
 
 function Notes() {
   return (
     <section className="">
-      <ResourceIcon />
+      <ResourceIcons />
     </section>
   );
 }

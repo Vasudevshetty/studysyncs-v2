@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import { FiChevronDown } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
-import { tabs } from "@/constants";
+import { tabs } from "@/constants/ui";
 
 function TabsPopover() {
   const [selected, setSelected] = useState(null);
