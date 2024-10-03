@@ -56,7 +56,7 @@ function GPACalculator() {
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white">
         GPA & CGPA Calculator
       </h1>
-      <div className="flex flex-col gap-6 lg:flex-row justify-evenly mb-6">
+      <div className="flex flex-col gap-6 lg:flex-row justify-evenly mb-6 items-center">
         <div className="flex gap-4 mb-4 md:mb-0">
           <div className="flex gap-6 items-center bg-green-500 p-4 rounded-lg shadow-md">
             <div className="flex items-center flex-col">
@@ -79,13 +79,13 @@ function GPACalculator() {
           </p>
           <div className="flex gap-2">
             <Link
-              to="/app/sgpa-calculator"
+              to="/app/calculate-gpa/sgpa"
               className="bg-orange-400 text-white py-2 px-4 rounded-lg shadow hover:bg-orange-500 transition"
             >
               Calculate SGPA
             </Link>
             <Link
-              to="/app/cgpa-calculator"
+              to="/app/calculate-gpa/cgpa"
               className="bg-teal-500 text-white py-2 px-4 rounded-lg shadow hover:bg-teal-600 transition"
             >
               Calculate SGPA
@@ -95,13 +95,12 @@ function GPACalculator() {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="overflow-hidden">
-          <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700 dark:text-white">
-            CGPA History
-          </h2>
-          <div className="max-h-72 overflow-y-auto">
-            {" "}
+          <div className="max-h-  overflow-y-auto bg-white rounded-lg shadow-md dark:bg-gray-400">
+            <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700 dark:text-white">
+              CGPA History
+            </h2>
             {/* Set max height and enable scroll */}
-            <table className="min-w-full bg-white rounded-lg shadow-md dark:bg-gray-400">
+            <table className="min-w-full ">
               <thead>
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider dark:text-white">
