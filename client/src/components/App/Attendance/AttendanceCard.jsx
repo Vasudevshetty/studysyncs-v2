@@ -33,7 +33,7 @@ function AttendanceCard({ period, isExtraClass = false }) {
   }, [attendanceValue]);
 
   const handleStatusChange = (newStatus) => {
-    setStatus(newStatus);
+    setStatus((status) => (status === newStatus ? "" : newStatus));
     // Here, you can also update the attendance value based on the new status.
     // This could be more advanced if you have specific rules for each status.
   };
@@ -96,7 +96,7 @@ function AttendanceCard({ period, isExtraClass = false }) {
           <button
             key={index}
             className={`${option.color} p-2 rounded-full hover:bg-opacity-80 ${
-              status !== option.status && "opacity-20 scale-30"
+              status !== option.status && status !== "" && "opacity-20 scale-30"
             }`}
             onClick={() => handleStatusChange(option.status)}
           >

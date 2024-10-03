@@ -470,3 +470,22 @@ export const attendanceRecord = [
     extraClasses: [],
   },
 ];
+
+// should divresify this index, and later focus on making this work from everywhere asap.
+// attendanceUtils.js
+
+export const createDefaultAttendanceRecord = (date) => {
+  return {
+    date: date,
+    weekday: new Date(date)
+      .toLocaleDateString("en-US", { weekday: "short" })
+      .toLowerCase(),
+    classes: timetable.weekdays[
+      new Date(date).toDateString().split(" ")[0].toLowerCase()
+    ].map((subject) => ({
+      ...subject,
+      status: "", // Default status is empty, meaning not marked
+    })),
+    extraClasses: [],
+  };
+};

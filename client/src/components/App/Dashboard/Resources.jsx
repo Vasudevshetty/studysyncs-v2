@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import {
   FaBookmark,
@@ -15,11 +16,12 @@ function Resources({ downloads, bookmarks }) {
     <div className="bg-white dark:bg-gray-400 w-full md:w-[50%] h-[50%] md:h-full rounded-xl p-2 flex flex-col">
       <h1 className="text-2xl text-gray-800 font-bold dark:text-gray-200 px-4 py-2 flex items-center w-full justify-between">
         <div className="relative flex bg-gray-300 dark:bg-gray-600 rounded-full">
-          <div
+          <motion.div
+            transition={{ type: "spring", duration: 0.5 }}
             className={`absolute top-0 bottom-0 w-1/2 rounded-full bg-gray-600 dark:bg-gray-300 transition-transform duration-300 ${
               onResource === "Bookmark" ? "translate-x-0" : "translate-x-full"
             }`}
-          ></div>
+          />
 
           <button
             className={`relative cursor-pointer focus:outline-none p-2 rounded-full z-10 transition-transform duration-300 ${
