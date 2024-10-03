@@ -1,12 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import {
-  FaBookmark,
-  FaDownload,
-  FaFilePdf,
-  FaFilePowerpoint,
-} from "react-icons/fa";
+import { FaBookmark, FaDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Resource } from "../Resource";
 
 function Resources({ downloads, bookmarks }) {
   const [onResource, setOnResource] = useState("Download");
@@ -48,25 +44,7 @@ function Resources({ downloads, bookmarks }) {
       </h1>
       <div className="flex flex-col gap-2 overflow-y-auto flex-1 h-full w-full px-2 py-1">
         {resource.map((resource, index) => (
-          <div
-            key={index}
-            className="flex items-center w-full hover:bg-gray-200 dark:bg-gray-200 hover:dark:bg-gray-100 bg-gray-100 rounded-xl p-2 cursor-pointer justify-between"
-          >
-            <div className="flex gap-2 lg:gap-5 items-center">
-              <span className="text-2xl">
-                {resource.type == "pdf" ? (
-                  <FaFilePdf className="text-red-500" />
-                ) : (
-                  <FaFilePowerpoint className="text-red-300" />
-                )}{" "}
-              </span>
-              <p className="text-black lg:text-sm text-xs">{resource.name}</p>
-            </div>
-            <div className="flex flex-col lg:text-xs text-[8px] items-center w-[30%]">
-              <span>{resource.size}</span>
-              <span>{resource.date}</span>
-            </div>
-          </div>
+          <Resource resource={resource} key={index} />
         ))}
       </div>
     </div>

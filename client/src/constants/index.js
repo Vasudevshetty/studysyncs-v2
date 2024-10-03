@@ -12,8 +12,11 @@ import {
   FaCalculator,
   FaUpload,
   FaRegCircle,
+  FaBookmark,
+  FaDownload,
 } from "react-icons/fa";
 import { HiCheck, HiOutlinePlus, HiOutlineXCircle, HiX } from "react-icons/hi";
+import { Resource } from "@/components/App/Resource";
 
 export const links = [
   {
@@ -489,3 +492,12 @@ export const createDefaultAttendanceRecord = (date) => {
     extraClasses: [],
   };
 };
+
+export const tabs = [
+  {
+    Component: Resource,
+    icon: FaBookmark,
+    content: user.bookmarks,
+  },
+  { icon: FaDownload, content: user.downloads, Component: Resource },
+].map((n, idx) => ({ ...n, id: idx + 1 }));
