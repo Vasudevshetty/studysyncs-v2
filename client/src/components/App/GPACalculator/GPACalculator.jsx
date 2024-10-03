@@ -7,9 +7,9 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import Chart from "./Dashboard/Charts/Chart";
-import CgpaChart from "./Dashboard/Charts/CgpaChart";
-import { user } from "@/constants";
+import Chart from "../Dashboard/Charts/Chart";
+import CgpaChart from "../Dashboard/Charts/CgpaChart";
+import { user } from "../../../constants/user";
 
 ChartJS.register(
   LineElement,
@@ -20,15 +20,17 @@ ChartJS.register(
   Legend
 );
 
+import { Link } from "react-router-dom";
+
 function GPACalculator() {
   const cgpaHistory = [
     { semester: "1st", gpa: 9.0, cgpa: 9.0 },
     { semester: "2nd", gpa: 9.2, cgpa: 9.1 },
     { semester: "3rd", gpa: 9.3, cgpa: 9.2 },
     { semester: "4th", gpa: 9.4, cgpa: 9.3 },
-      { semester: "1st", gpa: 9.0, cgpa: 9.0 },
-      { semester: "2nd", gpa: 9.2, cgpa: 9.1 },
-      { semester: "3rd", gpa: 9.3, cgpa: 9.2 },
+    { semester: "1st", gpa: 9.0, cgpa: 9.0 },
+    { semester: "2nd", gpa: 9.2, cgpa: 9.1 },
+    { semester: "3rd", gpa: 9.3, cgpa: 9.2 },
   ];
 
   const totalCreditsCompleted = 120;
@@ -49,13 +51,11 @@ function GPACalculator() {
     { label: "Total Semesters", value: totalSemesters },
     { label: "Current GPA Trend", value: gpaTrend },
   ];
-
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white">
         GPA & CGPA Calculator
       </h1>
-
       <div className="flex flex-col gap-6 lg:flex-row justify-evenly mb-6">
         <div className="flex gap-4 mb-4 md:mb-0">
           <div className="flex gap-6 items-center bg-green-500 p-4 rounded-lg shadow-md">
@@ -78,16 +78,21 @@ function GPACalculator() {
             Calculate your CGPA/SGPA here:
           </p>
           <div className="flex gap-2">
-            <button className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow hover:bg-blue-600 transition">
-              Calculate CGPA
-            </button>
-            <button className="bg-orange-400 text-white py-2 px-4 rounded-lg shadow hover:bg-orange-500 transition">
+            <Link
+              to="/app/sgpa-calculator"
+              className="bg-orange-400 text-white py-2 px-4 rounded-lg shadow hover:bg-orange-500 transition"
+            >
               Calculate SGPA
-            </button>
+            </Link>
+            <Link
+              to="/app/cgpa-calculator"
+              className="bg-teal-500 text-white py-2 px-4 rounded-lg shadow hover:bg-teal-600 transition"
+            >
+              Calculate SGPA
+            </Link>
           </div>
         </div>
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="overflow-hidden">
           <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700 dark:text-white">
@@ -136,7 +141,6 @@ function GPACalculator() {
           <CgpaChart data={user.stats.cgpa} />
         </Chart>
       </div>
-
       {/* Stats */}
       <div className="flex gap-4 flex-col md:flex-col lg:flex-row">
         <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-8 flex flex-col lg:w-1/2 dark:bg-gray-400   ">

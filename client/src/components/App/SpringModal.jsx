@@ -6,7 +6,7 @@ const SpringModal = ({ isOpen, setIsOpen, children, variant }) => {
       case "danger":
         return "bg-red-500 from-red-600 to-red-800";
       case "form":
-        return "bg-white from-gray-200 to-gray-400 text-black";
+        return "bg-white text-black";
       case "message":
         return "bg-blue-500 from-blue-600 to-blue-800";
       default:
