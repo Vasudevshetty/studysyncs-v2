@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { featuresData } from "../Data/FeaturesData";
-import { AiOutlineArrowRight } from "react-icons/ai"; // Import the arrow icon
+import { AiOutlineArrowRight } from "react-icons/ai";
 
 function Features() {
   const [visibleSection, setVisibleSection] = useState(0);
@@ -42,8 +42,8 @@ function Features() {
         <h1>Features</h1>
       </div>
 
-      <div className="lg:flex flex-col items-center hidden">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-5">
+      <div className="lg:flex  flex-col  hidden">
+        <h1 className="text-5xl  font-bold pl-10 uppercase tracking-widest mb-5">
           Features
         </h1>
 
@@ -53,29 +53,26 @@ function Features() {
             {featuresData.map((feature, index) => (
               <div
                 key={index}
-                className={`w-full sm:w-2/3 space-y-4 h-screen flex flex-col justify-center transition-opacity duration-700 ${
+                className={`w-full  space-y-4 h-screen flex flex-col justify-center transition-opacity duration-700 ${
                   visibleSection === index ? "opacity-100" : "opacity-0"
                 }`}
                 ref={(el) => (sectionsRef.current[index] = el)}
                 data-index={index}
               >
-                <h1 className="text-xl sm:text-2xl uppercase tracking-wider font-semibold">
+                <h1 className="text-3xl  uppercase tracking-wider font-bold">
                   {feature.title}
                 </h1>
-                <h3 className="text-3xl sm:text-4xl leading-snug">
-                  {feature.heading}
-                </h3>
-                <p className="text-sm sm:text-base tracking-wide leading-relaxed">
+                <h3 className="text-4xl  leading-snug">{feature.heading}</h3>
+                <p className="text-base tracking-wide leading-relaxed ">
                   {feature.description}
                 </p>
-                <button className="mt-4 bg-white text-black font-bold py-2 px-6 w-2/3 dark:bg-gray-400 dark:text-white rounded shadow flex items-center">
+                <button className="mt-4 bg-white text-black font-bold py-2 px-6  dark:bg-gray-400 w-[40%] dark:text-white rounded shadow flex items-center">
                   {feature.title} <AiOutlineArrowRight className="ml-2" />
                 </button>
               </div>
             ))}
           </div>
 
-          {/* Sticky Image Section, visible only on laptops and desktops */}
           <div className="hidden lg:flex flex-1">
             <div className="sticky top-0 h-screen">
               <img
