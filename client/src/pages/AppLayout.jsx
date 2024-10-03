@@ -1,11 +1,14 @@
 import Breadcrumb from "@/components/App/Breadcrumb";
+import SpringModal from "@/components/App/SpringModal";
 import Navbar from "@/components/App/Navbar";
 import Sidebar from "@/components/App/Sidebar";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useModal } from "@/components/context/ModalContext";
 
 function AppLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { isModalOpen, setIsModalOpen, content, variant } = useModal();
 
   return (
     <>
@@ -18,6 +21,13 @@ function AppLayout() {
         <Breadcrumb />
         <Outlet />
       </main>
+      <SpringModal
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+        variant={variant}
+      >
+        {content}
+      </SpringModal>
     </>
   );
 }

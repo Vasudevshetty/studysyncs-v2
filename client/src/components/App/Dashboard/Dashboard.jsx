@@ -1,4 +1,3 @@
-import { user } from "@/constants";
 import TypingAnimation from "../../ui/typing-animation";
 import Stats from "./Stats";
 import User from "./User";
@@ -8,6 +7,7 @@ import AttendanceChart from "./Charts/AttendanceChart";
 import Chart from "./Charts/Chart";
 import Resources from "./Resources";
 import Events from "./Events";
+import { user } from "@/constants/user";
 
 function Dashboard() {
   function getGreetingMessage() {

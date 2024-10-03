@@ -1,4 +1,4 @@
-import { subjects } from "@/constants";
+import { subjects } from "@/constants/user";
 
 function Subjects() {
   return (
