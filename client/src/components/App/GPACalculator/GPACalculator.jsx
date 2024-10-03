@@ -7,7 +7,9 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Line } from "react-chartjs-2";
+import Chart from "../Dashboard/Charts/Chart";
+import CgpaChart from "../Dashboard/Charts/CgpaChart";
+import { user } from "../../../constants/user";
 
 ChartJS.register(
   LineElement,
@@ -18,37 +20,18 @@ ChartJS.register(
   Legend
 );
 
+import { Link } from "react-router-dom";
+
 function GPACalculator() {
   const cgpaHistory = [
     { semester: "1st", gpa: 9.0, cgpa: 9.0 },
     { semester: "2nd", gpa: 9.2, cgpa: 9.1 },
     { semester: "3rd", gpa: 9.3, cgpa: 9.2 },
     { semester: "4th", gpa: 9.4, cgpa: 9.3 },
+    { semester: "1st", gpa: 9.0, cgpa: 9.0 },
+    { semester: "2nd", gpa: 9.2, cgpa: 9.1 },
+    { semester: "3rd", gpa: 9.3, cgpa: 9.2 },
   ];
-
-  const dataGPA = {
-    labels: cgpaHistory.map((entry) => entry.semester),
-    datasets: [
-      {
-        label: "CGPA",
-        data: cgpaHistory.map((entry) => entry.cgpa),
-        backgroundColor: "rgba(54, 162, 235, 0.2)",
-        borderColor: "rgba(54, 162, 235, 1)",
-        borderWidth: 2,
-        fill: true,
-        tension: 0.1,
-      },
-      {
-        label: "SGPA",
-        data: cgpaHistory.map((entry) => entry.gpa),
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-        borderColor: "rgba(255, 99, 132, 1)",
-        borderWidth: 2,
-        fill: true,
-        tension: 0.1,
-      },
-    ],
-  };
 
   const totalCreditsCompleted = 120;
   const averageGPA = (
@@ -68,13 +51,11 @@ function GPACalculator() {
     { label: "Total Semesters", value: totalSemesters },
     { label: "Current GPA Trend", value: gpaTrend },
   ];
-
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white">
         GPA & CGPA Calculator
       </h1>
-
       <div className="flex flex-col gap-6 lg:flex-row justify-evenly mb-6">
         <div className="flex gap-4 mb-4 md:mb-0">
           <div className="flex gap-6 items-center bg-green-500 p-4 rounded-lg shadow-md">
@@ -97,57 +78,69 @@ function GPACalculator() {
             Calculate your CGPA/SGPA here:
           </p>
           <div className="flex gap-2">
-            <button className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow hover:bg-blue-600 transition">
-              Calculate CGPA
-            </button>
-            <button className="bg-orange-400 text-white py-2 px-4 rounded-lg shadow hover:bg-orange-500 transition">
+            <Link
+              to="/app/sgpa-calculator"
+              className="bg-orange-400 text-white py-2 px-4 rounded-lg shadow hover:bg-orange-500 transition"
+            >
               Calculate SGPA
-            </button>
+            </Link>
+            <Link
+              to="/app/cgpa-calculator"
+              className="bg-teal-500 text-white py-2 px-4 rounded-lg shadow hover:bg-teal-600 transition"
+            >
+              Calculate SGPA
+            </Link>
           </div>
         </div>
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700 col-span-full dark:text-white">
+        <div className="overflow-hidden">
+          <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700 dark:text-white">
             CGPA History
           </h2>
-          {cgpaHistory.map((entry, index) => (
-            <div
-              key={index}
-              className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out dark:bg-gray-400"
-            >
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-black">
-                Semester: {entry.semester}
-              </h3>
-              <div className="mt-2 ">
-                <p className="text-gray-600 dark:text-white">
-                  GPA:{" "}
-                  <span className="font-semibold text-gray-800 dark:text-white">
-                    {entry.gpa}
-                  </span>
-                </p>
-                <p className="text-gray-600 dark:text-white">
-                  CGPA:{" "}
-                  <span className="font-semibold text-gray-800 dark:text-white">
-                    {entry.cgpa}
-                  </span>
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-700">
-            GPA Progress
-          </h2>
-          <div className="w-full h-32 sm:h-64">
-            <Line data={dataGPA} options={{ responsive: true }} />
+          <div className="max-h-72 overflow-y-auto">
+            {" "}
+            {/* Set max height and enable scroll */}
+            <table className="min-w-full bg-white rounded-lg shadow-md dark:bg-gray-400">
+              <thead>
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider dark:text-white">
+                    Semester
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider dark:text-white">
+                    GPA
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider dark:text-gray-300">
+                    CGPA
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {cgpaHistory.map((entry, index) => (
+                  <tr
+                    key={index}
+                    className="border-b dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition duration-300 ease-in-out"
+                  >
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
+                      {entry.semester}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">
+                      {entry.gpa}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 dark:text-gray-300">
+                      {entry.cgpa}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
-      </div>
 
+        <Chart title="CGPA Analysis">
+          <CgpaChart data={user.stats.cgpa} />
+        </Chart>
+      </div>
       {/* Stats */}
       <div className="flex gap-4 flex-col md:flex-col lg:flex-row">
         <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-8 flex flex-col lg:w-1/2 dark:bg-gray-400   ">

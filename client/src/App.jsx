@@ -17,9 +17,11 @@ import { ThemeProvider } from "./components/context/ThemeContext";
 import Profile from "./components/App/Profile";
 import Discuss from "./components/App/Discuss";
 import Events from "./components/App/Events";
-import GPACalculator from "./components/App/GPACalculator";
+import GPACalculator from "./components/App/GPACalculator/GPACalculator";
 import Timetable from "./components/App/Attendance/Timetable/Timetable";
 import { ModalProvider } from "./components/context/ModalContext";
+import SGPACalculator from "./components/App/GPACalculator/SGPACalculator";
+import CGPACalculator from "./components/App/GPACalculator/CGPACalculator";
 
 function App() {
   return (
@@ -45,13 +47,17 @@ function App() {
                 <Route path="" element={<Attendance />} />
                 <Route path="timetable" element={<Timetable />} />
               </Route>
+
               <Route path="notes">
                 <Route path="" element={<Notes />} />
               </Route>
+
               <Route path="profile" element={<Profile />} />
               <Route path="events" element={<Events />} />
               <Route path="discuss" element={<Discuss />} />
               <Route path="calculate-gpa" element={<GPACalculator />} />
+              <Route path="sgpa-calculator" element={<SGPACalculator />} />
+              <Route path="cgpa-calculator" element={<CGPACalculator />} />
             </Route>
 
             <Route path="*" element={<PageNotFound />} />
