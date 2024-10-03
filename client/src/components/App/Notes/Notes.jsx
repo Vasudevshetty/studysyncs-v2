@@ -30,7 +30,7 @@ function Notes() {
   return (
     <section className="p-2 ">
       <ResourceIcons />
-      <div className="flex gap-2 max-lg:flex-col resources transition-all h-[800px] lg:h-[650px]">
+      <div className="flex gap-2 max-lg:flex-col resources transition-all h-[1100px] lg:h-[650px]">
         {/* Subjects Sidebar */}
         <div
           className={`flex flex-col gap-2 bg-white dark:bg-gray-400 rounded-xl items-center transition-all duration-700 ${
@@ -77,7 +77,7 @@ function Notes() {
           className={`transition-transform duration-700 rounded-xl ${
             selectedSubject
               ? "lg:w-3/5 xl:w-3/4 max-lg:h-3/5 lg:h-full bg-white dark:bg-gray-400"
-              : "lg:block xl:w-1/4 lg:w-2/5 lg:h-full"
+              : "lg:block xl:w-1/4 lg:w-2/5 h-[650px] lg:h-full"
           }`}
         >
           {selectedSubject ? (
