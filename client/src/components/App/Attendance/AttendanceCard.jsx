@@ -1,7 +1,8 @@
-import { periodOptions, statusColors, user } from "@/constants";
+import { periodOptions, statusColors } from "@/constants/ui";
+import { user } from "@/constants/user";
 import { useEffect, useState } from "react";
 
-function AttendanceCard({ period, isExtraClass = false }) {
+function AttendanceCard({ period, isExtraClass = false, onStatusChange }) {
   // eslint-disable-next-line
   const [attendanceValue, setAttendanceValue] = useState(() => {
     const seriesData = user.stats?.attendance?.series?.[0]?.data || [];
@@ -10,10 +11,9 @@ function AttendanceCard({ period, isExtraClass = false }) {
     return index !== -1 ? seriesData[index] : 0;
   });
 
-  const [status, setStatus] = useState(period.status);
   const [animatedValue, setAnimatedValue] = useState(0);
-  // Animation state for attendance percentage
 
+  // Animation state for attendance percentage
   useEffect(() => {
     let start = 0;
     const end = attendanceValue;
@@ -33,9 +33,7 @@ function AttendanceCard({ period, isExtraClass = false }) {
   }, [attendanceValue]);
 
   const handleStatusChange = (newStatus) => {
-    setStatus((status) => (status === newStatus ? "" : newStatus));
-    // Here, you can also update the attendance value based on the new status.
-    // This could be more advanced if you have specific rules for each status.
+    onStatusChange(period.slug, newStatus);
   };
 
   return (
@@ -52,10 +50,10 @@ function AttendanceCard({ period, isExtraClass = false }) {
           {/* Status */}
           <span
             className={`text-xs w-fit ${
-              statusColors[status] || "bg-gray-500"
+              statusColors[period.status] || "bg-gray-500"
             } text-white px-2 py-1 rounded-full`} // Fallback color
           >
-            {status}
+            {period.status}
           </span>
         </div>
         {/* Attendance Progress Indicator */}
@@ -96,7 +94,9 @@ function AttendanceCard({ period, isExtraClass = false }) {
           <button
             key={index}
             className={`${option.color} p-2 rounded-full hover:bg-opacity-80 ${
-              status !== option.status && status !== "" && "opacity-20 scale-30"
+              period.status !== option.status &&
+              period.status !== "" &&
+              "opacity-20 scale-30"
             }`}
             onClick={() => handleStatusChange(option.status)}
           >
@@ -107,11 +107,7 @@ function AttendanceCard({ period, isExtraClass = false }) {
         ))}
       </div>
       {isExtraClass && (
-        <div
-          className="absolute text-sm bg-yellow-500 rounded-full p-1 text-white h-7 w-12 flex items-center justify-center
-            -top-2 -right-4
-        "
-        >
+        <div className="absolute text-sm bg-yellow-500 rounded-full p-1 text-white h-7 w-12 flex items-center justify-center -top-2 -right-4">
           Extra
         </div>
       )}

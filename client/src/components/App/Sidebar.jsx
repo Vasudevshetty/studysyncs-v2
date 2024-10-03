@@ -1,4 +1,4 @@
-import { links } from "@/constants";
+import { contributors, links } from "@/constants/ui";
 import LinkItem from "./LinkItem";
 import { useEffect, useRef } from "react";
 import { FaSignOutAlt } from "react-icons/fa";
@@ -57,28 +57,20 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
           </a>
         </span>
         <span className="flex gap-2">
-          <a
-            href="https://linked.in/in/vasudevshetty"
-            className="focus:outline-none"
-            target="_blank"
-          >
-            <img
-              src="https://github.com/vasudevshetty.png"
-              alt="Contributor"
-              className="h-8 w-8 rounded-full"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/thejas-c-10b3a0259/"
-            className="focus:outline-none"
-            target="_blank"
-          >
-            <img
-              src="https://github.com/thejas027.png"
-              alt="Contributor"
-              className="h-8 w-8 rounded-full"
-            />
-          </a>
+          {contributors.map((contributor, index) => (
+            <a
+              href={contributor.href}
+              className="focus:outline-none"
+              key={index}
+              target="_blank"
+            >
+              <img
+                src={contributor.pic}
+                alt="Contributor"
+                className="h-8 w-8 rounded-full"
+              />
+            </a>
+          ))}
         </span>
       </div>
     </aside>

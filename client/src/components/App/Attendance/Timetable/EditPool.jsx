@@ -1,4 +1,4 @@
-import { subjects } from "@/constants";
+import { subjects } from "@/constants/user";
 import { FaTrashAlt } from "react-icons/fa";
 import { HiOutlineCheck, HiOutlineXCircle } from "react-icons/hi";
 

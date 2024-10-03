@@ -1,4 +1,4 @@
-import { attendanceRecord } from "@/constants";
+import { user } from "@/constants/user";
 import { FaReceipt } from "react-icons/fa";
 import { FiBook, FiCalendar, FiPlusSquare } from "react-icons/fi";
 
@@ -36,7 +36,7 @@ function History() {
           </p>
         </h1>
         <ul className="overflow-y-auto flex flex-col gap-2">
-          {attendanceRecord.map((record, index) => (
+          {user.attendanceRecord.map((record, index) => (
             <li
               key={index}
               className="bg-gray-800 p-2 rounded-xl grid grid-cols-8 dark:bg-gray-300"
