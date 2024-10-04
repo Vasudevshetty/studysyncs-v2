@@ -130,7 +130,7 @@ const Content = ({ selected, dir, handleSetSelected }) => {
         opacity: 0,
         y: 8,
       }}
-      className="absolute right-0 top-[calc(100%_+_24px)] w-64 md:w-96 h-64 overflow-y-auto rounded-lg border border-gray-300 bg-gradient-to-b from-gray-300 via-gray-200 to-gray-100 p-4 dark:border-gray-600  dark:from-gray-800 dark:via-gray-800 dark:to-gray-800"
+      className="z-100 absolute right-0 top-[calc(100%_+_24px)] w-64 md:w-96 h-64 overflow-y-auto rounded-lg border border-gray-300 bg-gradient-to-b from-gray-300 via-gray-200 to-gray-100 p-4 dark:border-gray-600  dark:from-gray-800 dark:via-gray-800 dark:to-gray-800"
     >
       <Bridge />
       <Nub selected={selected} />
