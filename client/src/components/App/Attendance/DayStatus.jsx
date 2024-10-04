@@ -18,6 +18,7 @@ function DayStatus() {
 
   function uploadHandler() {}
   function extraClassHandler() {}
+
   function resetHandler() {
     setAttendanceRecord((prev) => ({
       ...prev,
@@ -37,12 +38,16 @@ function DayStatus() {
       ...prev,
       classes: prev.classes.map((classItem) =>
         classItem.slug === slug
-          ? { ...classItem, status: newStatus }
+          ? classItem.status === newStatus
+            ? { ...classItem, status: "" }
+            : { ...classItem, status: newStatus }
           : classItem
       ),
       extraClasses: prev.extraClasses.map((extraClassItem) =>
         extraClassItem.slug === slug
-          ? { ...extraClassItem, status: newStatus }
+          ? extraClassItem.status === newStatus
+            ? { ...extraClassItem, status: "" }
+            : { ...extraClassItem, status: newStatus }
           : extraClassItem
       ),
     }));

@@ -1,9 +1,9 @@
-import { FaFolder, FaFolderOpen } from "react-icons/fa";
+import { FcFolder, FcOpenedFolder } from "react-icons/fc";
 
 function SubjectList({ subjects, selectedSubject, setSelectedSubject }) {
   return (
     <div
-      className={`flex p-2 flex-wrap gap-2 overflow-y-auto items-center ${
+      className={`flex p-2 flex-wrap gap-4 overflow-y-auto items-center ${
         selectedSubject
           ? "justify-center flex-no-wrap"
           : "max-md:justify-center"
@@ -20,7 +20,7 @@ function SubjectList({ subjects, selectedSubject, setSelectedSubject }) {
           }`}
         >
           <span className="text-6xl sm:text-8xl text-yellow-400 mb-2">
-            {selectedSubject !== subject ? <FaFolder /> : <FaFolderOpen />}
+            {selectedSubject !== subject ? <FcFolder /> : <FcOpenedFolder />}
           </span>
           <span className="w-full text-xs text-center overflow-hidden whitespace-nowrap text-ellipsis hover:overflow-auto hover:whitespace-normal hover:text-clip text-black">
             {subjects[subject].name}
