@@ -54,7 +54,7 @@ function SCCalculator() {
         </h2>
         <Link
           className="py-2 px-4 bg-teal-500 text-white font-semibold rounded-xl"
-          to="/app/cgpa-calculator"
+          to="/app/calculate-gpa/cgpa"
         >
           Go to CGPA Calculator
         </Link>
@@ -91,7 +91,7 @@ function SCCalculator() {
                       <div
                         key={grade}
                         onClick={() => handleGradeChange(key, grade)}
-                        className={`cursor-pointer p-1 sm:p-4 border rounded-lg text-center w-full transition-all duration-300 ${
+                        className={`cursor-pointer p-1 sm:p-3 border text-white text-xl rounded-lg text-center w-full transition-all duration-300 ${
                           !(selectedGrade === grade)
                             ? gradeToPoints[grade].color + " opacity-80"
                             : "bg-gray-300 dark:bg-gray-700"

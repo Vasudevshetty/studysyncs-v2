@@ -37,7 +37,7 @@ function TabsPopover() {
   }, [containerRef]);
 
   return (
-    <div ref={containerRef} className="relative flex h-fit gap-2">
+    <div ref={containerRef} className="relative flex h-fit sm:gap-2">
       {tabs.map((t) => {
         return (
           <Tab
@@ -130,7 +130,7 @@ const Content = ({ selected, dir, handleSetSelected }) => {
         opacity: 0,
         y: 8,
       }}
-      className="absolute right-0 top-[calc(100%_+_24px)] w-64 md:w-96 h-64 overflow-y-auto rounded-lg border border-gray-300 bg-gradient-to-b from-gray-300 via-neutral-200 to-neutral-300 p-4 dark:border-gray-600  dark:from-gray-800 dark:via-gray-800 dark:to-gray-800"
+      className="z-100 absolute right-0 top-[calc(100%_+_24px)] w-64 md:w-96 h-64 overflow-y-auto rounded-lg border border-gray-300 bg-gradient-to-b from-gray-300 via-gray-200 to-gray-100 p-4 dark:border-gray-600  dark:from-gray-800 dark:via-gray-800 dark:to-gray-800"
     >
       <Bridge />
       <Nub selected={selected} />

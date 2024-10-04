@@ -15,7 +15,7 @@ function Chart({ title, children }) {
         {title}
       </Link>
       <div
-        className="flex-1 w-full h-full flex items-center justify-center"
+        className="flex-1 w-full h-full"
       >
         {children}
       </div>

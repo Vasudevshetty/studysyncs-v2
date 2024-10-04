@@ -55,9 +55,11 @@ function App() {
               <Route path="profile" element={<Profile />} />
               <Route path="events" element={<Events />} />
               <Route path="discuss" element={<Discuss />} />
-              <Route path="calculate-gpa" element={<GPACalculator />} />
-              <Route path="sgpa-calculator" element={<SGPACalculator />} />
-              <Route path="cgpa-calculator" element={<CGPACalculator />} />
+              <Route path="calculate-gpa">
+                <Route path="" element={<GPACalculator />} />
+                <Route path="sgpa" element={<SGPACalculator />} />
+                <Route path="cgpa" element={<CGPACalculator />} />
+              </Route>
             </Route>
 
             <Route path="*" element={<PageNotFound />} />
