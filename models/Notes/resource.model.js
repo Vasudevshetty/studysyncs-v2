@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 // Define the schema
 const resourceSchema = new mongoose.Schema(
   {
-    
     name: {
       type: String,
       required: [true, "Every file has a name"],

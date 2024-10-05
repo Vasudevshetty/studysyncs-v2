@@ -9,12 +9,15 @@ const userSchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, "User must have a name"],
+      trim: true,
+      minlength: [3, "Name must be at least 3 characters long"],
     },
     email: {
       type: String,
       required: [true, "User must have an email"],
       unique: true,
       lowercase: true,
+      trim: true,
       validate: {
         validator: function (email) {
           return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
@@ -25,12 +28,18 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "User must have a password"],
-      minlength: 8,
+      minlength: [8, "Password must be at least 8 characters long"],
       select: false, // Do not return password in query by default
     },
     image: {
       type: String,
-      deafult: "deafult.jpg",
+      default: "default.jpg",
+      validate: {
+        validator: function (v) {
+          return /\.(jpg|jpeg|png|gif)$/.test(v);
+        },
+        message: "Please provide a valid image URL (jpg, jpeg, png, gif)",
+      },
     },
     passwordConfirm: {
       type: String,
@@ -43,16 +52,48 @@ const userSchema = new mongoose.Schema(
         message: "Passwords do not match",
       },
     },
-    googleId: String,
-    githubId: String,
-    passwordChangedAt: Date,
-    passwordResetToken: String,
-    passwordResetExpires: Date,
+    googleId: {
+      type: String,
+      unique: true,
+      sparse: true, // Allows multiple null values
+    },
+    githubId: {
+      type: String,
+      unique: true,
+      sparse: true,
+    },
+    passwordChangedAt: {
+      type: Date,
+    },
+    passwordResetToken: {
+      type: String,
+    },
+    passwordResetExpires: {
+      type: Date,
+    },
     emailVerified: {
       type: Boolean,
       default: false,
     },
-    emailVerificationToken: String,
+    emailVerificationToken: {
+      type: String,
+    },
+    timetable: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Timetable",
+    },
+    bookmarks: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Resource",
+      },
+    ],
+    downloads: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Resource",
+      },
+    ],
   },
   { timestamps: true }
 );
@@ -62,7 +103,7 @@ userSchema.pre("save", async function (next) {
   // Only run this function if password is modified
   if (!this.isModified("password")) return next();
 
-  // Hash the password with cost of 12
+  // Hash the password with a cost of 12
   this.password = await bcrypt.hash(this.password, 12);
   // Remove passwordConfirm field
   this.passwordConfirm = undefined;
