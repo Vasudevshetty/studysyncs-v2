@@ -10,6 +10,7 @@ import {
 import Chart from "../Dashboard/Charts/Chart";
 import CgpaChart from "../Dashboard/Charts/CgpaChart";
 import { user } from "../../../constants/user";
+import { Link } from "react-router-dom";
 
 ChartJS.register(
   LineElement,
@@ -19,8 +20,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-import { Link } from "react-router-dom";
 
 function GPACalculator() {
   const cgpaHistory = [
@@ -51,6 +50,7 @@ function GPACalculator() {
     { label: "Total Semesters", value: totalSemesters },
     { label: "Current GPA Trend", value: gpaTrend },
   ];
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white">
@@ -60,21 +60,25 @@ function GPACalculator() {
         <div className="flex gap-4 mb-4 md:mb-0">
           <div className="flex gap-6 items-center bg-green-500 p-4 rounded-lg shadow-md">
             <div className="flex items-center flex-col">
-              <p className="text-white font-semibold">Your Current CGPA</p>
-              <span className="text-white text-2xl">9.3</span>
+              <p className="text-white font-semibold text-lg">
+                Your Current CGPA
+              </p>
+              <span className="text-white text-3xl font-bold">9.3</span>
             </div>
           </div>
 
           <div className="flex gap-6 items-center bg-yellow-500 p-4 rounded-lg shadow-md">
             <div className="flex items-center flex-col">
-              <p className="text-white font-semibold">Your Current SGPA</p>
-              <span className="text-white text-2xl">9.3</span>
+              <p className="text-white font-semibold text-lg">
+                Your Current SGPA
+              </p>
+              <span className="text-white text-3xl font-bold">9.3</span>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 items-center">
-          <p className="text-lg font-semibold dark:text-white">
+        <div className="flex flex-col gap-3 items-center bg-gray-100 dark:bg-gray-400 p-10 rounded-lg shadow-lg">
+          <p className="text-lg font-semibold text-gray-800 dark:text-white">
             Calculate your CGPA/SGPA here:
           </p>
           <div className="flex gap-2">
@@ -88,19 +92,18 @@ function GPACalculator() {
               to="/app/calculate-gpa/cgpa"
               className="bg-teal-500 text-white py-2 px-4 rounded-lg shadow hover:bg-teal-600 transition"
             >
-              Calculate SGPA
+              Calculate CGPA
             </Link>
           </div>
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="overflow-hidden">
-          <div className="max-h-  overflow-y-auto bg-white rounded-lg shadow-md dark:bg-gray-400">
-            <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700 dark:text-white">
-              CGPA History
-            </h2>
-            {/* Set max height and enable scroll */}
-            <table className="min-w-full ">
+          <h2 className="text-2xl font-semibold mb-4 text-center text-gray-700 dark:text-white">
+            CGPA History
+          </h2>
+          <div className="max-h-72 overflow-y-auto">
+            <table className="min-w-full bg-white rounded-lg shadow-md dark:bg-gray-400">
               <thead>
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider dark:text-white">
@@ -142,7 +145,7 @@ function GPACalculator() {
       </div>
       {/* Stats */}
       <div className="flex gap-4 flex-col md:flex-col lg:flex-row">
-        <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-8 flex flex-col lg:w-1/2 dark:bg-gray-400   ">
+        <div className="bg-gray-100 p-6 rounded-lg shadow-md mt-8 flex flex-col lg:w-1/2 dark:bg-gray-400">
           <div className="text-gray-700 mb-4">
             <p className="text-lg sm:text-2xl font-bold tracking-wide mb-4 uppercase dark:text-white">
               Statistics
@@ -160,7 +163,7 @@ function GPACalculator() {
                   </svg>
                   <span className="font-medium text-gray-600 dark:text-black">
                     {stat.label}:{" "}
-                    <span className="font-semibold   dark:text-black">
+                    <span className="font-semibold dark:text-black">
                       {stat.value}
                     </span>
                   </span>
@@ -184,17 +187,18 @@ function GPACalculator() {
               Helpful Tips:
             </h3>
             <ul className="list-disc list-inside text-left dark:text-black">
-              <li>Attend all your classes.</li>
-              <li>Participate in study groups.</li>
-              <li>Seek help from professors when needed.</li>
+              <li>Set realistic academic goals.</li>
+              <li>Use this calculator frequently to track progress.</li>
+              <li>Identify areas for improvement to boost your GPA!</li>
             </ul>
           </div>
-          <button
-            className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow hover:bg-blue-600 transition dark:bg-gray-800 dark:hover:bg-gray-700"
-            onClick={() => console.log("Navigate to calculation form")} // Add your navigation logic here
+
+          <Link
+            to="/app/calculate-gpa"
+            className="bg-green-400 text-white py-2 px-4 rounded-lg shadow hover:bg-green-500 transition"
           >
-            Start Calculating . . .
-          </button>
+            Calculate Now
+          </Link>
         </div>
       </div>
     </div>
@@ -202,3 +206,4 @@ function GPACalculator() {
 }
 
 export default GPACalculator;
+  
