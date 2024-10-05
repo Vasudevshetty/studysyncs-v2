@@ -9,11 +9,11 @@ function SubjectList({ subjects, selectedSubject, setSelectedSubject }) {
           : "max-md:justify-center"
       }`}
     >
-      {Object.keys(subjects).map((subject, index) => (
+      {subjects.map((subject, index) => (
         <button
           key={index}
           onClick={() => setSelectedSubject(subject)}
-          className={`flex items-center justify-center flex-col h-32 w-32 sm:w-40 sm:h-40 p-2 rounded-xl transition-all duration-500 ${
+          className={`z-10 flex items-center justify-center flex-col h-32 w-32 sm:w-40 sm:h-40 p-2 rounded-xl transition-all duration-500 ${
             selectedSubject === subject
               ? "bg-white scale-105 border-2 border-yellow-400"
               : "hover:bg-gray-300"
@@ -23,7 +23,7 @@ function SubjectList({ subjects, selectedSubject, setSelectedSubject }) {
             {selectedSubject !== subject ? <FcFolder /> : <FcOpenedFolder />}
           </span>
           <span className="w-full text-xs text-center overflow-hidden whitespace-nowrap text-ellipsis hover:overflow-auto hover:whitespace-normal hover:text-clip text-black">
-            {subjects[subject].name}
+            {subject.name}
           </span>
         </button>
       ))}

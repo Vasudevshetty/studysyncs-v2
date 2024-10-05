@@ -43,7 +43,7 @@ export const events = [
     date: "10 Nov",
     title: "Workshop on AI & ML",
     description:
-      "An interactive workshop covering the basics of AI and Machine Learning. Ideal for students looking to gain practical knowledge in the growing AI industry.",
+      "An interactive workshop covering the basics of AI and Machine Learning. Slugeal for students looking to gain practical knowledge in the growing AI industry.",
   },
   {
     date: "15 Nov",
@@ -59,8 +59,8 @@ export const events = [
   },
 ];
 
-export const subjects = {
-  toc: {
+export const subjects = [
+  {
     name: "Theory of Computation",
     slug: "toc",
     credit: 3,
@@ -171,7 +171,7 @@ export const subjects = {
       },
     ],
   },
-  se: {
+  {
     name: "Software Engineering",
     slug: "se",
     credit: 4,
@@ -276,7 +276,7 @@ export const subjects = {
       },
     ],
   },
-  dc: {
+  {
     name: "Data Communication",
     slug: "dc",
     credit: 4,
@@ -364,7 +364,7 @@ export const subjects = {
       },
     ],
   },
-  os: {
+  {
     name: "Operating Systems",
     slug: "os",
     credit: 3,
@@ -464,7 +464,7 @@ export const subjects = {
       },
     ],
   },
-  la: {
+  {
     name: "Linear Algebra",
     slug: "la",
     credit: 3,
@@ -558,7 +558,7 @@ export const subjects = {
       },
     ],
   },
-  ada: {
+  {
     name: "Design and Analysis of Algorithms",
     slug: "ada",
     credit: 4,
@@ -652,7 +652,7 @@ export const subjects = {
       },
     ],
   },
-};
+];
 
 // Utility function to create a new instance of a subject with a unique id
 const createSubjectInstance = (subject, time) => ({
@@ -660,6 +660,10 @@ const createSubjectInstance = (subject, time) => ({
   id: uuidv4(), // Generate a unique ID for each instance
   time: time,
 });
+
+const getSubjectBySlug = (slug) => {
+  return subjects.find((subject) => subject.slug === slug);
+};
 
 export const user = {
   name: "Vasudev Shetty",
@@ -816,44 +820,43 @@ export const user = {
     end: "2024-12-10",
     weekdays: {
       mon: [
-        { ...createSubjectInstance(subjects.dc, "7:30") },
-        { ...createSubjectInstance(subjects.se, "8:30") },
-        { ...createSubjectInstance(subjects.toc, "11:00") },
-        { ...createSubjectInstance(subjects.os, "12:40") },
+        { ...createSubjectInstance(getSubjectBySlug("dc"), "7:30") },
+        { ...createSubjectInstance(getSubjectBySlug("se"), "8:30") },
+        { ...createSubjectInstance(getSubjectBySlug("toc"), "11:00") },
+        { ...createSubjectInstance(getSubjectBySlug("os"), "12:40") },
       ],
       tue: [
-        { ...createSubjectInstance(subjects.ada, "11:00") },
-        { ...createSubjectInstance(subjects.la, "11:50") },
-        { ...createSubjectInstance(subjects.dc, "2:30") },
-        { ...createSubjectInstance(subjects.se, "3:30") },
-        { ...createSubjectInstance(subjects.toc, "4:30") },
+        { ...createSubjectInstance(getSubjectBySlug("ada"), "11:00") },
+        { ...createSubjectInstance(getSubjectBySlug("la"), "11:50") },
+        { ...createSubjectInstance(getSubjectBySlug("dc"), "2:30") },
+        { ...createSubjectInstance(getSubjectBySlug("se"), "3:30") },
+        { ...createSubjectInstance(getSubjectBySlug("toc"), "4:30") },
       ],
       wed: [
-        { ...createSubjectInstance(subjects.la, "7:30") },
-        { ...createSubjectInstance(subjects.toc, "8:30") },
-        { ...createSubjectInstance(subjects.os, "9:30") },
+        { ...createSubjectInstance(getSubjectBySlug("la"), "7:30") },
+        { ...createSubjectInstance(getSubjectBySlug("toc"), "8:30") },
+        { ...createSubjectInstance(getSubjectBySlug("os"), "9:30") },
       ],
       thu: [
-        { ...createSubjectInstance(subjects.dc, "11:00") },
-        { ...createSubjectInstance(subjects.ada, "11:50") },
-        { ...createSubjectInstance(subjects.os, "2:30") },
-        { ...createSubjectInstance(subjects.la, "3:30") },
-        { ...createSubjectInstance(subjects.se, "4:30") },
+        { ...createSubjectInstance(getSubjectBySlug("dc"), "11:00") },
+        { ...createSubjectInstance(getSubjectBySlug("ada"), "11:50") },
+        { ...createSubjectInstance(getSubjectBySlug("os"), "2:30") },
+        { ...createSubjectInstance(getSubjectBySlug("la"), "3:30") },
+        { ...createSubjectInstance(getSubjectBySlug("se"), "4:30") },
       ],
       fri: [
-        { ...createSubjectInstance(subjects.ada, "7:30") },
-        { ...createSubjectInstance(subjects.os, "8:30") },
-        { ...createSubjectInstance(subjects.la, "9:30") },
-        { ...createSubjectInstance(subjects.toc, "11:00") },
-        { ...createSubjectInstance(subjects.se, "11:50") },
-        { ...createSubjectInstance(subjects.dc, "2:30") },
+        { ...createSubjectInstance(getSubjectBySlug("ada"), "7:30") },
+        { ...createSubjectInstance(getSubjectBySlug("os"), "8:30") },
+        { ...createSubjectInstance(getSubjectBySlug("la"), "9:30") },
+        { ...createSubjectInstance(getSubjectBySlug("toc"), "11:00") },
+        { ...createSubjectInstance(getSubjectBySlug("se"), "11:50") },
+        { ...createSubjectInstance(getSubjectBySlug("dc"), "2:30") },
       ],
       sat: [
-        { ...createSubjectInstance(subjects.toc, "2:30") },
-        { ...createSubjectInstance(subjects.se, "3:30") },
-        { ...createSubjectInstance(subjects.la, "4:30") },
+        { ...createSubjectInstance(getSubjectBySlug("toc"), "2:30") },
+        { ...createSubjectInstance(getSubjectBySlug("se"), "3:30") },
+        { ...createSubjectInstance(getSubjectBySlug("la"), "4:30") },
       ],
-      sun: [],
     },
   },
   attendanceRecord: [
@@ -862,25 +865,25 @@ export const user = {
       weekday: "mon",
       classes: [
         {
-          ...subjects.toc,
+          ...getSubjectBySlug("toc"),
           status: "attended",
         },
         {
-          ...subjects.dc,
+          ...getSubjectBySlug("dc"),
           status: "bunked",
         },
         {
-          ...subjects.os,
+          ...getSubjectBySlug("os"),
           status: "cancelled",
         },
         {
-          ...subjects.se,
+          ...getSubjectBySlug("se"),
           status: "bunked",
         },
       ],
       extraClasses: [
         {
-          ...subjects.ada,
+          ...getSubjectBySlug("ada"),
           status: "attended",
         },
       ],
@@ -890,15 +893,15 @@ export const user = {
       weekday: "sun",
       classes: [
         {
-          ...subjects.toc,
+          ...getSubjectBySlug("toc"),
           status: "attended",
         },
         {
-          ...subjects.ada,
+          ...getSubjectBySlug("ada"),
           status: "bunked",
         },
         {
-          ...subjects.dc,
+          ...getSubjectBySlug("dc"),
           status: "attended",
         },
       ],
@@ -909,15 +912,15 @@ export const user = {
       weekday: "sat",
       classes: [
         {
-          ...subjects.toc,
+          ...getSubjectBySlug("toc"),
           status: "attended",
         },
         {
-          ...subjects.se,
+          ...getSubjectBySlug("se"),
           status: "bunked",
         },
         {
-          ...subjects.la,
+          ...getSubjectBySlug("la"),
           status: "attended",
         },
       ],
@@ -926,6 +929,16 @@ export const user = {
   ],
 };
 
+// utils.js or a similar utility file
+export function generateSlug(name) {
+  return name
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/[^\w\\-]+/g, "") // Remove all non-word chars
+    .replace(/\\-\\-+/g, "-") // Replace multiple hyphens with a single hyphen
+    .replace(/^-+|-+$/g, ""); // Trim hyphens from start and end
+}
+
 export const createDefaultAttendanceRecord = (date) => {
   return {
     date: date,
@@ -933,9 +946,11 @@ export const createDefaultAttendanceRecord = (date) => {
       .toLocaleDateString("en-US", { weekday: "short" })
       .toLowerCase(),
     classes: user.timetable.weekdays[
-      new Date(date).toDateString().split(" ")[0].toLowerCase()
-    ].map((subject) => ({
-      ...subject,
+      new Date(date)
+        .toLocaleDateString("en-US", { weekday: "short" })
+        .toLowerCase()
+    ]?.map((subject) => ({
+      ...getSubjectBySlug(subject.slug), // Use the subject ID to get the full subject details
       status: "", // Default status is empty, meaning not marked
     })),
     extraClasses: [],

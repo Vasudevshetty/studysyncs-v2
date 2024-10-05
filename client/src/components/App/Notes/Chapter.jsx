@@ -5,10 +5,10 @@ function Chapter({ chapter }) {
   return (
     <div className="flex flex-col gap-4 p-2 rounded-xl h-full w-full bg-gray-300">
       <h1 className="text-xl sm:text-3xl font-bold text-black mb-2">
-        {chapter.name}
+        {chapter?.name}
       </h1>
       <div className="flex flex-col gap-4 overflow-y-auto p-2 h-full">
-        {chapter.modules.map((mod, index) => (
+        {chapter?.modules.map((mod, index) => (
           <div
             key={index}
             className="bg-white p-2 rounded-lg transition-shadow duration-300"
