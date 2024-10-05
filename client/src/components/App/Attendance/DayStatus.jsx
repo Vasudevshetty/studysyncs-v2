@@ -13,8 +13,8 @@ function DayStatus() {
     ) || createDefaultAttendanceRecord(new Date())
   );
   const noClasses =
-    attendanceRecord.classes.length == 0 &&
-    attendanceRecord.extraClasses.length == 0;
+    attendanceRecord?.classes.length == 0 &&
+    attendanceRecord?.extraClasses.length == 0;
 
   function uploadHandler() {}
   function extraClassHandler() {}
@@ -89,17 +89,17 @@ function DayStatus() {
               <div className="p-2 flex max-[450px]:items-center max-[450px]:justify-center gap-4 flex-wrap h-[300px] rounded-xl overflow-y-auto">
                 {noClasses && <div>No classes today...</div>}
                 {!noClasses &&
-                  attendanceRecord?.["classes"]?.map((period) => (
+                  attendanceRecord?.["classes"]?.map((period, index) => (
                     <AttendanceCard
-                      key={period.slug}
+                      key={index}
                       period={period}
                       onStatusChange={handleStatusChange}
                     />
                   ))}
                 {!noClasses &&
-                  attendanceRecord?.["extraClasses"]?.map((period) => (
+                  attendanceRecord?.["extraClasses"]?.map((period, index) => (
                     <AttendanceCard
-                      key={period.slug}
+                      key={index}
                       period={period}
                       isExtraClass={true}
                       onStatusChange={handleStatusChange}

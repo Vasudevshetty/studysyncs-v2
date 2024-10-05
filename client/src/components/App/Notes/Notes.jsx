@@ -1,13 +1,46 @@
-import { useState } from "react";
-import { subjects } from "@/constants/user";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
+import { generateSlug, subjects } from "@/constants/user"; // Assuming subjects are constants
 import NotesOptions from "./NotesOptions";
 import ResourceIcons from "./ResourceIcons";
 import { FaAngleLeft } from "react-icons/fa";
-import Subject from "./Subject";
 import SubjectList from "./SubjectList";
+import Subject from "./Subject";
 
 function Notes() {
   const [selectedSubject, setSelectedSubject] = useState(null);
+  const [selectedChapter, setSelectedChapter] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Update state from URL when the component loads
+  useEffect(() => {
+    const subjectSlug = searchParams.get("subject");
+    const chapterSlug = searchParams.get("chapter");
+
+    // Find the selected subject based on the slug
+    const subject = subjects.find((s) => s.slug === subjectSlug);
+    if (subject) {
+      setSelectedSubject(subject);
+
+      // If a chapter slug is available, find the corresponding chapter
+      const chapter =
+        subject.chapters.find((c) => generateSlug(c.name) === chapterSlug) ||
+        subject.chapters[0];
+      setSelectedChapter(chapter); // Set to the found chapter or the first chapter if none found
+    }
+  }, [searchParams, setSearchParams]);
+
+  // Update URL when selectedSubject or selectedChapter changes
+  useEffect(() => {
+    const params = {};
+    if (selectedSubject) {
+      params.subject = selectedSubject.slug; // Include subject slug
+      if (selectedChapter) {
+        params.chapter = generateSlug(selectedChapter.name); // Include chapter slug
+      }
+      setSearchParams(params); // Update the URL
+    }
+  }, [selectedSubject, selectedChapter, setSearchParams]);
 
   return (
     <section className="p-2">
@@ -25,7 +58,10 @@ function Notes() {
             {selectedSubject && (
               <span
                 className="cursor-pointer hover:bg-gray-300 rounded-full p-1 hover:text-gray-800"
-                onClick={() => setSelectedSubject(null)}
+                onClick={() => {
+                  setSelectedSubject(null);
+                  setSelectedChapter(null); // Clear selected chapter when subject is deselected
+                }}
               >
                 <FaAngleLeft />
               </span>
@@ -35,7 +71,10 @@ function Notes() {
           <SubjectList
             subjects={subjects}
             selectedSubject={selectedSubject}
-            setSelectedSubject={setSelectedSubject}
+            setSelectedSubject={(subject) => {
+              setSelectedSubject(subject);
+              setSelectedChapter(subject.chapters[0]); // Default to the first chapter of the newly selected subject
+            }}
           />
         </div>
         {/* Details Section */}
@@ -47,7 +86,11 @@ function Notes() {
           }`}
         >
           {selectedSubject ? (
-            <Subject subject={subjects[selectedSubject]} />
+            <Subject
+              subject={selectedSubject}
+              setSelectedChapter={setSelectedChapter}
+              selectedChapter={selectedChapter} // Pass selectedChapter as a prop
+            />
           ) : (
             <NotesOptions />
           )}
