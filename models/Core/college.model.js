@@ -8,7 +8,7 @@ const collegeSchema = new mongoose.Schema({
   },
   location: {
     type: String,
-    required: [true, "College must have location"],
+    required: [true, "College must have a location"],
   },
   courses: [
     {
@@ -16,6 +16,16 @@ const collegeSchema = new mongoose.Schema({
       ref: "Course",
     },
   ],
+  contactEmail: {
+    type: String,
+    required: [true, "College must have a contact email"],
+    validate: {
+      validator: function (email) {
+        return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+      },
+      message: "Please provide a valid email address",
+    },
+  },
 });
 
 // Create the model

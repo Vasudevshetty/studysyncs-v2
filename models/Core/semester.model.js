@@ -5,10 +5,13 @@ const semesterSchema = new mongoose.Schema({
   number: {
     type: Number,
     required: [true, "Semester must have a number"],
+    min: 1,
+    max: 8,
   },
   course: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Course",
+    required: [true, "Semester must be associated with a course"],
   },
   subjects: [
     {
