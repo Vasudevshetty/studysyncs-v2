@@ -1,25 +1,25 @@
-const mongoose = require("mongoose");
-
-// Define the schema
-const resourceSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: [true, "Every file has a name"],
-    },
-    size: {
-      type: String,
-      required: [true, "Every file will have size"],
-    },
-    url: {
-      type: String,
-      required: [true, "Every file must be stored and the link must be there"],
-    },
+const resourceSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, "Resource must have a name"],
   },
-  { timestamps: true }
-);
+  size: {
+    type: String,
+    required: [true, "Resource must have a size"],
+  },
+  url: {
+    type: String,
+    required: [true, "Resource must have a URL"],
+  },
+  chapter: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Chapter",
+  },
+  module: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Module",
+  },
+});
 
-// Create the model
 const Resource = mongoose.model("Resource", resourceSchema);
-
 module.exports = Resource;

@@ -78,24 +78,46 @@ const userSchema = new mongoose.Schema(
     emailVerificationToken: {
       type: String,
     },
-    timetable: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Timetable",
+    college: {
+      type: String,
+      required: [true, "User must belong to a college"],
     },
-    bookmarks: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Resource",
-      },
-    ],
+    course: {
+      type: String,
+      required: [true, "User must have a course"],
+    },
+    section: {
+      type: String,
+      required: [true, "User must belong to a section"],
+    },
     downloads: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Resource",
+        resource: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Resource", // Reference to the Resource model
+          required: true,
+        },
+        timestamp: {
+          type: Date,
+          default: Date.now, // Automatically set to the current date
+        },
+      },
+    ],
+    bookmarks: [
+      {
+        resource: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Resource", // Reference to the Resource model
+          required: true,
+        },
+        timestamp: {
+          type: Date,
+          default: Date.now, // Automatically set to the current date
+        },
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true } // Automatically manage createdAt and updatedAt fields
 );
 
 // Encrypt the password before saving
