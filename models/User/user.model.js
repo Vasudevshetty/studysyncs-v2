@@ -6,6 +6,12 @@ const jwt = require("jsonwebtoken");
 // Define the schema
 const userSchema = new mongoose.Schema(
   {
+    usn: {
+      type: String,
+      required: true,
+      unique: true,
+      ref: "USN",
+    },
     name: {
       type: String,
       required: [true, "User must have a name"],
@@ -18,18 +24,12 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
       trim: true,
-      validate: {
-        validator: function (email) {
-          return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
-        },
-        message: "Please provide a valid email address",
-      },
     },
     password: {
       type: String,
       required: [true, "User must have a password"],
       minlength: [8, "Password must be at least 8 characters long"],
-      select: false, // Do not return password in query by default
+      select: false,
     },
     image: {
       type: String,
@@ -41,21 +41,10 @@ const userSchema = new mongoose.Schema(
         message: "Please provide a valid image URL (jpg, jpeg, png, gif)",
       },
     },
-    passwordConfirm: {
-      type: String,
-      required: [true, "Please confirm your password"],
-      validate: {
-        // This works only on CREATE and SAVE
-        validator: function (val) {
-          return val === this.password;
-        },
-        message: "Passwords do not match",
-      },
-    },
     googleId: {
       type: String,
       unique: true,
-      sparse: true, // Allows multiple null values
+      sparse: true,
     },
     githubId: {
       type: String,
@@ -78,28 +67,16 @@ const userSchema = new mongoose.Schema(
     emailVerificationToken: {
       type: String,
     },
-    college: {
-      type: String,
-      required: [true, "User must belong to a college"],
-    },
-    course: {
-      type: String,
-      required: [true, "User must have a course"],
-    },
-    section: {
-      type: String,
-      required: [true, "User must belong to a section"],
-    },
     downloads: [
       {
         resource: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Resource", // Reference to the Resource model
+          ref: "Resource",
           required: true,
         },
         timestamp: {
           type: Date,
-          default: Date.now, // Automatically set to the current date
+          default: Date.now,
         },
       },
     ],
@@ -107,27 +84,24 @@ const userSchema = new mongoose.Schema(
       {
         resource: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Resource", // Reference to the Resource model
+          ref: "Resource",
           required: true,
         },
         timestamp: {
           type: Date,
-          default: Date.now, // Automatically set to the current date
+          default: Date.now,
         },
       },
     ],
   },
-  { timestamps: true } // Automatically manage createdAt and updatedAt fields
+  { timestamps: true }
 );
 
 // Encrypt the password before saving
 userSchema.pre("save", async function (next) {
-  // Only run this function if password is modified
   if (!this.isModified("password")) return next();
 
-  // Hash the password with a cost of 12
   this.password = await bcrypt.hash(this.password, 12);
-  // Remove passwordConfirm field
   this.passwordConfirm = undefined;
   next();
 });
@@ -176,7 +150,7 @@ userSchema.methods.createPasswordResetToken = function () {
     .update(resetToken)
     .digest("hex");
 
-  this.passwordResetExpires = Date.now() + 10 * 60 * 1000; // Token valid for 10 minutes
+  this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 
   return resetToken;
 };
@@ -193,7 +167,5 @@ userSchema.methods.createEmailVerificationToken = function () {
   return verificationToken;
 };
 
-// Create the model
 const User = mongoose.model("User", userSchema);
-
 module.exports = User;
