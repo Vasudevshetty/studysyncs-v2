@@ -2,13 +2,14 @@ const mongoose = require("mongoose");
 
 const timetableSchema = new mongoose.Schema(
   {
-    sectionId: {
+    section: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Section",
       required: true,
     },
     semester: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Semester",
       required: true,
     },
     weeklySchedule: {

@@ -945,14 +945,15 @@ export const createDefaultAttendanceRecord = (date) => {
     weekday: new Date(date)
       .toLocaleDateString("en-US", { weekday: "short" })
       .toLowerCase(),
-    classes: user.timetable.weekdays[
-      new Date(date)
-        .toLocaleDateString("en-US", { weekday: "short" })
-        .toLowerCase()
-    ]?.map((subject) => ({
-      ...getSubjectBySlug(subject.slug), // Use the subject ID to get the full subject details
-      status: "", // Default status is empty, meaning not marked
-    })),
+    classes:
+      user.timetable.weekdays[
+        new Date(date)
+          .toLocaleDateString("en-US", { weekday: "short" })
+          .toLowerCase()
+      ]?.map((subject) => ({
+        ...getSubjectBySlug(subject.slug), // Use the subject ID to get the full subject details
+        status: "", // Default status is empty, meaning not marked
+      })) || [],
     extraClasses: [],
   };
 };

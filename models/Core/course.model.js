@@ -11,12 +11,6 @@ const courseSchema = new mongoose.Schema({
     ref: "College",
     required: [true, "Course must be associated with a college"],
   },
-  semesters: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Semester",
-    },
-  ],
   durationInYears: {
     type: Number,
     required: [true, "Course must have a duration in years"],
