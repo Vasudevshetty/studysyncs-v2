@@ -13,8 +13,9 @@ function DayStatus() {
     ) || createDefaultAttendanceRecord(new Date())
   );
   const noClasses =
-    attendanceRecord?.classes.length == 0 &&
-    attendanceRecord?.extraClasses.length == 0;
+    attendanceRecord?.classes?.length == 0 &&
+    attendanceRecord?.extraClasses?.length == 0;
+  console.log(attendanceRecord);
 
   function uploadHandler() {}
   function extraClassHandler() {}

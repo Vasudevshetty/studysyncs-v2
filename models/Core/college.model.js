@@ -10,12 +10,6 @@ const collegeSchema = new mongoose.Schema({
     type: String,
     required: [true, "College must have a location"],
   },
-  courses: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Course",
-    },
-  ],
   contactEmail: {
     type: String,
     required: [true, "College must have a contact email"],
