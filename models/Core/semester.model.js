@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-// Define the schema
 const semesterSchema = new mongoose.Schema({
   number: {
     type: Number,
@@ -8,10 +7,10 @@ const semesterSchema = new mongoose.Schema({
     min: 1,
     max: 8,
   },
-  course: {
+  batch: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Course",
-    required: [true, "Semester must be associated with a course"],
+    ref: "Batch",
+    required: [true, "Semester must be associated with a batch"],
   },
   subjects: [
     {
@@ -21,7 +20,6 @@ const semesterSchema = new mongoose.Schema({
   ],
 });
 
-// Create the model
 const Semester = mongoose.model("Semester", semesterSchema);
 
 module.exports = Semester;
