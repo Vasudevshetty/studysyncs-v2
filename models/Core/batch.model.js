@@ -2,8 +2,19 @@ const mongoose = require("mongoose");
 
 const batchSchema = new mongoose.Schema({
   year: {
-    type: Number,
-    required: [true, "Batch must have a year"],
+    type: Number, // Change type to Number
+    required: true,
+    validate: {
+      validator: function (v) {
+        return (
+          Number.isInteger(v) && // Ensure it's an integer
+          v >= 2000 &&
+          v <= new Date().getFullYear() + 4
+        );
+      },
+      message:
+        "Batch must be a valid year between 2000 and four years in the future.",
+    },
   },
   course: {
     type: mongoose.Schema.Types.ObjectId,

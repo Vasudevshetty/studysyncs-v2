@@ -29,19 +29,9 @@ const usnSchema = new mongoose.Schema(
       required: true,
     },
     batch: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Batch",
       required: true,
-      validate: {
-        validator: function (v) {
-          return (
-            /^[0-9]{4}$/.test(v) &&
-            parseInt(v) >= 2000 &&
-            parseInt(v) <= new Date().getFullYear() + 4
-          );
-        },
-        message:
-          "Batch must be a valid 4-digit year between 2000 and four years in the future.",
-      },
     },
     isVerified: {
       type: Boolean,
