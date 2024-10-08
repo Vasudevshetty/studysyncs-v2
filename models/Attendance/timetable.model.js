@@ -5,12 +5,11 @@ const timetableSchema = new mongoose.Schema(
     section: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Section",
-      required: true,
+      required: [true, "Timetable must belong to a section"],
     },
     semester: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Semester",
-      required: true,
     },
     weeklySchedule: {
       Monday: [

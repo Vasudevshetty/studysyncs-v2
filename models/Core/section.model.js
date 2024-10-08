@@ -14,7 +14,6 @@ const sectionSchema = new mongoose.Schema({
   currentSemester: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Semester",
-    required: [true, "Section must have a current semester"],
   },
   batchYear: {
     type: Number,
@@ -23,7 +22,6 @@ const sectionSchema = new mongoose.Schema({
   timetable: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Timetable",
-    required: [true, "Section must have a timetable"],
   },
 });
 
