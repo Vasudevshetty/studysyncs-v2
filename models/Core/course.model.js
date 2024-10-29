@@ -6,6 +6,10 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: [true, "Course must have a name"],
   },
+  slug: {
+    type: String,
+    required: [true, "Course must have a slug to map"],
+  },
   college: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "College",

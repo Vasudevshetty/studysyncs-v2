@@ -37,21 +37,20 @@ const usnSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    verificationToken: String,
+    verificationOtp: String,
   },
   { timestamps: true }
 );
 
-// Generate an email verification token
-usnSchema.methods.createVerificationToken = function () {
-  const verificationToken = crypto.randomBytes(32).toString("hex");
+// Generate a 6-digit OTP verification code
+usnSchema.methods.createVerificationOTP = function () {
+  // Generate a random 6-digit number
+  const otp = Math.floor(100000 + Math.random() * 900000).toString(); // Ensures a 6-digit number
 
-  this.verificationToken = crypto
-    .createHash("sha256")
-    .update(verificationToken)
-    .digest("hex");
+  // Store the hashed version of the OTP
+  this.verificationOtp = crypto.createHash("sha256").update(otp).digest("hex");
 
-  return verificationToken;
+  return otp; // Return the raw OTP to send to the user
 };
 
 // Protect the USN model from modification after verification

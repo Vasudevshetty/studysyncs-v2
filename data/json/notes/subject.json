@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Database Management Systems",
+    "code": "510",
+    "credits": 4,
+    "slug": "DBMS",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "chapters": []
+  },
+  {
+    "name": "Computer Networks",
+    "code": "520",
+    "credits": 4,
+    "slug": "CN",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "chapters": []
+  },
+  {
+    "name": "Principles of Compilers",
+    "code": "530",
+    "credits": 4,
+    "slug": "POC",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "chapters": []
+  },
+  {
+    "name": "Artificial Intelligence",
+    "code": "540",
+    "credits": 4,
+    "slug": "AI",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "chapters": []
+  },
+  {
+    "name": "Cryptography and Network Security",
+    "code": "552",
+    "credits": 3,
+    "slug": "CNS",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "chapters": []
+  }
+]

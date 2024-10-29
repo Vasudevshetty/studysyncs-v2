@@ -27,10 +27,10 @@ const seedCoreData = async () => {
     console.log("Database cleared!");
 
     // Load JSON files
-    const collegesData = await loadJSON("./json/colleges.json");
-    const coursesData = await loadJSON("./json/courses.json");
-    const batchesData = await loadJSON("./json/batches.json");
-    const sectionsData = await loadJSON("./json/sections.json");
+    const collegesData = await loadJSON("../json/core/colleges.json");
+    const coursesData = await loadJSON("../json/core/courses.json");
+    const batchesData = await loadJSON("../json/core/batches.json");
+    const sectionsData = await loadJSON("../json/core/sections.json");
     console.log("Data loaded successfully");
 
     // Seed College

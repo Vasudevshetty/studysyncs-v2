@@ -7,6 +7,8 @@ const rateLimit = require("express-rate-limit");
 const errorHandler = require("./middlewares/error.middleware"); // Import global error handler
 const AppError = require("./util/AppError");
 
+const authRoutes = require("./routes/auth.route");
+
 const app = express();
 
 // Security and Logging Middlewares
@@ -25,11 +27,11 @@ app.use(express.static(path.join(__dirname, "client/public")));
 app.use(express.static(path.join(__dirname, "client/dist")));
 
 // Example API Route
-app.use("/api/greeting", (req, res, next) => {
-  res
-    .status(200)
-    .json({ success: true, message: "Hello from the backend server🚀😄" });
+app.use("/api/v2/greeting", (req, res, next) => {
+  res.status(200).json({ message: "Hello from the backend server🚀😄" });
 });
+
+app.use("/api/v2/auth", authRoutes);
 
 // Handle Undefined API Routes
 app.all("/api/*", (req, res, next) => {

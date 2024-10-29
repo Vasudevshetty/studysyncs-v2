@@ -17,6 +17,7 @@ const resourceSchema = new mongoose.Schema(
     chapter: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Chapter",
+      required: [true, "Resource must belong to a chapter"],
     },
     module: {
       type: mongoose.Schema.Types.ObjectId,
