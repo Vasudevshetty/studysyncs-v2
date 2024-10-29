@@ -7,6 +7,10 @@ const subjectSchema = new mongoose.Schema(
       type: String,
       required: [true, "Every subject must have a name"],
     },
+    slug: {
+      type: String,
+      required: [true, "College must have a slug to map"],
+    },
     code: {
       type: String,
       required: [true, "Every subject must have a code"],

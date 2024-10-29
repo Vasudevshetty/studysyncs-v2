@@ -7,10 +7,10 @@ const jwt = require("jsonwebtoken");
 const userSchema = new mongoose.Schema(
   {
     usn: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId, // Change this to ObjectId for referencing
+      ref: "USN", // Reference the USN model
       required: true,
       unique: true,
-      ref: "USN",
     },
     name: {
       type: String,
@@ -59,13 +59,6 @@ const userSchema = new mongoose.Schema(
     },
     passwordResetExpires: {
       type: Date,
-    },
-    emailVerified: {
-      type: Boolean,
-      default: false,
-    },
-    emailVerificationToken: {
-      type: String,
     },
     downloads: [
       {

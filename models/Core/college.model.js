@@ -6,6 +6,10 @@ const collegeSchema = new mongoose.Schema({
     type: String,
     required: [true, "College must have a name"],
   },
+  slug: {
+    type: String,
+    required: [true, "College must have a slug to map"],
+  },
   location: {
     type: String,
     required: [true, "College must have a location"],
