@@ -1,107 +1,56 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-useless-escape */
-import { useForm } from "react-hook-form";
-import InputField from "@/components/Home/InputField";
-import { Link } from "react-router-dom";
-
 const Signup = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-    alert("Signup Successful");
-  };
-
-  const password = watch("password");
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8 ">
-      <img src="/logo.png" className="h-10 sm:h-24" />
+    <div className="w-full bg-gradient-to-r from-green-100 to-green-300 min-h-screen">
+      {/* Logo */}
+      <img src="/logo.png" className="h-12 sm:h-24 mb-6" alt="Logo" />
 
-      <h2 className="text-2xl font-bold mb-6 text-center">Signup</h2>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-md bg-white p-8 rounded-lg shadow-md"
-      >
-        {/* User ID */}
-        <InputField
-          id="userId"
-          label="User ID"
-          type="text"
-          register={register}
-          validation={{ required: "User ID is required" }}
-          error={errors.userId}
-        />
+      <div className="flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+        {/* Form Container */}
+        <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
+          <h1 className="text-5xl font-bold tracking-wider text-center mb-4 text-gray-700">
+            Welcome
+          </h1>
+          <h2 className="text-xl text-gray-500 mb-6 text-center">
+            Enter your University Seat Number to proceed
+          </h2>
 
-        {/* Email */}
-        <InputField
-          id="email"
-          label="Email"
-          type="email"
-          register={register}
-          validation={{
-            required: "Email is required",
-            pattern: {
-              value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i,
-              message: "Enter a valid email address",
-            },
-          }}
-          error={errors.email}
-        />
+          {/* Form */}
+          <form className="space-y-6">
+            <div className="flex flex-col">
+              <label
+                htmlFor="usn"
+                className="mb-2 text-gray-600 font-medium text-sm"
+              >
+                Enter your USN:
+              </label>
+              <div className="relative">
+                <input
+                  id="usn"
+                  type="text"
+                  placeholder="02JST22UCS125"
+                  className="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                />
+                <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500">
+                  <i className="fas fa-user"></i>
+                </span>
+              </div>
+            </div>
 
-        {/* Password */}
-        <InputField
-          id="password"
-          label="Password"
-          type="password"
-          register={register}
-          validation={{
-            required: "Password is required",
-            minLength: {
-              value: 6,
-              message: "Password must be at least 6 characters long",
-            },
-          }}
-          error={errors.password}
-        />
+            {/* Search Button */}
+            <button
+              type="submit"
+              className="w-1/4  bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105 duration-300 ease-in-out"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
 
-        {/* Confirm Password */}
-        <InputField
-          id="confirmPassword"
-          label="Confirm Password"
-          type="password"
-          register={register}
-          validation={{
-            required: "Please confirm your password",
-            validate: (value) => value === password || "Passwords do not match",
-          }}
-          error={errors.confirmPassword}
-        />
-
-        {/* Signup Button */}
-        <Link to="/app/dashboard">
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white font-bold py-2 rounded-md hover:bg-blue-700 transition duration-200 mt-4"
-          >
-            Signup
-          </button>
-        </Link>
-        <p className="mt-4 text-sm font-medium">
-          Have an account?
-          <Link
-            to="/Login"
-            className="text-blue-800 font-semibold hover:underline px-2"
-          >
-            Login
-          </Link>
-        </p>
-      </form>
+      {/* Footer */}
+      <footer className="mt-10 text-center text-gray-500 text-sm">
+        © 2024 YourCompany. All rights reserved.
+      </footer>
     </div>
   );
 };
