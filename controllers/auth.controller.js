@@ -5,34 +5,40 @@ const User = require("../models/User/user.model");
 const setJWT = require("../util/setJWT");
 const sendEmail = require("../util/sendEmail");
 const crypto = require("crypto");
+const template = require("../data/html/template");
+
+const College = require("../models/Core/college.model");
+const Course = require("../models/Core/course.model");
+const Section = require("../models/Core/section.model");
+const Batch = require("../models/Core/batch.model");
 
 exports.checkUSNAndSendOTP = catchAsync(async (req, res, next) => {
   const { usn } = req.body;
 
   const usnDoc = await USN.findOne({ usn });
   if (!usnDoc) return next(new AppError("USN not found", 404));
+  
+  // Check if the USN is already verified
+  if (usnDoc.isVerified) {
+    return next(new AppError("This USN is already verified", 400));
+  }
 
   const otp = usnDoc.createVerificationOTP();
   await usnDoc.save();
 
   await sendEmail({
+    from: "Studysyncs",
     to: usnDoc.email,
     subject: "Your OTP for USN Verification",
-    html: ` 
-    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-      <!-- Header with Logo -->
-      <div style="background-color: #4CAF50; padding: 20px; text-align: center;">
-        <img src="https://via.placeholder.com/150x50?text=Your+Company+Logo" alt="Company Logo" style="width: 150px; height: 50px;"/>
-      </div>
-
+    html: template(` 
       <!-- Body Content -->
       <div style="padding: 20px; color: #333;">
-        <h2 style="text-align: center; color: #333;">Welcome to FuelFix!</h2>
+        <h2 style="text-align: center; color: #333;">Welcome to Studysyncs!</h2>
         <p style="font-size: 1.1em; margin: 20px 0;">
           Hello,
         </p>
         <p style="margin: 0 0 20px;">
-          Thank you for starting the signup process with us. To verify your email, please use the OTP code below:
+          Thank you for starting the signup process with us. To verify your USN, please use the OTP code below:
         </p>
         
         <!-- OTP Section -->
@@ -41,18 +47,11 @@ exports.checkUSNAndSendOTP = catchAsync(async (req, res, next) => {
         </div>
         
         <p style="margin: 0 0 20px;">
-          Enter this code on the FuelFix platform to complete your signup. Please note that the OTP is valid for 10 minutes only.
+          Enter this code on the Studysyncs platform to complete your signup. Please note that the OTP is valid for 10 minutes only.
         </p>
         
         <p style="margin: 0;">If you did not request this, please ignore this email.</p>
-      </div>
-
-      <!-- Footer -->
-      <div style="background-color: #f9f9f9; padding: 10px; text-align: center; font-size: 0.9em; color: #666;">
-        <p style="margin: 0;">© ${new Date().getFullYear()} FuelFix. All rights reserved.</p>
-        <p style="margin: 0;">123 FuelFix Street, City, Country</p>
-      </div>
-    </div>`,
+      </div>`),
   });
 
   res.status(200).json({
@@ -61,7 +60,7 @@ exports.checkUSNAndSendOTP = catchAsync(async (req, res, next) => {
   });
 });
 
-// Verify OTP
+// Verify OTP with expiration check
 exports.verifyOTP = catchAsync(async (req, res, next) => {
   const { usn, otp } = req.body;
 
@@ -71,6 +70,11 @@ exports.verifyOTP = catchAsync(async (req, res, next) => {
     return next(new AppError("Invalid or already verified USN", 400));
   }
 
+  // Check if the OTP is still valid
+  if (Date.now() > usnDoc.otpExpires) {
+    return next(new AppError("OTP has expired", 400));
+  }
+
   // Hash the provided OTP to compare with stored hashed OTP
   const hashedOtp = crypto.createHash("sha256").update(otp).digest("hex");
 
@@ -78,9 +82,10 @@ exports.verifyOTP = catchAsync(async (req, res, next) => {
     return next(new AppError("Incorrect OTP", 400));
   }
 
-  // Mark the USN as verified and clear the verification token
+  // Mark the USN as verified and clear the verification token and expiration time
   usnDoc.isVerified = true;
-  usnDoc.verificationOTP = undefined; // Clear OTP after verification
+  usnDoc.verificationOtp = undefined; // Clear OTP after verification
+  usnDoc.otpExpires = undefined; // Clear OTP expiration time
   await usnDoc.save();
 
   res.status(200).json({ message: "USN verified successfully" });
@@ -137,12 +142,15 @@ exports.login = catchAsync(async (req, res, next) => {
   const { email, password, googleId, githubId } = req.body;
   let user;
 
+  // Check if logging in with email and password
   if (password) {
     user = await User.findOne({ email }).select("+password");
     if (!user || !(await user.correctPassword(password, user.password))) {
       return next(new AppError("Incorrect email or password", 401));
     }
-  } else if (googleId || githubId) {
+  }
+  // Check if logging in with Google or GitHub ID
+  else if (googleId || githubId) {
     user = await User.findOne({ $or: [{ googleId }, { githubId }] });
     if (!user) {
       return next(new AppError("User not found with provided OAuth ID", 404));
@@ -153,6 +161,11 @@ exports.login = catchAsync(async (req, res, next) => {
     );
   }
 
+  user = await user.populate({
+    path: "usn",
+    populate: "college course section batch",
+  });
+  // Set JWT and respond
   setJWT(user, 200, res); // Set JWT in cookie and send response
 });
 

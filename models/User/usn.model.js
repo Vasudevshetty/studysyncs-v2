@@ -38,17 +38,18 @@ const usnSchema = new mongoose.Schema(
       default: false,
     },
     verificationOtp: String,
+    otpExpires: Date, // New field to store OTP expiration time
   },
   { timestamps: true }
 );
 
-// Generate a 6-digit OTP verification code
+// Generate a 6-digit OTP verification code with expiration
 usnSchema.methods.createVerificationOTP = function () {
-  // Generate a random 6-digit number
   const otp = Math.floor(100000 + Math.random() * 900000).toString(); // Ensures a 6-digit number
 
-  // Store the hashed version of the OTP
+  // Store the hashed version of the OTP and set expiration time (10 minutes)
   this.verificationOtp = crypto.createHash("sha256").update(otp).digest("hex");
+  this.otpExpires = Date.now() + 1 * 60 * 1000; // OTP valid for 10 minutes
 
   return otp; // Return the raw OTP to send to the user
 };
