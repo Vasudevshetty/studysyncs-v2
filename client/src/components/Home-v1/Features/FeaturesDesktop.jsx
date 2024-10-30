@@ -25,12 +25,12 @@ function Features() {
       { threshold: 0.5 }
     );
 
-    sectionsRef.current.forEach((section) => {
+    sectionsRef?.current.forEach((section) => {
       observer.observe(section);
     });
 
     return () => {
-      sectionsRef.current.forEach((section) => {
+      sectionsRef?.current.forEach((section) => {
         observer.unobserve(section);
       });
     };

@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   font-family: Poppins;
+  background-color: #090909;
+}
+
+.bg-image {
+  background-image: url("./../public/Home/grid.png"); /* Change this path to your image file */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  opacity: 0.1;
+  z-index: 0;
 }
 
 * {
