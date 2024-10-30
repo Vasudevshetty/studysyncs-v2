@@ -150,6 +150,7 @@ const seedCoreData = async () => {
       })
     );
 
+    console.log("Registered Models:", mongoose.modelNames());
     console.log("Core Data seeded successfully");
     await mongoose.connection.close();
   } catch (error) {

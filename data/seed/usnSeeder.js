@@ -52,6 +52,7 @@ const seedUSNData = async () => {
       }
     }
 
+    console.log("Registered Models:", mongoose.modelNames());
     console.log("USN Data seeded successfully");
     await mongoose.connection.close();
   } catch (error) {
