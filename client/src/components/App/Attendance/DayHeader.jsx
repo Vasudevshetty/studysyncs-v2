@@ -8,7 +8,7 @@ export function DayHeader({ formattedDate }) {
         <span className="text-xl lg:text-3xl text-black dark:text-white font-semibold">
           {formattedDate[0]},
         </span>
-        <span className="dark:text-black text-xs">
+        <span className="dark:text-secondary text-xs">
           <span className="text-xl">{formattedDate[1].split(" ")[1]} </span>
           {formattedDate[1].split(" ")[0]}, {formattedDate[2]}
         </span>

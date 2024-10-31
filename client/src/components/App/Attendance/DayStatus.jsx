@@ -78,12 +78,12 @@ function DayStatus() {
     .split(", ");
 
   return (
-    <div className="flex p-2 gap-2 lg:flex-row sm:flex-col flex-col-reverse w-full items-center lg:max-h-[500px]">
-      <div className="flex-1 rounded-xl bg-white dark:bg-gray-400 max-lg:w-full h-full flex flex-col">
+    <div className="flex gap-2 lg:flex-row sm:flex-col flex-col-reverse w-full items-center lg:max-h-[500px]">
+      <div className="flex-1 rounded-xl bg-white dark:bg-app-secondary max-lg:w-full h-full flex flex-col">
         <DayHeader formattedDate={formattedDate} />
         <div className="p-2 flex-1 resources flex gap-2 md:flex-row flex-col">
           <div className="md:w-[85%] flex flex-col gap-2">
-            <div className="p-2 flex flex-col dark:bg-gray-600 bg-gray-300 h-[300px] rounded-xl">
+            <div className="p-2 flex flex-col dark:bg-app-tertiary bg-gray-300 h-[300px] rounded-xl">
               <h1 className="text-lg lg:text-2xl text-center text-black dark:text-white font-semibold">
                 Classes today !
               </h1>

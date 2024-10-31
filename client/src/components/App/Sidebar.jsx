@@ -34,7 +34,7 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
     <aside
       className={`fixed top-16 left-2 h-[calc(100vh-4.5rem)] z-40 rounded-2xl w-64 dark:bg-app-secondary dark:border-gray-700 sm:translate-x-0 transition-transform ${
         isSidebarOpen
-          ? "translate-x-0 dark:bg-[#21576c]"
+          ? "translate-x-0 dark:bg-[#001f34]"
           : "-translate-x-[110%] "
       }`}
       ref={sidebarRef}

@@ -27,7 +27,7 @@ function Calendar({ setAttendanceRecord }) {
           after: new Date(),
           before: new Date(user.timetable.start), // No need for spread operator
         }}
-        className="dark:bg-gray-300 p-2 rounded-xl bg-gray-800 dark:text-black text-white border-2 border-gray-400 dark:border-gray-600"
+        className="dark:bg-app-secondary p-4 rounded-xl bg-gray-800 text-white"
       />
       <Link
         className="items-center gap-2 p-2 h-10 bg-red-500 text-white rounded-xl w-fit group flex lg:hidden"

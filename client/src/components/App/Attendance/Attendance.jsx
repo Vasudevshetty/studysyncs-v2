@@ -4,9 +4,9 @@ import VisualStatus from "./VisualStatus";
 
 function Attendance() {
   return (
-    <section className="flex flex-col items-center">
+    <section className="flex flex-col items-center gap-2">
       <DayStatus />
-      <div className="flex w-full p-2 gap-2 h-[500px] max-lg:h-[800px] flex-col-reverse lg:flex-row">
+      <div className="flex w-full gap-2 h-[500px] max-lg:h-[800px] flex-col-reverse lg:flex-row pb-2">
         <History />
         <VisualStatus />
       </div>

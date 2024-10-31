@@ -5,7 +5,7 @@ import { generateSlug } from "@/constants/user";
 function Subject({ subject, setSelectedChapter, selectedChapter }) {
   return (
     <div className="h-full flex flex-col">
-      <h1 className="text-sm sm:text-2xl p-4 rounded-t-xl bg-gray-800 dark:bg-gray-600 text-gray-300">
+      <h1 className="text-sm sm:text-2xl p-4 rounded-t-xl dark:bg-app-tertiary text-secondary">
         {subject.name}
       </h1>
       <div className="flex-1 flex items-start gap-4 h-[90%] max-xl:flex-col p-2">
@@ -17,8 +17,8 @@ function Subject({ subject, setSelectedChapter, selectedChapter }) {
               onClick={() => setSelectedChapter(chapter)} // Update the selected chapter
               className={`flex items-center justify-evenly flex-col min-h-32 sm:min-h-40 w-32 sm:w-40 p-2 rounded-xl transition-all duration-500 ${
                 chapter.name === selectedChapter.name
-                  ? "bg-white scale-105 border-2 border-yellow-400"
-                  : "hover:bg-gray-300"
+                  ? "bg-app-tertiary scale-105 border-2 border-yellow-400"
+                  : "hover:bg-app-tertiary"
               }`}
             >
               <span className="text-5xl sm:text-8xl text-yellow-400 mb-2">
@@ -28,7 +28,7 @@ function Subject({ subject, setSelectedChapter, selectedChapter }) {
                   <FaFile />
                 )}
               </span>
-              <span className="w-full text-xs text-center overflow-hidden whitespace-nowrap text-ellipsis hover:overflow-auto hover:whitespace-normal hover:text-clip text-black">
+              <span className="w-full text-sm text-center overflow-hidden whitespace-nowrap text-ellipsis hover:overflow-auto hover:whitespace-normal hover:text-clip text-secondary">
                 {chapter.name}
               </span>
             </button>

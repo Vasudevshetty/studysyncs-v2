@@ -37,7 +37,7 @@ function AttendanceCard({ period, isExtraClass = false, onStatusChange }) {
   };
 
   return (
-    <div className="h-36 w-40 bg-gray-800 dark:bg-gray-300 rounded-xl items-center justify-between flex flex-col p-2 relative">
+    <div className="h-36 w-40 bg-gray-800 dark:bg-white rounded-xl items-center justify-between flex flex-col p-2 relative">
       {/* Attendance Info */}
       <div className="flex gap-2 items-center h-full w-full">
         <div className="flex flex-col justify-evenly h-full w-[calc(100%-4rem)]">

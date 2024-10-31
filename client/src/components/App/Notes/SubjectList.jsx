@@ -13,16 +13,16 @@ function SubjectList({ subjects, selectedSubject, setSelectedSubject }) {
         <button
           key={index}
           onClick={() => setSelectedSubject(subject)}
-          className={`z-10 flex items-center justify-center flex-col h-32 w-32 sm:w-40 sm:h-40 p-2 rounded-xl transition-all duration-500 ${
+          className={`z-10 flex items-center justify-evenly flex-col h-32 w-32 sm:w-40 sm:h-40 p-2 rounded-xl transition-all duration-500 ${
             selectedSubject === subject
-              ? "bg-white scale-105 border-2 border-yellow-400"
-              : "hover:bg-gray-300"
+              ? "bg-app-tertiary scale-105 border-2 border-yellow-400"
+              : "hover:bg-app-tertiary"
           }`}
         >
           <span className="text-6xl sm:text-8xl text-yellow-400 mb-2">
             {selectedSubject !== subject ? <FcFolder /> : <FcOpenedFolder />}
           </span>
-          <span className="w-full text-xs text-center overflow-hidden whitespace-nowrap text-ellipsis hover:overflow-auto hover:whitespace-normal hover:text-clip text-black">
+          <span className="w-full text-md text-center overflow-hidden whitespace-nowrap text-ellipsis text-secondary">
             {subject.name}
           </span>
         </button>
