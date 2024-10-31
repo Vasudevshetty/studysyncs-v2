@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true); // Dark mode enabled by default
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    }
+  }, [isDarkMode]); // Only run once on mount to apply initial theme
 
   const toggleTheme = () => {
     setIsDarkMode((prevMode) => !prevMode);

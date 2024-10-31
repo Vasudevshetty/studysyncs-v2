@@ -1,15 +1,16 @@
-import Features from "@/components/Home/Features";
-import Footer from "@/components/Home/Footer";
-import Hero from "@/components/Home/Hero";
-import Navbar from "@/components/Home/Navbar";
-import Testimony from "@/components/Home/Testimony";
+
+// import Features from "@/components/Home/Features";
+import Footer from "@/components/Home-v1/Footer";
+import Hero from "@/components/Home-v1/Hero";
+import Navbar from "@/components/Home-v1/Navbar";
+import Testimony from "@/components/Home-v1/Testimony";
 
 function HomeLayout() {
   return (
     <div>
       <Navbar />
       <Hero />
-      <Features />
+      {/* <Features /> */}
       <Testimony />
       <Footer />
     </div>

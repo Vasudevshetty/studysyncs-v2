@@ -4,6 +4,28 @@
 
 body {
   font-family: Poppins;
+  background-color: #090909;
+}
+
+.bg-image {
+  background-image: url("./../public/Home/grid.png"); /* Change this path to your image file */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  opacity: 0.2;
+  z-index: 0;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-in-out forwards;
 }
 
 * {
@@ -17,23 +39,25 @@ body {
 
 /* Scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
-  @apply dark:bg-gray-300 bg-gray-500;
-  @apply rounded-full;
-}
-
-/* Hover effect for the scrollbar thumb */
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400;
+  @apply dark:bg-app-secondary bg-gray-500;
 }
 
 /* Scrollbar track */
 ::-webkit-scrollbar-track {
-  @apply bg-gray-300;
-  @apply dark:bg-gray-700;
+  @apply bg-white;
+  @apply dark:bg-custom-black;
 }
 
+.resources ::-webkit-scrollbar {
+  @apply w-1 h-1;
+}
+/* Scrollbar thumb (the draggable part) */
+.resources ::-webkit-scrollbar-thumb {
+  @apply dark:bg-gray-500;
+}
 .resources ::-webkit-scrollbar-track {
-  @apply rounded-full;
+  @apply rounded-xl;
+  @apply dark:bg-custom-black;
 }
 
 .rdp-root {

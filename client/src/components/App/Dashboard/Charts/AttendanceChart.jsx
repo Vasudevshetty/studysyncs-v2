@@ -18,11 +18,11 @@ function AttendanceChart({ data }) {
     dataLabels: {
       enabled: false,
     },
-    colors: ["#020617"],
+    colors: ["#9dd2e7"],
     plotOptions: {
       bar: {
         columnWidth: "40%",
-        borderRadius: 2,
+        borderRadius: 3,
       },
     },
     xaxis: {
@@ -40,7 +40,7 @@ function AttendanceChart({ data }) {
           fontWeight: 400,
         },
       },
-      categories: data.categories,
+      categories: data.categories.map((id) => id.toUpperCase()),
     },
     yaxis: {
       labels: {
@@ -54,7 +54,7 @@ function AttendanceChart({ data }) {
     },
     grid: {
       show: true,
-      borderColor: isDarkMode ? "#ddd" : "#a0a0a0",
+      borderColor: isDarkMode ? "#dddddd60" : "#a0a0a0",
       strokeDashArray: 5,
       xaxis: {
         lines: {

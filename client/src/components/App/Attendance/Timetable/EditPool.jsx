@@ -1,4 +1,4 @@
-import { subjects } from "@/constants";
+import { subjects } from "@/constants/user";
 import { FaTrashAlt } from "react-icons/fa";
 import { HiOutlineCheck, HiOutlineXCircle } from "react-icons/hi";
 
@@ -11,12 +11,12 @@ function EditPool({ setIsEditing }) {
         </h1>
         <div className="flex-1 bg-gray-300 rounded-xl">
           <div className="flex-1 flex gap-3 p-2 flex-wrap overflow-y-auto">
-            {Object.keys(subjects).map((subject, index) => (
+            {subjects.map((subject, index) => (
               <span
-                className={`max-sm:text-xs h-12 min-w-12 sm:h-16 sm:min-w-16 flex items-center justify-center ${subjects[subject].color} text-white rounded-full uppercase font-bold cursor-pointer`}
+                className={`max-sm:text-xs h-12 min-w-12 sm:h-16 sm:min-w-16 flex items-center justify-center ${subject.color} text-white rounded-full uppercase font-bold cursor-pointer`}
                 key={index}
               >
-                {subject}
+                {subject.slug}
               </span>
             ))}
           </div>

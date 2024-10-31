@@ -1,0 +1,88 @@
+[
+  {
+    "name": "Database Management Systems",
+    "code": "510",
+    "credits": 4,
+    "slug": "DBMS",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "units": []
+  },
+  {
+    "name": "Computer Networks",
+    "code": "520",
+    "credits": 4,
+    "slug": "CN",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "units": []
+  },
+  {
+    "name": "Principles of Compilers",
+    "code": "530",
+    "credits": 4,
+    "slug": "POC",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "units": []
+  },
+  {
+    "name": "Artificial Intelligence",
+    "code": "540",
+    "credits": 4,
+    "slug": "AI",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "units": []
+  },
+  {
+    "name": "Cryptography and Network Security",
+    "code": "552",
+    "credits": 3,
+    "slug": "CNS",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "units": [],
+    "elective": true,
+    "electiveType": "Professional Elective"
+  },
+  {
+    "name": "Database Management Systems Lab",
+    "code": "57L",
+    "credits": 1.5,
+    "slug": "DBMSL",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "units": []
+  },
+  {
+    "name": "Computer Networks Lab",
+    "code": "58L",
+    "credits": 1.5,
+    "slug": "CNSL",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "units": []
+  }
+]

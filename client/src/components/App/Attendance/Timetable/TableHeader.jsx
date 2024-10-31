@@ -8,11 +8,11 @@ function TableHeader({ start, end, isEditing, setIsEditing }) {
           Timetable
         </h1>
         <div className="flex gap-1 sm:gap-2 items-center">
-          <p className="text-[8px] sm:text-xs text-white bg-green-500 p-1 rounded-xl">
+          <p className="text-[8px] sm:text-xs text-white bg-green-500 p-1 rounded-xl px-2">
             {start}
           </p>
           <span>-</span>
-          <p className="text-[8px] sm:text-xs text-white bg-red-500 p-1 rounded-xl">
+          <p className="text-[8px] sm:text-xs text-white bg-red-500 p-1 rounded-xl px-2">
             {end}
           </p>
         </div>

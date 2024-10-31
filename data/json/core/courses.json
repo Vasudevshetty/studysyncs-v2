@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Computer Science and Engineering",
+    "slug": "CS",
+    "durationInYears": 4
+  },
+  {
+    "name": "Electronics and Communication",
+    "slug": "EC",
+    "durationInYears": 4
+  }
+]
