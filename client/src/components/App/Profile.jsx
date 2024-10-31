@@ -20,7 +20,7 @@ function Profile() {
     phone: "1234567890",
     password: "",
     confirmPassword: "",
-    image: "/bg.jpg",
+    image: "https://www.svgrepo.com/show/192244/man-user.svg",
     course: "Cse",
     college: "Sjce, Mysuru",
   });

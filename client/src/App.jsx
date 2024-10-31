@@ -4,7 +4,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import HomeLayout from "./pages/HomeLayout";
+// import HomeLayout from "./pages/HomeLayout";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
@@ -22,6 +22,7 @@ import Timetable from "./components/App/Attendance/Timetable/Timetable";
 import { ModalProvider } from "./components/context/ModalContext";
 import SGPACalculator from "./components/App/GPACalculator/SGPACalculator";
 import CGPACalculator from "./components/App/GPACalculator/CGPACalculator";
+import HomeLayout2 from "./pages/HomeLayout2";
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
       <ModalProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<HomeLayout />} />
+            <Route path="/" element={<HomeLayout2 />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
 
