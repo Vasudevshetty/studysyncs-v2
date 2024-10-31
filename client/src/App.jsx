@@ -23,51 +23,56 @@ import { ModalProvider } from "./components/context/ModalContext";
 import SGPACalculator from "./components/App/GPACalculator/SGPACalculator";
 import CGPACalculator from "./components/App/GPACalculator/CGPACalculator";
 import HomeLayout2 from "./pages/HomeLayout2";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <ThemeProvider>
-      <ModalProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<HomeLayout2 />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider>
+        <ModalProvider>
+          <Router>
+            <Routes>
+              <Route path="/" element={<HomeLayout2 />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/login" element={<Login />} />
 
-            <Route
-              path="/app"
-              element={
-                <ProtectedRoute>
-                  <AppLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route path="" element={<Navigate to="dashboard" />} />
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="attendance">
-                <Route path="" element={<Attendance />} />
-                <Route path="timetable" element={<Timetable />} />
+              <Route
+                path="/app"
+                element={
+                  <ProtectedRoute>
+                    <AppLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="" element={<Navigate to="dashboard" />} />
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="attendance">
+                  <Route path="" element={<Attendance />} />
+                  <Route path="timetable" element={<Timetable />} />
+                </Route>
+
+                <Route path="notes">
+                  <Route path="" element={<Notes />} />
+                </Route>
+
+                <Route path="profile" element={<Profile />} />
+                <Route path="events" element={<Events />} />
+                <Route path="discuss" element={<Discuss />} />
+                <Route path="calculate-gpa">
+                  <Route path="" element={<GPACalculator />} />
+                  <Route path="sgpa" element={<SGPACalculator />} />
+                  <Route path="cgpa" element={<CGPACalculator />} />
+                </Route>
               </Route>
 
-              <Route path="notes">
-                <Route path="" element={<Notes />} />
-              </Route>
-
-              <Route path="profile" element={<Profile />} />
-              <Route path="events" element={<Events />} />
-              <Route path="discuss" element={<Discuss />} />
-              <Route path="calculate-gpa">
-                <Route path="" element={<GPACalculator />} />
-                <Route path="sgpa" element={<SGPACalculator />} />
-                <Route path="cgpa" element={<CGPACalculator />} />
-              </Route>
-            </Route>
-
-            <Route path="*" element={<PageNotFound />} />
-          </Routes>
-        </Router>
-      </ModalProvider>
-    </ThemeProvider>
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </Router>
+        </ModalProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
