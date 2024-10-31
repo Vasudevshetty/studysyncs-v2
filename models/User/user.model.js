@@ -40,6 +40,11 @@ const userSchema = new mongoose.Schema(
         message: "Please provide a valid image URL (jpg, jpeg, png, gif)",
       },
     },
+    role: {
+      type: String,
+      enum: ["user", "classRep", "admin"],
+      default: "user",
+    },
     googleId: {
       type: String,
       unique: true,

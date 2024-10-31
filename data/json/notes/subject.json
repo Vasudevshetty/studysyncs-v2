@@ -9,7 +9,7 @@
       "year": 2022,
       "course": "CS"
     },
-    "chapters": []
+    "units": []
   },
   {
     "name": "Computer Networks",
@@ -21,7 +21,7 @@
       "year": 2022,
       "course": "CS"
     },
-    "chapters": []
+    "units": []
   },
   {
     "name": "Principles of Compilers",
@@ -33,7 +33,7 @@
       "year": 2022,
       "course": "CS"
     },
-    "chapters": []
+    "units": []
   },
   {
     "name": "Artificial Intelligence",
@@ -45,7 +45,7 @@
       "year": 2022,
       "course": "CS"
     },
-    "chapters": []
+    "units": []
   },
   {
     "name": "Cryptography and Network Security",
@@ -57,6 +57,32 @@
       "year": 2022,
       "course": "CS"
     },
-    "chapters": []
+    "units": [],
+    "elective": true,
+    "electiveType": "Professional Elective"
+  },
+  {
+    "name": "Database Management Systems Lab",
+    "code": "57L",
+    "credits": 1.5,
+    "slug": "DBMSL",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "units": []
+  },
+  {
+    "name": "Computer Networks Lab",
+    "code": "58L",
+    "credits": 1.5,
+    "slug": "CNSL",
+    "semester": 5,
+    "batch": {
+      "year": 2022,
+      "course": "CS"
+    },
+    "units": []
   }
 ]

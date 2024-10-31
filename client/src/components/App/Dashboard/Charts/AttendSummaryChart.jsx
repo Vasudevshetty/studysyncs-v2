@@ -17,7 +17,7 @@ function AttendSummaryChart({ data }) {
         colors: isDarkMode ? "#dddddd" : "#616161",
       },
     },
-    colors: ["#1E90FF", "#FF6347", "#32CD32", "#FFD700"],
+    colors: ["#32cd32", "#FF6347", "#FFD700"],
     tooltip: {
       theme: isDarkMode ? "dark" : "light",
     },

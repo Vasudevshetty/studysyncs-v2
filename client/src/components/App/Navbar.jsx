@@ -8,7 +8,7 @@ function Navbar({ toggleSidebar }) {
   const { isDarkMode, toggleTheme } = useTheme(); // Use the context
 
   return (
-    <nav className="fixed top-0 flex z-50 w-full bg-white items-center justify-between px-1 sm:px-5 py-3 border-b dark:bg-gray-800 dark:border-gray-700">
+    <nav className="fixed top-0 flex z-50 w-full h-16 items-center justify-between px-1 sm:px-5 py-3 dark:bg-custom-black">
       <div className="flex items-center justify-between rtl:justify-end">
         <button
           className="inline-flex p-2 items-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600 dark:hover:bg-gray-700 sm:hidden"
@@ -23,7 +23,7 @@ function Navbar({ toggleSidebar }) {
           <img
             src="/syncs.png"
             alt="logo"
-            className="h-12 w-fit ml-2 max-sm:h-10"
+            className="h-10 w-fit ml-2 max-sm:h-10"
           />
           <span className="md:block hidden text-3xl font-semibold dark:text-[#60cffb] text-[#224f94]">
             Studysyncs

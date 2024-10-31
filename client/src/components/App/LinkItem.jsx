@@ -7,7 +7,7 @@ function LinkItem({ link, icon: Icon, text, badge, onClick, isActive }) {
         to={link}
         className={`flex items-center p-2 rounded-lg focus:outline-none ${
           isActive
-            ? "bg-primary-blue text-white"
+            ? "bg-app-tertiary text-white"
             : "text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
         }`}
         onClick={onClick}

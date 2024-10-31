@@ -18,7 +18,7 @@ function CgpaChart({ data }) {
     stroke: {
       curve: "smooth",
     },
-    colors: ["#20B2AA", "#FF6347"],
+    colors: ["#ac12ee", "#14e97b"],
     xaxis: {
       categories: data.categories,
       labels: {
@@ -41,7 +41,7 @@ function CgpaChart({ data }) {
       },
     },
     grid: {
-      borderColor: isDarkMode ? "#ddd" : "#a0a0a0",
+      borderColor: isDarkMode ? "#dddddd80" : "#a0a0a0",
       strokeDashArray: 5,
       xaxis: {
         lines: {

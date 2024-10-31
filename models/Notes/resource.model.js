@@ -14,14 +14,14 @@ const resourceSchema = new mongoose.Schema(
       type: String,
       required: [true, "Resource must have a URL"],
     },
+    unit: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Unit",
+      required: [true, "Resource must belong to a chapter"],
+    },
     chapter: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Chapter",
-      required: [true, "Resource must belong to a chapter"],
-    },
-    module: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Module",
     },
   },
   { timestamps: true }

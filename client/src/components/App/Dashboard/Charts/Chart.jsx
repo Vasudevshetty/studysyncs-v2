@@ -7,7 +7,7 @@ function Chart({ title, children }) {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-400 rounded-xl w-full flex items-center justify-center flex-col">
+    <div className="bg-white dark:bg-app-secondary rounded-xl w-full flex items-center justify-center flex-col">
       <Link
         to={getLink()}
         className="focus:outline-none text-center text-2xl text-gray-800 font-bold dark:text-gray-200 pt-4"

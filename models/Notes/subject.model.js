@@ -29,10 +29,22 @@ const subjectSchema = new mongoose.Schema(
       ref: "Batch",
       required: true,
     },
-    chapters: [
+    elective: {
+      type: Boolean,
+      default: false,
+    },
+    electiveType: {
+      type: String,
+      enum: ["open", "professional"],
+      required: function () {
+        return this.isElective;
+      }, // electiveType is required if isElective is true
+      default: null,
+    },
+    units: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Chapter",
+        ref: "Unit",
       },
     ],
   },
