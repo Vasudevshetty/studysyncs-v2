@@ -6,6 +6,7 @@ const setJWT = require("../util/setJWT");
 const sendEmail = require("../util/sendEmail");
 const crypto = require("crypto");
 const template = require("../data/html/template");
+const bcrypt = require("bcryptjs");
 
 const College = require("../models/Core/college.model");
 const Course = require("../models/Core/course.model");
@@ -17,7 +18,7 @@ exports.checkUSNAndSendOTP = catchAsync(async (req, res, next) => {
 
   const usnDoc = await USN.findOne({ usn });
   if (!usnDoc) return next(new AppError("USN not found", 404));
-  
+
   // Check if the USN is already verified
   if (usnDoc.isVerified) {
     return next(new AppError("This USN is already verified", 400));
@@ -178,3 +179,91 @@ exports.logout = (req, res) => {
     .status(200)
     .json({ success: true, message: "Logged out successfully" });
 };
+
+exports.forgotPassword = catchAsync(async (req, res, next) => {
+  const { email } = req.body;
+
+  // Find the user by email
+  const user = await User.findOne({ email });
+  if (!user) {
+    return next(new AppError("No user found with this email address", 404));
+  }
+
+  // Generate a reset token
+  const resetToken = user.createPasswordResetToken();
+  await user.save({ validateBeforeSave: false }); // Skip validation for the reset token
+
+  // Send the token via email
+  const resetURL = `${process.env.FRONTEND_URL}/resetPassword/${resetToken}`; // Update with your frontend URL
+
+  await sendEmail({
+    // from: "Studysyncs <help@studysyncs.com>",
+    to: user.email,
+    subject: "Password Reset Request",
+    html: template(` 
+      <!-- Body Content -->
+      <div style="padding: 20px; color: #333;">
+        <h2 style="text-align: center; color: #333;">Password Reset Request</h2>
+        <p style="font-size: 1.1em; margin: 20px 0;">
+          Hello ${user.email},
+        </p>
+        <p style="margin: 0 0 20px;">
+          We received a request to reset your password. If you made this request, please click the link below to reset your password:
+        </p>
+        
+        <!-- Reset Link Section -->
+        <div style="text-align: center; margin: 20px 0;">
+          <a href="${resetURL}" style="padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Reset Password</a>
+          <span>${resetToken}</span>
+        </div>
+        
+        <p style="margin: 0 0 20px;">
+          If you did not request a password reset, please ignore this email. Your password will not be changed.
+        </p>
+        
+        <p style="margin: 0;">This link will expire in 10 minutes.</p>
+      </div>`),
+  });
+
+  res.status(200).json({
+    status: "success",
+    message: "Token sent to email!",
+  });
+});
+
+exports.resetPassword = catchAsync(async (req, res, next) => {
+  const { token, newPassword, confirmPassword } = req.body;
+
+  // Find user by the reset token
+  const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+  const user = await User.findOne({
+    passwordResetToken: hashedToken,
+    passwordResetExpires: { $gt: Date.now() },
+  }).select("+password");
+
+  if (!user) {
+    return next(new AppError("Token is invalid or has expired", 400));
+  }
+
+  // Check if new password and confirm password match
+  if (newPassword !== confirmPassword) {
+    return next(new AppError("Passwords do not match", 400));
+  }
+
+  // Check if the new password is the same as the old password
+  const isSameAsOldPassword = await bcrypt.compare(newPassword, user.password);
+  if (isSameAsOldPassword) {
+    return next(
+      new AppError("New password must be different from the old password", 400)
+    );
+  }
+
+  // Update user's password
+  user.password = newPassword; // Assuming password is hashed in the User model pre-save hook
+  user.passwordResetToken = undefined; // Clear the reset token
+  user.passwordResetExpires = undefined; // Clear the expiry
+  await user.save();
+
+  // Set JWT and respond
+  setJWT(user, 200, res); // Set JWT in cookie and send response
+});
