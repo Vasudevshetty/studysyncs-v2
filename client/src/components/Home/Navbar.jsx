@@ -9,14 +9,14 @@ function Navbar() {
       {/* Desktop Navbar */}
       <div className="hidden lg:flex justify-between items-center">
         <div className="text-white px-14 flex gap-3 items-center py-1">
-          <h1 className="text-xs sm:text-3xl font-bold">StudySyncs</h1>
+          <h1 className="text-3xl font-bold">StudySyncs</h1>
         </div>
 
-        <div className="text-white bg-secondary-blue px-12 pt-3 w-1/2 flex justify-around items-center opacity-80 rounded-tr-3xl box">
-          <a href="#" className="hover:text-gray-400">Home</a>
-          <a href="#" className="hover:text-gray-400">Features</a>
-          <a href="#" className="hover:text-gray-400">About Us</a>
-          <a href="#" className="hover:text-gray-400">Testimony</a>
+        <div className="text-white bg-secondary-blue px-12 pt-3 w-1/2 flex justify-around items-center opacity-80 rounded-tr-3xl box lg:gap-4   ">
+          <a href="#" className="hover:text-gray-400 ">Home</a>
+          <a href="#" className="hover:text-gray-400 ">Features</a>
+          <a href="#" className="hover:text-gray-400">About</a>
+          <a href="#" className="hover:text-gray-400 ">Testimony</a>
           <button className="flex items-center gap-2 rounded-3xl px-4 py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10">
             <FiUser size={24} />
             <span className="font-medium">Login</span>
@@ -25,19 +25,19 @@ function Navbar() {
       </div>
 
       {/* Mobile and Tablet Navbar */}
-      <div className="lg:hidden flex justify-between items-center bg-primary text-white p-3">
-        <h1 className="text-lg font-bold">StudySyncs</h1>
+      <div className="lg:hidden flex justify-between items-center bg-primary text-white p-2 ">
+        <h1 className="text-xl  md:text-2xl ml-6 font-bold">StudySyncs</h1>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-8">
           {/* Login Button */}
-          <button className="flex items-center gap-1 text-xs rounded-3xl px-3 py-1 hover:bg-login-bg-hover bg-login-bg border border-opacity-10">
-            <FiUser size={18} />
-            <span className="font-medium">Login</span>
+          <button className="flex items-center gap-1 text-xs rounded-3xl px-3 py-1 md:px-6 md:py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10">
+            <FiUser size={22} />
+            <span className="font-medium md:text-[16px]">Login</span>
           </button>
 
           {/* Mobile/Tablet Menu Icon */}
           <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-            {isOpen ? "" : <FiMenu size={24} />}
+            {isOpen ? "" : <FiMenu size={30} />}
           </button>
         </div>
       </div>
