@@ -5,7 +5,7 @@ import HoverCard from "@/components/Home/HoverCard";
 import TypingAnimation from "@/components/ui/typing-animation";
 import { FcCheckmark } from "react-icons/fc";
 
-function UsnVerification() {
+function CheckUsn() {
   return (
     <UtilLayout>
       <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-evenly h-full w-full p-4">
@@ -14,7 +14,7 @@ function UsnVerification() {
           <div className="w-full flex flex-col  items-start lg:items-center">
             <h1 className="text-white font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wider text-left lg:text-center flex flex-col gap-1">
               Welcome to
-              <span className="text-primary-yellow font-segoe-script font-bold mt-2">
+              <span className="text-primary-yellow font-segoe-script font-bold mt-2 text-xl sm:text-3xl">
                 <TypingAnimation
                   text="StudySyncs..."
                   typingSpeed={200}
@@ -42,8 +42,11 @@ function UsnVerification() {
               Enter your USN
             </label>
             <div className="flex items-center ">
-              <input className="p-2 rounded-2xl bg-[#E3E3E350] flex-1 h-12 text-white  focus:outline-none" type="email" />
-              <span className="p-2 bg-white h-16 w-16 flex justify-center items-center rounded-full -ml-12">
+              <input
+                className="p-2 rounded-2xl bg-[#E3E3E350] flex-1 h-12 text-white  focus:outline-none"
+                type="email"
+              />
+              <span className="p-2 bg-white h-12 sm:h-16 w-16 flex justify-center items-center rounded-full -ml-10">
                 <FcCheckmark size={26} fontWeight={"bold"} />
               </span>
             </div>
@@ -64,4 +67,4 @@ function UsnVerification() {
   );
 }
 
-export default UsnVerification;
+export default CheckUsn;

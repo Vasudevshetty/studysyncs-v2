@@ -105,7 +105,7 @@ function Login() {
             <p className="text-gray-100/50 text-xs sm:text-xs md:text-sm mt-2 tracking-wider font-medium">
               Don't have an account yet?{" "}
               <Link
-                to="/signup"
+                to="/check-usn"
                 className="text-primary-blue font-semibold hover:underline tracking-wide"
               >
                 Sign up
