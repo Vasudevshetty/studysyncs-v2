@@ -34,10 +34,10 @@ function Navbar() {
 
         <div className="flex items-center gap-8">
           {/* Login Button */}
-          <button className="flex items-center gap-1 text-xs rounded-3xl px-3 py-1 md:px-6 md:py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10">
+          <Link  to="/login" className="flex items-center gap-1 text-xs rounded-3xl px-3 py-1 md:px-6 md:py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10">
             <FiUser size={22} />
             <span className="font-medium md:text-[16px]">Login</span>
-          </button>
+          </Link>
 
           {/* Mobile/Tablet Menu Icon */}
           <button onClick={() => setIsOpen(!isOpen)} className="text-white">
@@ -48,7 +48,7 @@ function Navbar() {
 
       {/* Slide-in Menu for Mobile/Tablet */}
       <div
-        className={`fixed top-0 right-0 h-full bg-gradient-to-br from-primary-blue to-secondary-blue transform ${
+        className={`fixed top-0 right-0 h-full bg-primary-blue transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 w-3/4 sm:w-2/3 md:w-1/2 z-50 lg:hidden`}
       >

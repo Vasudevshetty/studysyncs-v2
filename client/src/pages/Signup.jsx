@@ -1,58 +1,75 @@
-const Signup = () => {
+/* eslint-disable react/no-unescaped-entities */
+import { Link } from "react-router-dom";
+import UtilLayout from "./UtilLayout";
+import HoverCard from "@/components/Home/HoverCard";
+
+function Signup({ unmaskedEmail = "teju270934@gmail.com" }) {
   return (
-    <div className="w-full bg-gradient-to-r from-green-100 to-green-300 min-h-screen">
-      {/* Logo */}
-      <img src="/logo.png" className="h-12 sm:h-24 mb-6" alt="Logo" />
+    <UtilLayout>
+      <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-evenly h-full w-full p-4">
+        {/* Left side with welcome text and image */}
+        <div className="border-b lg:border-b-0 lg:border-r flex flex-col w-full lg:w-1/2 p-4 items-center justify-center mb-4 lg:mb-0">
+          <div className="w-full flex flex-col items-start lg:items-center">
+            <h1 className="text-white font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wider text-left lg:text-center flex flex-col gap-1">
+              Hey,
+              <span className="text-primary-yellow font-segoe-script font-bold ">
+                {unmaskedEmail}
+              </span>
+            </h1>
+            <h2 className="text-gray-100/60 text-sm sm:text-md md:text-lg lg:text-lg tracking-wide font-semibold mt-2 lg:mt-2">
+              Let's get you signed in!
+            </h2>
+          </div>
+          <HoverCard>
+            <img
+              src="/Home/Login.png"
+              className="h-52 w-52 lg:h-[43vh] lg:w-auto rounded-full mt-4 lg:mt-0"
+              alt="Login illustration"
+            />
+          </HoverCard>
+        </div>
 
-      <div className="flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
-        {/* Form Container */}
-        <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
-          <h1 className="text-5xl font-bold tracking-wider text-center mb-4 text-gray-700">
-            Welcome
-          </h1>
-          <h2 className="text-xl text-gray-500 mb-6 text-center">
-            Enter your University Seat Number to proceed
-          </h2>
+        {/* Right side with form */}
+        <div className="flex flex-col gap-4 w-full lg:w-1/2 p-4 lg:p-6 items-center justify-center">
+          <div className="flex flex-col gap-1 w-full sm:w-4/5 md:w-3/5 ">
+            <label className="text-gray-100/60 text-sm md:text-md lg:text-lg">
+              Enter your Username
+            </label>
+            <input className="p-2 rounded-2xl bg-[#E3E3E350]" type="email" />
+          </div>
 
-          {/* Form */}
-          <form className="space-y-6">
-            <div className="flex flex-col">
-              <label
-                htmlFor="usn"
-                className="mb-2 text-gray-600 font-medium text-sm"
-              >
-                Enter your USN:
-              </label>
-              <div className="relative">
-                <input
-                  id="usn"
-                  type="text"
-                  placeholder="02JST22UCS125"
-                  className="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                />
-                <span className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500">
-                  <i className="fas fa-user"></i>
-                </span>
-              </div>
-            </div>
+          <div className="flex flex-col gap-1 w-full sm:w-4/5 md:w-3/5 ">
+            <label className="text-gray-100/60 text-sm md:text-md lg:text-lg">
+              Enter password
+            </label>
+            <input className="p-2 rounded-2xl bg-[#E3E3E350]" type="password" />
+          </div>
+          <div className="flex flex-col gap-1 w-full sm:w-4/5 md:w-3/5 ">
+            <label className="text-gray-100/60 text-sm md:text-md lg:text-lg">
+              Confirm password
+            </label>
+            <input className="p-2 rounded-2xl bg-[#E3E3E350]" type="password" />
+          </div>
 
-            {/* Search Button */}
-            <button
-              type="submit"
-              className="w-1/4  bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105 duration-300 ease-in-out"
-            >
-              Search
+          {/* Login button and sign up link */}
+          <div className="flex items-center justify-center w-full sm:w-4/5 md:w-3/5 flex-col gap-2">
+            <button className="bg-primary-blue h-12 w-36   text-base md:text-[1.2rem] rounded-2xl text-white font-semibold active:bg-secondary-blue active:translate-y-1">
+              Sign up
             </button>
-          </form>
+            <p className="text-gray-100/50 text-xs sm:text-xs md:text-sm mt-2 tracking-wider font-medium">
+              Already have an account?{" "}
+              <Link
+                to="/login"
+                className="text-primary-blue font-semibold hover:underline tracking-wide"
+              >
+                Log in
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="mt-10 text-center text-gray-500 text-sm">
-        © 2024 YourCompany. All rights reserved.
-      </footer>
-    </div>
+    </UtilLayout>
   );
-};
+}
 
 export default Signup;

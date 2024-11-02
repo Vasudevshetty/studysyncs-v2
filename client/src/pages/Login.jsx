@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import UtilLayout from "./UtilLayout";
 import TypingAnimation from "../components/Home/TypingAnimation"; // Import the TypingAnimation component
 import HoverCard from "@/components/Home/HoverCard";
+import { useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 function Login() {
+  const [showPassword, setShowPassword] = useState(false); // State for password visibility
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev); // Toggle the password visibility
+  };
+
   return (
     <UtilLayout>
       <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-evenly h-full w-full p-4">
@@ -43,7 +51,7 @@ function Login() {
             <input className="p-2 rounded-2xl bg-[#E3E3E350]" type="email" />
           </div>
 
-          <div className="flex flex-col gap-1 w-full sm:w-4/5 md:w-3/5 ">
+          <div className="flex flex-col gap-1 w-full sm:w-4/5 md:w-3/5 relative">
             <div className="flex justify-between items-center w-full">
               <label className="text-gray-100/60 text-sm md:text-md lg:text-lg">
                 Enter password
@@ -55,7 +63,22 @@ function Login() {
                 Forgot password?
               </Link>
             </div>
-            <input className="p-2 rounded-2xl bg-[#E3E3E350]" type="password" />
+            <input
+              className="p-2 rounded-2xl bg-[#E3E3E350] pr-10" // Added padding for the icon
+              type={showPassword ? "text" : "password"} // Toggle between text and password
+            />
+            <button
+              type="button"
+              onClick={togglePasswordVisibility}
+              className="absolute right-3 top-10" // Position the icon within the input
+              aria-label="Toggle password visibility"
+            >
+              {showPassword ? (
+                <FiEye size={18} className="text-gray-100  " />
+              ) : (
+                <FiEyeOff size={18} className="text-gray-100 " />
+              )}
+            </button>
           </div>
 
           {/* Remember me section aligned to the start */}
@@ -76,7 +99,7 @@ function Login() {
 
           {/* Login button and sign up link */}
           <div className="flex items-center justify-center w-full sm:w-4/5 md:w-3/5 flex-col gap-2">
-            <button className="bg-primary-blue h-10 md:h-12 w-24 md:w-32 text-sm sm:text-base md:text-[1.2rem] rounded-2xl text-white font-semibold active:bg-secondary-blue active:translate-y-1">
+            <button className="bg-primary-blue h-12  w-36 text-base md:text-[1.2rem] rounded-2xl text-white font-semibold active:bg-secondary-blue active:translate-y-1">
               Login
             </button>
             <p className="text-gray-100/50 text-xs sm:text-xs md:text-sm mt-2 tracking-wider font-medium">
