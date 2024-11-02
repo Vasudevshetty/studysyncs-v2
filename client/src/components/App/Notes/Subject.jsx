@@ -5,7 +5,7 @@ import { generateSlug } from "@/constants/user";
 function Subject({ subject, setSelectedChapter, selectedChapter }) {
   return (
     <div className="h-full flex flex-col">
-      <h1 className="text-sm sm:text-2xl p-4 rounded-t-xl dark:bg-app-tertiary text-secondary">
+      <h1 className="text-sm sm:text-2xl p-4 rounded-t-xl bg-[#007bff] dark:bg-app-tertiary dark:text-secondary text-white">
         {subject.name}
       </h1>
       <div className="flex-1 flex items-start gap-4 h-[90%] max-xl:flex-col p-2">
@@ -15,11 +15,11 @@ function Subject({ subject, setSelectedChapter, selectedChapter }) {
             <button
               key={generateSlug(chapter.name)} // Use chapter slug as key for better performance
               onClick={() => setSelectedChapter(chapter)} // Update the selected chapter
-              className={`flex items-center justify-evenly flex-col min-h-32 sm:min-h-40 w-32 sm:w-40 p-2 rounded-xl transition-all duration-500 ${
+              className={`flex items-center justify-evenly flex-col min-h-32 sm:h-40 w-32 sm:w-40 p-2 rounded-xl transition-all duration-500 ${
                 chapter.name === selectedChapter.name
-                  ? "bg-app-tertiary scale-105 border-2 border-yellow-400"
-                  : "hover:bg-app-tertiary"
-              }`}
+                  ? "bg-app-light-secondary dark:bg-app-tertiary scale-105 border-2 border-yellow-400"
+                  : "hover:bg-app-light-tertiary hover:dark:bg-app-tertiary"
+              } overflow-hidden relative`}
             >
               <span className="text-5xl sm:text-8xl text-yellow-400 mb-2">
                 {chapter.name === selectedChapter.name ? (
@@ -28,7 +28,7 @@ function Subject({ subject, setSelectedChapter, selectedChapter }) {
                   <FaFile />
                 )}
               </span>
-              <span className="w-full text-sm text-center overflow-hidden whitespace-nowrap text-ellipsis hover:overflow-auto hover:whitespace-normal hover:text-clip text-secondary">
+              <span className="w-full text-lg text-center dark:text-secondary text-black marquee">
                 {chapter.name}
               </span>
             </button>

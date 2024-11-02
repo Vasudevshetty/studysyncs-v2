@@ -18,7 +18,7 @@ function AttendanceChart({ data }) {
     dataLabels: {
       enabled: false,
     },
-    colors: ["#9dd2e7"],
+    colors: ["#007bff"],
     plotOptions: {
       bar: {
         columnWidth: "40%",
