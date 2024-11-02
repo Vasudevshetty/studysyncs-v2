@@ -1,5 +1,6 @@
 import { FiUser, FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,10 @@ function Navbar() {
           <a href="#" className="hover:text-gray-400 ">Features</a>
           <a href="#" className="hover:text-gray-400">About</a>
           <a href="#" className="hover:text-gray-400 ">Testimony</a>
-          <button className="flex items-center gap-2 rounded-3xl px-4 py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10">
+          <Link to="/app" className="flex items-center gap-2 rounded-3xl px-4 py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10">
             <FiUser size={24} />
             <span className="font-medium">Login</span>
-          </button>
+          </Link>
         </div>
       </div>
 
