@@ -48,7 +48,7 @@ function Login() {
             <label className="text-gray-100/60 text-sm md:text-md lg:text-lg">
               Enter email
             </label>
-            <input className="p-2 rounded-2xl bg-[#E3E3E350]" type="email" />
+            <input className="p-2 rounded-2xl bg-[#E3E3E350] text-white  focus:outline-none" type="email" />
           </div>
 
           <div className="flex flex-col gap-1 w-full sm:w-4/5 md:w-3/5 relative">
@@ -99,9 +99,9 @@ function Login() {
 
           {/* Login button and sign up link */}
           <div className="flex items-center justify-center w-full sm:w-4/5 md:w-3/5 flex-col gap-2">
-            <button className="bg-primary-blue h-12  w-36 text-base md:text-[1.2rem] rounded-2xl text-white font-semibold active:bg-secondary-blue active:translate-y-1">
+            <Link to="/app" className="bg-primary-blue h-12  w-36 text-base md:text-[1.2rem] rounded-2xl text-white font-semibold active:bg-secondary-blue active:translate-y-1 flex justify-center items-center">
               Login
-            </button>
+            </Link>
             <p className="text-gray-100/50 text-xs sm:text-xs md:text-sm mt-2 tracking-wider font-medium">
               Don't have an account yet?{" "}
               <Link
