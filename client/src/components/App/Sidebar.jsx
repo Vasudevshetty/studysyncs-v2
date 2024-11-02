@@ -32,10 +32,10 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
 
   return (
     <aside
-      className={`fixed top-16 left-2 h-[calc(100vh-4.5rem)] z-40 rounded-2xl w-64 dark:bg-app-secondary dark:border-gray-700 sm:translate-x-0 transition-transform ${
+      className={`fixed top-16 left-2 h-[calc(100vh-4.5rem)] z-40 rounded-2xl w-64  bg-app-light-primary dark:border-gray-700 sm:translate-x-0 transition-transform ${
         isSidebarOpen
-          ? "translate-x-0 dark:bg-[#001f34]"
-          : "-translate-x-[110%] "
+          ? "translate-x-0 dark:bg-[#001f34] "
+          : "-translate-x-[110%] dark:bg-app-secondary"
       }`}
       ref={sidebarRef}
       onTouchStart={handleTouchStart}

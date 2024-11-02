@@ -16,7 +16,7 @@ function AppLayout() {
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />
-      <main className="absolute top-16 sm:left-[17rem] left-2 right-2 text-gray-500 translate-all duration-300 dark:bg-custom-black bg-gray-200">
+      <main className="absolute top-16 sm:left-[17rem] left-2 right-2 translate-all duration-300 dark:bg-custom-black bg-custom-light">
         <Outlet />
       </main>
       <SpringModal

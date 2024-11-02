@@ -6,10 +6,10 @@ import {
   FaDiscord,
   FaCalendarCheck,
   FaCalculator,
-  FaUpload,
   FaRegCircle,
   FaBookmark,
   FaDownload,
+  FaSave,
 } from "react-icons/fa";
 import { HiCheck, HiOutlinePlus, HiOutlineXCircle, HiX } from "react-icons/hi";
 import { Resource } from "@/components/App/Resource";
@@ -93,7 +93,7 @@ export const statusColors = {
 };
 
 export const attendanceOptions = [
-  { icon: FaUpload, name: "Upload", color: "bg-green-500" },
+  { icon: FaSave, name: "Save", color: "bg-green-500" },
   { icon: HiOutlinePlus, name: "Extra Class", color: "bg-yellow-500" },
   { icon: HiOutlineXCircle, name: "Reset", color: "bg-gray-800" },
 ];
