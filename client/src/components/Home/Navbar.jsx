@@ -14,11 +14,14 @@ function Navbar() {
         </div>
 
         <div className="text-white bg-secondary-blue px-12 pt-3 w-1/2 flex justify-around items-center opacity-80 rounded-tr-3xl box lg:gap-4   ">
-          <a href="#" className="hover:text-gray-400 ">Home</a>
-          <a href="#" className="hover:text-gray-400 ">Features</a>
-          <a href="#" className="hover:text-gray-400">About</a>
-          <a href="#" className="hover:text-gray-400 ">Testimony</a>
-          <Link to="/app" className="flex items-center gap-2 rounded-3xl px-4 py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10">
+          <a className="hover:text-gray-400 ">Home</a>
+          <a className="hover:text-gray-400 ">Features</a>
+          <a className="hover:text-gray-400">About</a>
+          <a className="hover:text-gray-400 ">Testimony</a>
+          <Link
+            to="/login"
+            className="flex items-center gap-2 rounded-3xl px-4 py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10"
+          >
             <FiUser size={24} />
             <span className="font-medium">Login</span>
           </Link>
@@ -26,7 +29,7 @@ function Navbar() {
       </div>
 
       {/* Mobile and Tablet Navbar */}
-      <div className="lg:hidden flex justify-between items-center bg-primary text-white p-2 ">
+      <div className="lg:hidden flex justify-between items-center  text-white p-2 ">
         <h1 className="text-xl  md:text-2xl ml-6 font-bold">StudySyncs</h1>
 
         <div className="flex items-center gap-8">
@@ -58,10 +61,18 @@ function Navbar() {
         </button>
 
         <div className="flex flex-col items-center space-y-6 mt-24 text-white">
-          <a href="#" className="hover:text-gray-300">Home</a>
-          <a href="#" className="hover:text-gray-300">Features</a>
-          <a href="#" className="hover:text-gray-300">About Us</a>
-          <a href="#" className="hover:text-gray-300">Testimony</a>
+          <a href="#" className="hover:text-gray-300">
+            Home
+          </a>
+          <a href="#" className="hover:text-gray-300">
+            Features
+          </a>
+          <a href="#" className="hover:text-gray-300">
+            About Us
+          </a>
+          <a href="#" className="hover:text-gray-300">
+            Testimony
+          </a>
         </div>
       </div>
     </div>
