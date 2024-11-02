@@ -4,7 +4,7 @@
 
 body {
   font-family: Poppins;
-  background-color: #090909;
+  @apply dark:bg-custom-black bg-custom-light;
 }
 
 .bg-image {
@@ -59,4 +59,19 @@ body {
   --mask: linear-gradient(135deg, #0000 42.43px, #000 0);
   -webkit-mask: var(--mask);
   mask: var(--mask);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(70%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite; /* Adjust duration as needed */
 }

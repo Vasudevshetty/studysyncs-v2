@@ -6,19 +6,25 @@ export default {
     extend: {
       colors: {
         "custom-black": "#090909",
+        "custom-light": "#eaeaea",
         "primary-blue": "#1B95C5",
         "secondary-blue": "rgba(34, 186, 246, 0.35)",
+
         "app-primary": "#004c6921",
+        "app-light-primary": "#fcfcfc",
         "app-secondary": "#03597b40",
+        "app-light-secondary": "#eee",
         "app-tertiary": "#00456760",
-        "primary": "#fff",
-        "secondary": "#e5e5e5",
+        "app-light-tertiary": "#ddd",
+
+        primary: "#fff",
+        secondary: "#e5e5e5",
 
         "tertiary-blue": "rgba(34, 186, 246, 0.4)",
         "primary-yellow": "#FFFC2D",
         "login-bg": "#D9D9D935",
         "login-bg-hover": "#D9D9D950",
-        "text-primary":"#F3F3F390"
+        "text-primary": "#F3F3F390",
       },
       fontFamily: {
         "segoe-script": ['"Segoe Script"', "cursive"], // Added Segoe Script font family

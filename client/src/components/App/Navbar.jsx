@@ -8,7 +8,7 @@ function Navbar({ toggleSidebar }) {
   const { isDarkMode, toggleTheme } = useTheme(); // Use the context
 
   return (
-    <nav className="fixed top-0 flex z-50 w-full h-16 items-center justify-between px-1 sm:px-5 py-3 dark:bg-custom-black">
+    <nav className="fixed top-0 flex z-50 w-full h-16 items-center justify-between px-1 sm:px-5 py-3 dark:bg-[#09090970] backdrop-blur-md bg-[#eaeaea70]">
       <div className="flex items-center justify-between rtl:justify-end">
         <button
           className="inline-flex p-2 items-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600 dark:hover:bg-gray-700 sm:hidden"
@@ -26,7 +26,7 @@ function Navbar({ toggleSidebar }) {
             className="h-10 w-fit ml-2 max-sm:h-10"
           />
           <span className="md:block hidden text-3xl font-semibold dark:text-[#60cffb] text-[#224f94]">
-            Studysyncs
+            StudySyncs
           </span>
         </Link>
       </div>
@@ -43,7 +43,7 @@ function Navbar({ toggleSidebar }) {
         </div>
         <a
           href="https://github.com/Vasudevshetty/studysyncs-v2"
-          className="p-3 rounded-full hover:bg-gray-700 hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black focus:outline-none"
+          className="p-3 rounded-full hover:bg-gray-700 hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black focus:outline-none hidden"
           target="_blank"
         >
           <FaGithub className="text-2xl" />

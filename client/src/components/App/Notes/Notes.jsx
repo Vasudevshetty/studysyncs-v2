@@ -46,13 +46,13 @@ function Notes() {
       <div className="flex gap-2 max-lg:flex-col resources transition-all h-[calc(100vh-4.5rem)]">
         {/* Subjects Sidebar */}
         <div
-          className={`flex flex-col gap-2 bg-white dark:bg-app-secondary rounded-xl items-center transition-all duration-700 ${
+          className={`flex flex-col gap-2 bg-app-light-primary dark:bg-app-secondary rounded-xl items-center transition-all duration-700 ${
             selectedSubject
               ? "lg:w-2/5 xl:w-1/4 max-lg:h-1/4 lg:h-full"
               : "lg:w-3/5 xl:w-3/4 lg:h-full h-[450px]"
           }`}
         >
-          <div className="w-full flex dark:bg-app-tertiary rounded-t-xl items-center text-gray-300 text-center gap-2 text-sm sm:text-2xl p-2">
+          <div className="w-full flex bg-[#007bff] dark:bg-app-tertiary rounded-t-xl items-center text-white dark:text-secondary text-center gap-2 text-sm sm:text-2xl p-2">
             {selectedSubject && (
               <span
                 className="cursor-pointer hover:bg-gray-300 rounded-full p-1 hover:text-gray-800"

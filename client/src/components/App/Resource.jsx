@@ -11,9 +11,9 @@ export function Resource({ resource }) {
             <FaFilePowerpoint className="text-red-300" />
           )}{" "}
         </span>
-        <p className="text-secondary text-xs">{resource.name}</p>
+        <p className="dark:text-secondary text-xs">{resource.name}</p>
       </div>
-      <div className="flex gap-3 text-secondary">
+      <div className="flex gap-3 dark:text-secondary">
         <div className="flex flex-col text-[8px] items-center justify-center">
           <span>{resource.size}</span>
           <span>{resource.date}</span>

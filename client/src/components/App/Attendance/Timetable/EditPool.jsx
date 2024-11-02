@@ -5,11 +5,11 @@ import { HiOutlineCheck, HiOutlineXCircle } from "react-icons/hi";
 function EditPool({ setIsEditing }) {
   return (
     <div className="w-full max-sm:h-[450px] xl:w-[30%] lg:w-[40%] p-2 flex flex-col gap-2">
-      <div className="h-[60%] w-full bg-white dark:bg-gray-400 rounded-xl flex flex-col p-2">
+      <div className="h-[60%] w-full bg-app-light-primary dark:bg-app-secondary rounded-xl flex flex-col p-2">
         <h1 className="p-2 text-2xl text-center text-black dark:text-white font-bold">
           Available Subjects
         </h1>
-        <div className="flex-1 bg-gray-300 rounded-xl">
+        <div className="flex-1 bg-app-light-tertiary dark:bg-app-tertiary rounded-xl">
           <div className="flex-1 flex gap-3 p-2 flex-wrap overflow-y-auto">
             {subjects.map((subject, index) => (
               <span

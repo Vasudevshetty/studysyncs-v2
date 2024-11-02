@@ -9,7 +9,7 @@ function Resources({ downloads, bookmarks }) {
   const resource = onResource === "Download" ? downloads : bookmarks;
 
   return (
-    <div className="bg-white dark:bg-app-secondary w-full md:w-[50%] h-[50%] md:h-full rounded-xl p-2 flex flex-col">
+    <div className="bg-app-light-primary dark:bg-app-secondary w-full md:w-[50%] h-[50%] md:h-full rounded-xl p-2 flex flex-col">
       <h1 className="text-2xl text-gray-800 font-bold dark:text-gray-200 px-4 py-2 flex items-center w-full justify-between">
         <div className="relative flex bg-gray-300 dark:bg-app-tertiary rounded-full">
           <motion.div

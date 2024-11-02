@@ -93,7 +93,7 @@ function Timetable() {
 
   return (
     <div
-      className="bg-gray-200 dark:bg-gray-800 flex flex-col p-2"
+      className="bg-app-light-primary dark:bg-app-secondary rounded-2xl mb-2 flex flex-col p-2"
       style={{ touchAction: "none" }}
     >
       <TableHeader
@@ -113,7 +113,7 @@ function Timetable() {
             {Object.keys(currentTimetable.weekdays).map((day, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-400 pl-2 rounded-xl flex gap-3 max-sm:h-20 h-24 items-center"
+                className="bg-app-light-secondary dark:bg-app-secondary pl-2 rounded-xl flex gap-3 max-sm:h-20 h-24 items-center"
               >
                 <div className="p-1 bg-blue-500 min-w-12 h-12 text-white capitalize flex items-center justify-center rounded-xl">
                   {day}
