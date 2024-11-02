@@ -7,7 +7,7 @@ function UtilLayout({ children }) {
         <div className="w-1/2 h-fit p-1">
           <Link
             to="/"
-            className=" text-lg sm:text-3xl px-8 font-bold cursor-pointer"
+            className=" text-lg sm:text-3xl px-8 font-bold cursor-pointer tracking-wide"
           >
             StudySyncs
           </Link>

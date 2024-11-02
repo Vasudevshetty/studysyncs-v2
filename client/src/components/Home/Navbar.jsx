@@ -13,7 +13,7 @@ function Navbar() {
           <h1 className="text-3xl font-bold">StudySyncs</h1>
         </div>
 
-        <div className="text-white bg-secondary-blue px-12 pt-3 w-1/2 flex justify-around items-center opacity-80 rounded-tr-3xl box lg:gap-4   ">
+        <div className="text-white bg-secondary-blue px-12 pt-3 w-1/2 flex justify-around items-center  rounded-tr-3xl box lg:gap-4   ">
           <a className="hover:text-gray-400 ">Home</a>
           <a className="hover:text-gray-400 ">Features</a>
           <a className="hover:text-gray-400">About</a>

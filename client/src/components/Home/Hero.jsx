@@ -10,7 +10,7 @@ function Hero() {
       <Navbar />
 
       <div className="relative h-[80vh]">
-        <div className="absolute inset-0 bg-gradient-to-b from-secondary-blue to-custom-black h-[84vh] rounded-tl-3xl rounded-tr-3xl sm:rounded-tr-3xl md:rounded-tr-3xl lg:rounded-tr-none z-0 opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-secondary-blue to-custom-black h-[84vh] rounded-tl-3xl rounded-tr-3xl sm:rounded-tr-3xl md:rounded-tr-3xl lg:rounded-tr-none z-0 " />
         <div className="absolute inset-0 bg-image z-0" />
 
         {/* Main Hero Content */}
