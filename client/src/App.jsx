@@ -24,6 +24,8 @@ import SGPACalculator from "./components/App/GPACalculator/SGPACalculator";
 import CGPACalculator from "./components/App/GPACalculator/CGPACalculator";
 import HomeLayout2 from "./pages/HomeLayout2";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import CheckUsn from "./pages/CheckUsn";
+import VerifyUsn from "./pages/VerifyUsn";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +37,9 @@ function App() {
           <Router>
             <Routes>
               <Route path="/" element={<HomeLayout2 />} />
+              <Route path="/check-usn" element={<CheckUsn />} />
+              <Route path="/verify-usn" element={<VerifyUsn />} />
+
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
 
