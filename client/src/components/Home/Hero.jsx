@@ -1,12 +1,26 @@
 /* eslint-disable react/no-unescaped-entities */
-
 import { FiArrowUpRight } from "react-icons/fi";
 import Navbar from "./Navbar";
 import TypingAnimation from "./TypingAnimation";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AnimatedImages from "./AnimatedImages";
+import { useAuth } from "@/context/authContext"; // Import your Auth context
 
 function Hero() {
+  const navigate = useNavigate();
+  const { user } = useAuth(); // Get the user state from your Auth context
+
+  // Handler for the "Get Started" button click
+  const handleGetStarted = () => {
+    if (user) {
+      // If user is logged in, navigate to the app
+      navigate("/app"); // Adjust the path to your app route
+    } else {
+      // If not logged in, navigate to the check USN page
+      navigate("/check-usn");
+    }
+  };
+
   return (
     <div className="px-4 md:px-12 py-2 sm:py-8 h-screen ">
       <Navbar />
@@ -38,8 +52,8 @@ function Hero() {
               curated resources and streamline your learning journey today!"
             </p>
 
-            <Link
-              to="/check-usn"
+            <button
+              onClick={handleGetStarted}
               className="bg-primary-blue text-white px-4 md:px-6 py-2 md:py-3 rounded-3xl mt-6 md:mt-10 group hover:border hover:bg-secondary-blue hover:scale-105 transition-transform duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-lg"
             >
               Get Started With Us!{" "}
@@ -47,7 +61,7 @@ function Hero() {
                 size={20}
                 className="transition-transform duration-200 group-hover:rotate-45"
               />
-            </Link>
+            </button>
           </div>
         </div>
 

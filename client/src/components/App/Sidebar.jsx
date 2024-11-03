@@ -2,12 +2,18 @@ import { contributors, links } from "@/constants/ui";
 import LinkItem from "./LinkItem";
 import { useEffect, useRef, useState } from "react";
 import { FaSignOutAlt } from "react-icons/fa";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import { useAuth } from "@/context/authContext"; // Adjust this based on your project structure
+import { logout } from "@/api/auth";
+import toast from "react-hot-toast";
 
 function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
   const sidebarRef = useRef(null);
   const [touchStartX, setTouchStartX] = useState(null);
   const location = useLocation();
+  const navigate = useNavigate();
+  const { setUser } = useAuth();
 
   // Close sidebar on outside click
   useEffect(() => {
@@ -30,11 +36,29 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
     }
   };
 
+  const logoutMutation = useMutation({
+    mutationFn: logout,
+    onSuccess: (data) => {
+      // Clear user state and token (if any)
+      setUser(null); // Reset the user context
+      toast.success(data.message);
+      navigate("/"); // Redirect to home or login page after logout
+    },
+    onError: () => {
+      toast.error("Login Failed");
+      // Handle error accordingly, maybe show a message to the user
+    },
+  });
+
+  const handleLogout = () => {
+    logoutMutation.mutate(); // Trigger the mutation to log out
+  };
+
   return (
     <aside
-      className={`fixed top-16 left-2 h-[calc(100vh-4.5rem)] z-40 rounded-2xl w-64  bg-app-light-primary dark:border-gray-700 sm:translate-x-0 transition-transform ${
+      className={`fixed top-16 left-2 h-[calc(100vh-4.5rem)] z-40 rounded-2xl w-64 bg-app-light-primary dark:border-gray-700 sm:translate-x-0 transition-transform ${
         isSidebarOpen
-          ? "translate-x-0 dark:bg-[#001f34] "
+          ? "translate-x-0 dark:bg-[#001f34]"
           : "-translate-x-[110%] dark:bg-app-secondary"
       }`}
       ref={sidebarRef}
@@ -56,7 +80,10 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
 
           <div className="flex flex-col gap-2">
             <div className="ml-auto">
-              <button className="flex gap-2 hover:opacity-80 items-center p-2 bg-red-500 w-fit rounded-xl text-sm text-white">
+              <button
+                className="flex gap-2 hover:opacity-80 items-center p-2 bg-red-500 w-fit rounded-xl text-sm text-white"
+                onClick={handleLogout}
+              >
                 <span>
                   <FaSignOutAlt />
                 </span>
@@ -83,6 +110,7 @@ function Sidebar({ isSidebarOpen, setIsSidebarOpen }) {
                 className="focus:outline-none"
                 key={index}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <img
                   src={contributor.pic}
