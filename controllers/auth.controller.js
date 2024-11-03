@@ -58,6 +58,7 @@ exports.checkUSNAndSendOTP = catchAsync(async (req, res, next) => {
   res.status(200).json({
     message: "OTP has been sent to the registered email",
     email: usnDoc.email,
+    usn: usnDoc.usn,
   });
 });
 
@@ -89,7 +90,11 @@ exports.verifyOTP = catchAsync(async (req, res, next) => {
   usnDoc.otpExpires = undefined; // Clear OTP expiration time
   await usnDoc.save();
 
-  res.status(200).json({ message: "USN verified successfully" });
+  res.status(200).json({
+    message: "USN verified successfully",
+    usn: usnDoc.usn,
+    email: usnDoc.email,
+  });
 });
 
 exports.signup = catchAsync(async (req, res, next) => {

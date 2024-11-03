@@ -3,6 +3,7 @@ import { FiArrowUpRight } from "react-icons/fi";
 import Navbar from "./Navbar";
 import TypingAnimation from "./TypingAnimation";
 import { Link } from "react-router-dom";
+import AnimatedImages from "./AnimatedImages";
 
 function Hero() {
   return (
@@ -50,19 +51,19 @@ function Hero() {
         </div>
 
         {/* Animated images remain in Hero */}
-        <img
+        <AnimatedImages
           src="/Home/pencil.png"
           className="h-20 w-20 sm:h-20 sm:w-20 lg:h-32 lg:w-32 z-10 absolute top-4 left-2"
         />
-        <img
+        <AnimatedImages
           src="/Home/CALENDER.png"
           className="h-22 w-24 sm:h-24 sm:w-24 lg:h-36 lg:w-36 z-10 absolute bottom-2 md:left-2"
         />
-        <img
+        <AnimatedImages
           src="/Home/BOOK.png"
           className="h-32 w-32 sm:h-36 sm:w-36 lg:h-52 lg:w-52 z-10 absolute top-0 right-2"
         />
-        <img
+        <AnimatedImages
           src="/Home/pencil.png"
           className="h-20 w-20 sm:h-24 sm:w-24 lg:h-36 lg:w-36 z-10 absolute bottom-1 md:right-8 right-4"
         />
