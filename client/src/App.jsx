@@ -24,6 +24,11 @@ import SGPACalculator from "./components/App/GPACalculator/SGPACalculator";
 import CGPACalculator from "./components/App/GPACalculator/CGPACalculator";
 import HomeLayout2 from "./pages/HomeLayout2";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import UploadNotes from "./components/Console/UploadNotes";
+import UploadSubject from "./components/Console/UploadSubject";
+import UtilLayout from "./pages/UtilLayout";
+import { Toaster } from "react-hot-toast";
+import Unauthorized from "./pages/Unauthorized";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +38,35 @@ function App() {
       <ThemeProvider>
         <ModalProvider>
           <Router>
+            <Toaster
+              position="top-right" // Position of the toast (can be customized)
+              toastOptions={{
+                style: {
+                  background: "#333", // Toast background color
+                  color: "#fff", // Toast text color
+                },
+                success: {
+                  style: {
+                    background: "#4caf50", // Success toast color
+                    color: "#fff",
+                  },
+                  iconTheme: {
+                    primary: "#fff", // Icon color in success toast
+                    secondary: "#4caf50",
+                  },
+                },
+                error: {
+                  style: {
+                    background: "#f44336", // Error toast color
+                    color: "#fff",
+                  },
+                  iconTheme: {
+                    primary: "#fff", // Icon color in error toast
+                    secondary: "#f44336",
+                  },
+                },
+              }}
+            />
             <Routes>
               <Route path="/" element={<HomeLayout2 />} />
               <Route path="/signup" element={<Signup />} />
@@ -67,6 +101,28 @@ function App() {
                 </Route>
               </Route>
 
+              <Route
+                path="console/upload-notes"
+                element={
+                  <ProtectedRoute allowedRoles={["admin", "classrep"]}>
+                    <UtilLayout>
+                      <UploadNotes />
+                    </UtilLayout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="console/upload-subject"
+                element={
+                  <ProtectedRoute allowedRoles={["admin", "classrep"]}>
+                    <UtilLayout>
+                      <UploadSubject />
+                    </UtilLayout>
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route path="unauthorized" element={<Unauthorized />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </Router>

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-function PageNotFound() {
+function Unauthorized() {
   return (
-    <div className="h-screen flex items-center text-5xl flex-col justify-center gap-5">
+    <div className="h-screen w-screen items-center justify-center flex">
       <div className="flex items-center justify-center flex-col gap-3">
         <p className="text-red-500 font-semibold text-2xl sm:text-5xl">
-          Page Not Found 404 🕸️.
+          Unauthorized 403️.
         </p>
         <p className="text-xl sm:text-2xl text-white">
           Redirect to{" "}
@@ -13,15 +13,9 @@ function PageNotFound() {
             Home
           </Link>
         </p>
-        <p className="text-xl sm:text-2xl text-white">
-          Already a user!{" "}
-          <Link to="/login" className="underline text-blue-500">
-            Login
-          </Link>
-        </p>
       </div>
     </div>
   );
 }
 
-export default PageNotFound;
+export default Unauthorized;
