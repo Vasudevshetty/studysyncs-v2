@@ -43,7 +43,7 @@ function App() {
           <ModalProvider>
             <Router>
               <Toaster
-                position="top-right" // Position of the toast (can be customized)
+                position="top-center" // Position of the toast (can be customized)
                 toastOptions={{
                   style: {
                     background: "#333", // Toast background color

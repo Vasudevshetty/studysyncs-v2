@@ -56,7 +56,7 @@ function Hero() {
               onClick={handleGetStarted}
               className="bg-primary-blue text-white px-4 md:px-6 py-2 md:py-3 rounded-3xl mt-6 md:mt-10 group hover:border hover:bg-secondary-blue hover:scale-105 transition-transform duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-lg"
             >
-              Get Started With Us!{" "}
+              Get Started With Us!
               <FiArrowUpRight
                 size={20}
                 className="transition-transform duration-200 group-hover:rotate-45"
