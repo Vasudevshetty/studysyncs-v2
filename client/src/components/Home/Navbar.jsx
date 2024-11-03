@@ -82,6 +82,9 @@ function Navbar() {
             Home
           </a>
           <a href="#" className="hover:text-gray-300">
+            Stats
+          </a>
+          <a href="#" className="hover:text-gray-300">
             Features
           </a>
           <a href="#" className="hover:text-gray-300">
