@@ -29,12 +29,15 @@ function Navbar() {
       </div>
 
       {/* Mobile and Tablet Navbar */}
-      <div className="lg:hidden flex justify-between items-center  text-white p-2 ">
-        <h1 className="text-xl  md:text-2xl ml-6 font-bold">StudySyncs</h1>
+      <div className="lg:hidden flex justify-between items-center  text-white p-4  ">
+        <h1 className="text-xl  md:text-2xl  font-bold">StudySyncs</h1>
 
         <div className="flex items-center gap-8">
           {/* Login Button */}
-          <Link  to="/login" className="flex items-center gap-1 text-xs rounded-3xl px-3 py-1 md:px-6 md:py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10">
+          <Link
+            to="/login"
+            className="flex items-center gap-1 text-xs rounded-3xl px-3 py-1 md:px-6 md:py-2 hover:bg-login-bg-hover bg-login-bg border border-opacity-10"
+          >
             <FiUser size={22} />
             <span className="font-medium md:text-[16px]">Login</span>
           </Link>
@@ -63,6 +66,9 @@ function Navbar() {
         <div className="flex flex-col items-center space-y-6 mt-24 text-white">
           <a href="#" className="hover:text-gray-300">
             Home
+          </a>
+          <a href="#" className="hover:text-gray-300">
+            Stats
           </a>
           <a href="#" className="hover:text-gray-300">
             Features
