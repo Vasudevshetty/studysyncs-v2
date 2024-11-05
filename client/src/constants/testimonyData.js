@@ -1,46 +1,54 @@
 const userData = [
   {
-    profilePic: "path/to/image1.jpg",
-    name: "User One",
-    review: "This is an amazing service!",
-    branch: "Engineering",
+    profilePic: "./img/user-1.jpg",
+    name: "Aarav Lynn",
+    review: "Best financial decision ever!",
+    branch: "San Francisco, USA",
   },
   {
-    profilePic: "path/to/image2.jpg",
-    name: "User Two",
-    review: "I had a great experience.",
-    branch: "Design",
+    profilePic: "./img/user-2.jpg",
+    name: "Miyah Miles",
+    review: "The last step to becoming a complete minimalist",
+    branch: "London, UK",
   },
   {
-    profilePic: "path/to/image3.jpg",
-    name: "User Three",
-    review: "Highly recommend it to everyone.",
-    branch: "Business",
+    profilePic: "./img/user-3.jpg",
+    name: "Francisco Gomes",
+    review: "Finally free from old-school banks",
+    branch: "Lisbon, Portugal",
   },
   {
-    profilePic: "path/to/image4.jpg",
-    name: "User Four",
-    review: "Fantastic service, very reliable!",
-    branch: "IT",
+    profilePic: "./img/user-4.jpg",
+    name: "Sofia Patel",
+    review: "Life-changing experience, highly recommend!",
+    branch: "Toronto, Canada",
   },
   {
-    profilePic: "path/to/image5.jpg",
-    name: "User Five",
-    review: "Will definitely use again.",
-    branch: "Marketing",
+    profilePic: "./img/user-5.jpg",
+    name: "Liam Johnson",
+    review: "A new perspective on managing finances.",
+    branch: "Sydney, Australia",
   },
   {
-    profilePic: "path/to/image4.jpg",
-    name: "User six",
-    review: "Fantastic service, very reliable!",
-    branch: "IT",
+    profilePic: "./img/user-6.jpg",
+    name: "Emma Brown",
+    review: "A wonderful way to track savings.",
+    branch: "Berlin, Germany",
   },
   {
-    profilePic: "path/to/image5.jpg",
-    name: "User seven",
-    review: "Will definitely use again.",
-    branch: "Marketing",
+    profilePic: "./img/user-7.jpg",
+    name: "Noah Davis",
+    review: "Made budgeting so much easier.",
+    branch: "Auckland, New Zealand",
+  },
+  {
+    profilePic: "./img/user-8.jpg",
+    name: "Isabella Garcia",
+    review: "Incredible tool for financial planning!",
+    branch: "Madrid, Spain",
   },
 ];
 
-export default userData; // Ensure you are exporting it
+
+
+export default userData;
