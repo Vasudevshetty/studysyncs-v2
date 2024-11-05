@@ -1,6 +1,7 @@
 import Features from "@/components/Home/Features";
 import Hero from "@/components/Home/Hero";
 import Stats from "@/components/Home/Stats";
+import Testimony from "@/components/Home/Testimony";
 
 function HomeLayout2() {
   return (
@@ -8,6 +9,7 @@ function HomeLayout2() {
       <Hero />
       <Stats />
       <Features />
+      <Testimony />
     </div>
   );
 }
