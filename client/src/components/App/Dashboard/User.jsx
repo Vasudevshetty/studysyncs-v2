@@ -10,7 +10,7 @@ function User({ user }) {
           <img src={user.image} alt={user.name} className="h-14 rounded-full" />
         </Link>
         <ol className="flex items-center justify-center sm:gap-1">
-          {user.socials.map((social, index) => (
+          {user?.socials?.map((social, index) => (
             <li
               key={index}
               className="text-2xl p-1 sm:p-2 hover:text-white hover:bg-gray-200 rounded-full text-gray-800 dark:text-gray-300 dark:hover:text-gray-800"
@@ -28,12 +28,12 @@ function User({ user }) {
       </div>
       <div className="flex flex-col justify-center text-gray-800 gap-2 w-full px-2 dark:text-gray-300">
         {[
-          { name: user.college, icon: FaSchool },
-          { name: user.course, icon: FaBookOpen },
-          { name: user.email.split("@")[0], icon: HiMail },
+          { name: user.usn.college.name, icon: FaSchool },
+          { name: user.usn.course.name, icon: FaBookOpen },
+          { name: user.email, icon: HiMail },
         ].map((item, index) => (
           <p
-            className="flex text-ellipsis line-clamp-1 gap-3 items-center"
+            className="flex text-ellipsis line-clamp-1 gap-3 text-sm items-center"
             key={index}
           >
             <span className="bg-gray-600 p-2 rounded-full dark:bg-gray-300">

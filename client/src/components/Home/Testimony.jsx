@@ -1,7 +1,6 @@
+import userData from "@/constants/testimonyData";
 import { useState, useRef } from "react";
-import userData from "./userData";
 import { CSSTransition } from "react-transition-group"; // Import for transition effects
-import "./styles.css"; // Assuming you have a CSS file for custom styles
 
 const Testimony = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
