@@ -81,7 +81,7 @@ const Testimony = () => {
                 .map((user, index) => (
                   <div
                     key={index}
-                    className="sm:h-[28rem] sm:w-[25rem] border border-primary-blue bg-primary-blue/40 rounded-tl-[3rem] rounded-tr-3xl rounded-bl-md rounded-b-[3rem] p-6 flex flex-col justify-center items-center shadow-lg"
+                    className="sm:h-[28rem] sm:w-[25rem] border border-primary-blue bg-primary-blue/40 rounded-tl-[5rem] rounded-tr-3xl rounded-bl-lg rounded-br-[5rem] p-6 flex flex-col justify-center items-center shadow-lg"
                   >
                     <img
                       src={user.profilePic}
