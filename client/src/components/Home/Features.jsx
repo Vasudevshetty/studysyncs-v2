@@ -1,6 +1,6 @@
 import { FiArrowRight } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import featuresData from "../../constants/featuresData"; // Adjust the path as necessary
+import featuresData from "../../constants/featuresData"; 
 
 function Features() {
   return (
