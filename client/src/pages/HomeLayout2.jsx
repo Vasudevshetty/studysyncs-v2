@@ -1,3 +1,4 @@
+import CraftedBy from "@/components/Home/CraftedBy";
 import Features from "@/components/Home/Features";
 import Footer from "@/components/Home/Footer";
 import Hero from "@/components/Home/Hero";
@@ -11,6 +12,7 @@ function HomeLayout2() {
       <Stats />
       <Features />
       <Testimony />
+      <CraftedBy />
       <Footer />
     </div>
   );
