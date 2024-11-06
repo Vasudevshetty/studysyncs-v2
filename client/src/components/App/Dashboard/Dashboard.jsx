@@ -8,8 +8,12 @@ import Chart from "./Charts/Chart";
 import Resources from "./Resources";
 import Events from "./Events";
 import { user } from "@/constants/user";
+import { useAuth } from "@/context/authContext";
 
 function Dashboard() {
+  const { user: userRemote } = useAuth();
+
+  console.log(userRemote);
   function getGreetingMessage() {
     const hour = new Date().getHours();
     if (hour < 12) {
@@ -39,7 +43,7 @@ function Dashboard() {
             <Stats title="Friends" stat={user.friends.length} />
           </div>
         </div>
-        <User user={user} />
+        <User user={userRemote} />
       </div>
       <div className="flex flex-col-reverse xl:flex-row items-start justify-center gap-2 pb-2">
         <div className="flex-1 w-full flex items-center justify-center flex-col gap-2">
