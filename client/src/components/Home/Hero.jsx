@@ -2,23 +2,39 @@
 import { FiArrowUpRight } from "react-icons/fi";
 import Navbar from "./Navbar";
 import TypingAnimation from "./TypingAnimation";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import AnimatedImages from "./AnimatedImages";
+import { useAuth } from "@/context/authContext"; // Import your Auth context
 
 function Hero() {
+  const navigate = useNavigate();
+  const { user } = useAuth(); // Get the user state from your Auth context
+
+  // Handler for the "Get Started" button click
+  const handleGetStarted = () => {
+    if (user) {
+      // If user is logged in, navigate to the app
+      navigate("/app"); // Adjust the path to your app route
+    } else {
+      // If not logged in, navigate to the check USN page
+      navigate("/check-usn");
+    }
+  };
+
   return (
     <div className="px-4 md:px-12 py-2 sm:py-8 h-screen ">
       <Navbar />
 
-      <div className="relative ">
+      <div className="relative h-[80vh]">
         <div className="absolute inset-0 bg-gradient-to-b from-secondary-blue to-custom-black h-[84vh] rounded-tl-3xl rounded-tr-3xl sm:rounded-tr-3xl md:rounded-tr-3xl lg:rounded-tr-none z-0 " />
         <div className="absolute inset-0 bg-image z-0" />
 
         {/* Main Hero Content */}
         <div className="relative h-[70vh] sm:h-[80vh] md:h-[85vh] lg:h-[90vh] w-full md:w-[95vw] rounded-tl-3xl text-white flex flex-col justify-center items-center px-4 md:px-14 z-10 text-center">
           <div className="relative flex flex-col h-full justify-center items-center">
-            <h1 className="text-2xl lg:text-5xl font-semibold">
+            <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold">
               All-in-one{" "}
-              <span className="text-primary-yellow font-segoe-script text-4xl sm:text-[3rem] md:text-[4rem] lg:text-[5rem] ml-2 md:ml-4 font-bolder">
+              <span className="text-primary-yellow font-segoe-script text-xl sm:text-2xl md:text-4xl lg:text-5xl ml-2 md:ml-4 font-bolder">
                 <TypingAnimation
                   text="Study Hub!"
                   typingSpeed={200}
@@ -36,35 +52,35 @@ function Hero() {
               curated resources and streamline your learning journey today!"
             </p>
 
-            <Link
-              to="/check-usn"
-              className="bg-primary-blue text-white px-8 py-4 rounded-3xl mt-6 md:mt-10 group hover:border hover:bg-secondary-blue hover:scale-105 transition-transform duration-300 flex items-center gap-2 font-semibold tracking-wide text-sm md:text-lg"
+            <button
+              onClick={handleGetStarted}
+              className="bg-primary-blue text-white px-4 md:px-6 py-2 md:py-3 rounded-3xl mt-6 md:mt-10 group hover:border hover:bg-secondary-blue hover:scale-105 transition-transform duration-300 flex items-center gap-2 text-xs sm:text-sm md:text-lg"
             >
-              Get Started With Us!{" "}
+              Get Started With Us!
               <FiArrowUpRight
-                size={24}
+                size={20}
                 className="transition-transform duration-200 group-hover:rotate-45"
               />
-            </Link>
+            </button>
           </div>
         </div>
 
         {/* Animated images remain in Hero */}
-        <img
+        <AnimatedImages
           src="/Home/pencil.png"
-          className="h-20 w-20 sm:h-20 sm:w-20 lg:h-32 lg:w-32 z-10 absolute top-4 left-2"
+          className="h-16 w-16 sm:h-20 sm:w-20 lg:h-32 lg:w-32 z-10 absolute top-12 left-2"
         />
-        <img
+        <AnimatedImages
           src="/Home/CALENDER.png"
-          className="h-22 w-24 sm:h-24 sm:w-24 lg:h-36 lg:w-36 z-10 absolute bottom-2 md:left-2"
+          className="h-20 w-20 sm:h-24 sm:w-24 lg:h-36 lg:w-36 z-10 absolute bottom-2 md:left-2"
         />
-        <img
+        <AnimatedImages
           src="/Home/BOOK.png"
-          className="h-32 w-32 sm:h-36 sm:w-36 lg:h-52 lg:w-52 z-10 absolute top-0 right-2"
+          className="h-24 w-24 sm:h-36 sm:w-36 lg:h-52 lg:w-52 z-10 absolute top-2 right-4"
         />
-        <img
+        <AnimatedImages
           src="/Home/pencil.png"
-          className="h-20 w-20 sm:h-24 sm:w-24 lg:h-36 lg:w-36 z-10 absolute bottom-1 md:right-8 right-4"
+          className="h-20 w-20 sm:h-24 sm:w-24 lg:h-36 lg:w-36 z-10 absolute bottom-12 md:right-8 right-4"
         />
       </div>
     </div>

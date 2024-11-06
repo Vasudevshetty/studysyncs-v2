@@ -11,7 +11,7 @@ const {
 const router = express.Router();
 
 router.post("/check-usn", checkUSNAndSendOTP);
-router.post("/verfiy-usn", verifyOTP);
+router.post("/verify-usn", verifyOTP);
 
 router.post("/signup", signup);
 router.post("/login", login);

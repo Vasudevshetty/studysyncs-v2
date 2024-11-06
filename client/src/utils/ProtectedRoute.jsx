@@ -1,10 +1,16 @@
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useAuth } from "@/context/authContext";
+import { Outlet, Navigate } from "react-router-dom";
 
-function ProtectedRoute({ children }) {
-  // eslint-disable-next-line
-  const [isAuth, setIsAuth] = useState(true);
-  return isAuth ? children : <Navigate to="/signup" />;
-}
+const ProtectedRoute = ({ allowedRoles, children }) => {
+  const { user } = useAuth();
+
+  if (!user) return <Navigate to="/login" />;
+
+  if (allowedRoles && !allowedRoles.includes(user.role))
+    return <Navigate to="/unauthorized" />;
+
+  // If authenticated and authorized, render children or Outlet for nested routes
+  return children ? children : <Outlet />;
+};
 
 export default ProtectedRoute;
