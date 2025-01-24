@@ -9,6 +9,7 @@ import { useAuth } from "@/context/authContext";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import TypingAnimation from "@/components/Home/TypingAnimation";
 
 function Login() {
   const { setUser } = useAuth();
@@ -57,7 +58,11 @@ function Login() {
             <h1 className="text-white font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wider text-left lg:text-center flex flex-col gap-1">
               Welcome back to{" "}
               <span className="text-primary-yellow font-segoe-script font-bold ">
-                StudySyncs
+                <TypingAnimation
+                  text="StudySyncs.."
+                  typingSpeed={200}
+                  pauseTime={1000}
+                />
               </span>
             </h1>
             <h2 className="text-gray-100/60 text-sm sm:text-md md:text-lg lg:text-lg tracking-wide font-semibold mt-2 lg:mt-2">

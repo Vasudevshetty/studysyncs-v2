@@ -32,8 +32,8 @@ function Footer() {
         <h1 className="text-primary-yellow text-2xl md:text-3xl font-semibold tracking-wide mb-4">
           Social Media
         </h1>
-        <div className="flex items-center justify-center gap-6">
-          <FiLinkedin size={30} color="#0077B5" /> {/* LinkedIn Blue */}
+        <div className="flex items-center justify-center gap-6 cursor-pointer ">
+          <FiLinkedin size={30} color="#0077B5"  /> {/* LinkedIn Blue */}
           <FiInstagram size={30} color="#E4405F" /> {/* Instagram Pink */}
           <FiGithub size={30} color="#F3F3F3" /> {/* GitHub Black */}
         </div>
