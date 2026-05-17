@@ -12,7 +12,15 @@ const authRoutes = require("./routes/auth.route");
 const app = express();
 
 // Security and Logging Middlewares
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        frameAncestors: ["'self'", "https://deployio.tech", "https://*.deployio.tech"],
+      },
+    },
+  })
+);
 app.use(cors());
 app.use(morgan("dev"));
 
